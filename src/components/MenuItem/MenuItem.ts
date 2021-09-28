@@ -8,6 +8,6 @@ export class MenuItem extends BaseComponent {
     this.item = document.createElement('a');
     this.item.href = link;
     this.item.innerText = text;
-    this.element.append(this.item)
+    this.element.append(this.item);
   }
 }

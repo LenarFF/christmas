@@ -1,7 +1,7 @@
-interface IMenuContent {
+export interface IMenuContent {
   text: string;
   link: string;
-};
+}
 
 export const menuContent: IMenuContent[] = [
   { text: 'Visiting', link: 'sf' },

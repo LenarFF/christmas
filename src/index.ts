@@ -3,4 +3,4 @@ import './style.sass';
 
 const app = new App();
 
-document.getElementById("root")?.append(app.element)
+document.getElementById('root')?.append(app.element);

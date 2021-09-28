@@ -1,13 +1,14 @@
 import { BaseComponent } from '../BaseComponent/BaseComponent';
-import { Menu } from './../Menu/Menu';
+import { Header } from '../Header/Header';
 
 export class App extends BaseComponent {
-  menu: Menu;
+  header: Header;
+
   constructor() {
     super('div', ['app']);
 
-    this.menu = new Menu();
+    this.header = new Header();
 
-    this.element.append(this.menu.element);
+    this.element.append(this.header.element);
   }
 }
