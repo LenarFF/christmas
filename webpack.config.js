@@ -19,7 +19,7 @@ const eslintPlugin = (isDev) => isDev ? [] : [new ESLintPlugin({ extensions: ["t
 module.exports = ({develop}) => ({
   mode: develop ? "development" : "production",
   devtool: develop ? "inline-source-map" : false,
-  entry: './src/index.tsx',
+  entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
