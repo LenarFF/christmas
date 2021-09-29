@@ -1,5 +1,6 @@
 import './WelcomeSection.sass';
 import { BaseComponent } from '../BaseComponent/BaseComponent';
+import { WelcomeSlider } from './../WelcomeSlider/WelcomeSlider';
 
 export class WelcomeSection extends BaseComponent {
   title: BaseComponent;
@@ -7,6 +8,7 @@ export class WelcomeSection extends BaseComponent {
   container: BaseComponent;
   button: HTMLAnchorElement;
   contentWrap: BaseComponent;
+  welcomeSlider: WelcomeSlider;
 
   constructor() {
     super('section', ['dark-section', 'welcome']);
@@ -20,9 +22,10 @@ export class WelcomeSection extends BaseComponent {
     this.button.classList.add('welcome__button');
     this.button.innerText = 'Discover the Louvre';
     this.contentWrap = new BaseComponent('div', ['welcome__content']);
+    this.welcomeSlider = new WelcomeSlider(5);
 
     this.contentWrap.element.append(this.title.element, this.text.element, this.button);
-    this.container.element.append(this.contentWrap.element);
+    this.container.element.append(this.contentWrap.element, this.welcomeSlider.element);
     this.element.append(this.container.element);
   }
 }
