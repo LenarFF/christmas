@@ -6,30 +6,33 @@ export class WelcomeSlider extends BaseComponent {
   pageField: BaseComponent;
   pageSquares: BaseComponent[];
   pageControls: BaseComponent;
-  currentPage: number;
-  imageCount: number;
   leftArrow: BaseComponent;
   rightArrow: BaseComponent;
 
-  constructor(imageCount: number) {
+  constructor(
+    imageCount: number,
+    currentImg: number,
+    incCounter: () => void,
+    decCounter: () => void,
+  ) {
     super('div', ['welcome-slider']);
 
     this.pageCounter = new BaseComponent('div', ['welcome-slider__counter']);
     this.pageField = new BaseComponent('div', ['welcome-slider__field']);
     this.pageControls = new BaseComponent('div', ['welcome-slider__controls']);
-    this.currentPage = 1;
-    this.imageCount = imageCount;
     this.leftArrow = new BaseComponent('div', [
       'welcome-slider__arrow',
       'welcome-slider__arrow_left',
     ]);
+    this.leftArrow.element.addEventListener('click', decCounter);
     this.rightArrow = new BaseComponent('div', [
       'welcome-slider__arrow',
       'welcome-slider__arrow_right',
     ]);
+    this.rightArrow.element.addEventListener('click', incCounter);
 
     this.pageSquares = [];
-    this.renderSquare();
+    this.renderSquare(imageCount);
 
     this.pageSquares.map((square) => this.pageField.element.append(square.element));
 
@@ -42,21 +45,17 @@ export class WelcomeSlider extends BaseComponent {
       this.pageControls.element,
     );
 
-    this.renderCount();
+    this.renderCount(imageCount, currentImg);
   }
 
-  countPage(imageCount: number) {
-    this.currentPage = this.currentPage === imageCount ? 1 : this.currentPage + 1;
-  }
+  renderCount = (imageCounter: number, currentImage: number) => {
+    this.pageCounter.element.innerText = `${currentImage > 9 ? '' : '0'}${currentImage + 1} | ${
+      imageCounter > 9 ? '' : '0'
+    }${imageCounter}`;
+  };
 
-  renderCount() {
-    this.pageCounter.element.innerText = `${this.currentPage > 9 ? '' : '0'}${this.currentPage} | ${
-      this.imageCount > 9 ? '' : '0'
-    }${this.imageCount}`;
-  }
-
-  renderSquare() {
-    for (let i = 0; i < this.imageCount; i++) {
+  renderSquare(imageCounter: number) {
+    for (let i = 0; i < imageCounter; i++) {
       this.pageSquares.push(new BaseComponent('div', ['welcome-slider__square']));
     }
   }
