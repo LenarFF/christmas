@@ -1,19 +1,21 @@
 import { menuContent } from '../../content/menuContent';
 import { BaseComponent } from '../BaseComponent/BaseComponent';
+import { Logo } from '../Logo/Logo';
 import { Menu } from '../Menu/Menu';
 import './Header.sass';
-import './Header.css';
 
 export class Header extends BaseComponent {
   menu: Menu;
-
+  container: BaseComponent;
   logo: BaseComponent;
 
   constructor() {
-    super('div', ['header-container']);
+    super('header', ['dark-section']);
 
-    this.logo = new BaseComponent('div', ['logo']);
+    this.container = new BaseComponent('div', ['header-container', 'container']);
+    this.logo = new Logo();
     this.menu = new Menu(menuContent);
-    this.element.append(this.logo.element, this.menu.element);
+    this.container.element.append(this.logo.element, this.menu.element);
+    this.element.append(this.container.element)
   }
 }

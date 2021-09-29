@@ -4,10 +4,10 @@ export interface IMenuContent {
 }
 
 export const menuContent: IMenuContent[] = [
-  { text: 'Visiting', link: 'sf' },
-  { text: 'Explore', link: 'sf' },
-  { text: 'Video', link: 'sf' },
-  { text: 'Gallery', link: 'sf' },
-  { text: 'Tickets', link: 'sf' },
-  { text: 'Contacts', link: 'sf' },
+  { text: 'Visiting', link: '#visiting' },
+  { text: 'Explore', link: '#explore' },
+  { text: 'Video', link: '#video' },
+  { text: 'Gallery', link: '#gallery' },
+  { text: 'Tickets', link: '#tickets' },
+  { text: 'Contacts', link: '#contacts' },
 ];
