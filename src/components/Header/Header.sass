@@ -4,4 +4,16 @@
   align-items: center
   background-color: black
   height: 150px
+  position: relative
+  @media screen and (max-width: 1024px)
+    height: 130px
 
+.burger
+  display: none
+  @media screen and (max-width: 1024px)
+    display: block
+    background-image: url(../../assets/img/burger.svg)
+    width: 32px
+    height: 20px
+    background-size: cover
+    cursor: pointer

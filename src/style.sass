@@ -12,7 +12,11 @@ html
 
 .container
   margin: 0 auto
-  max-width: 1440px
+  max-width: 1480px
+  padding-left: 20px
+  padding-right: 20px
+  @media screen and (max-width: 1024px)
+    max-width: 984px
 
 .dark-section
   background-color: #030303
@@ -25,6 +29,13 @@ html
   letter-spacing: 5px
   text-transform: uppercase
   color: #9D8665
+  @media screen and (max-width: 1024px)
+    font-size: 50px
+    line-height: 90px
+    letter-spacing: 5px
 
 .section-title_dark
   color: #FFFFFF
+
+.hidden
+  display: none

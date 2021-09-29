@@ -4,3 +4,23 @@
   list-style: none
   width: 775px
   height: 26px
+  @media screen and (max-width: 1024px)
+    display: none
+
+.burger-menu
+  display: flex
+  justify-content: space-between
+  list-style: none
+  flex-direction: column
+  position: absolute
+  bottom: -585px
+  left: -350px
+  width: 250px
+  height: 585px
+  background-color: #030303
+  z-index: 1
+  transition: 0.5s
+  padding: 35px 0 287px 55px
+  &_open
+    left: 0
+
