@@ -6,9 +6,13 @@ import './Header.sass';
 
 export class Header extends BaseComponent {
   menu: Menu;
+
   burgerMenu: Menu;
+
   container: BaseComponent;
+
   logo: BaseComponent;
+
   burger: BaseComponent;
 
   constructor() {
@@ -34,6 +38,6 @@ export class Header extends BaseComponent {
     const welcomeContent = document.querySelector('.welcome__content');
     welcomeContent?.classList.toggle('hidden');
     this.burgerMenu.element.classList.toggle('burger-menu_open');
-    this.burger.element.classList.toggle('burger_cross')
+    this.burger.element.classList.toggle('burger_cross');
   };
 }

@@ -8,8 +8,6 @@ export class Menu extends BaseComponent {
     super('ul');
     this.element.classList.add(...styles);
 
-    content.map((item) =>
-      this.element.append(new MenuItem(item.text, item.link, vertical).element),
-    );
+    content.map((item) => this.element.append(new MenuItem(item.text, item.link, vertical).element));
   }
 }

@@ -1,6 +1,6 @@
 import './Main.sass';
-import { BaseComponent } from './../BaseComponent/BaseComponent';
-import { WelcomeSection } from './../WelcomeSection/WelcomeSection';
+import { BaseComponent } from '../BaseComponent/BaseComponent';
+import { WelcomeSection } from '../WelcomeSection/WelcomeSection';
 
 export class Main extends BaseComponent {
   welcomeSection: BaseComponent;

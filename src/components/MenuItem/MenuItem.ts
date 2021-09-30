@@ -3,6 +3,7 @@ import './MenuItem.sass';
 
 export class MenuItem extends BaseComponent {
   link: HTMLAnchorElement;
+
   arrow: BaseComponent;
 
   constructor(text: string, linkSrc: string, vertical: boolean) {

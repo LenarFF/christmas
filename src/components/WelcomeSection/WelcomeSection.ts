@@ -5,12 +5,19 @@ import { welcomeSliderImg } from '../../content/welcomeContent';
 
 export class WelcomeSection extends BaseComponent {
   title: BaseComponent;
+
   text: BaseComponent;
+
   container: BaseComponent;
+
   button: HTMLAnchorElement;
+
   contentWrap: BaseComponent;
+
   welcomeSlider: WelcomeSlider;
+
   currentImg: number;
+
   imageCount: number;
 
   constructor() {

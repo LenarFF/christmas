@@ -3,6 +3,7 @@ import './Logo.sass';
 
 export class Logo extends BaseComponent {
   logoImg: BaseComponent;
+
   logoText: BaseComponent;
 
   constructor() {

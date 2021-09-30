@@ -3,10 +3,15 @@ import './WelcomeSlider.sass';
 
 export class WelcomeSlider extends BaseComponent {
   pageCounter: BaseComponent;
+
   pageField: BaseComponent;
+
   pageSquares: BaseComponent[];
+
   pageControls: BaseComponent;
+
   leftArrow: BaseComponent;
+
   rightArrow: BaseComponent;
 
   constructor(
