@@ -1,35 +1,79 @@
 .explore
   height: 865px
   padding: 75px 0
+  @media screen and (max-width: 1040px)
+    height: 1149px
+    padding: 60px 0
+  @media screen and (max-width: 868px)
+    height: 908px
+    padding: 40px 0
+  @media screen and (max-width: 520px)
+    height: 551px
   &-container
+    height: 100%
     display: flex
     justify-content: space-between
+    @media screen and (max-width: 1040px)
+      flex-direction: column
   &__img
-    width: 720px
+    width: 100%
+  &__img-wrap
+    width: 50%
+    @media screen and (max-width: 1040px)
+      width: 73%
+      margin: 0 auto
+    @media screen and (max-width: 868px)
+      width: 100%
   &__description
     display: flex
     flex-direction: column
-    width: 660px
-    height: 474px
+    width: 45%
+    min-height: 474px
+    padding-right: 10px
+    @media screen and (max-width: 1040px)
+      margin: 0 auto
+      width: 100%
+      min-height: 267px
+    @media screen and (max-width: 868px)
+      min-height: 83px
+      padding-right: 0
+    @media screen and (max-width: 520px)
+      min-height: 63px
   &__hr
-    width: 660px
+    width: 100%
     height: 3px
-    border: none
-    color: #710707
-    background: #710707
+    border: 2px solid #710707
     margin: 25px 0 75px
+    @media screen and (max-width: 1040px)
+      margin: 20px 0 60px
+    @media screen and (max-width: 868px)
+      margin: 20px 0 0
   &__text-wrap
     display: flex
     flex-direction: column
     width: 100%
-    height: 281px
+    min-height: 281px
     justify-content: space-between
+    gap: 25px
+    @media screen and (max-width: 1040px)
+      min-height: 109px
+      gap: 0
+    @media screen and (max-width: 868px)
+      display: none
+
   &__text
     font-weight: 300
     font-size: 22px
     line-height: 38px
     color: #FFFFFF
+    @media screen and (max-width: 1040px)
+      font-size: 20px
+      line-height: 38px
     &_short
-      width: 640px
+      max-width: 640px
+      @media screen and (max-width: 1040px)
+        max-width: 100%
     &_yellow
       color: #CAAA7D
+    &_text3
+      display: none
