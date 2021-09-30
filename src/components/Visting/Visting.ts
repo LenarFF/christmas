@@ -12,9 +12,10 @@ export class Visiting extends BaseComponent {
   container: BaseComponent;
 
   constructor() {
-    super('div', ['visiting']);
+    super('section', ['visiting']);
     this.container = new BaseComponent('div', ['visiting-container', 'container']);
     this.header = new BaseComponent('h2', ['section-title']);
+    this.header.element.id = 'visiting'
     this.header.element.innerText = 'Virtual tour';
     this.horizontal = new BaseComponent('hr', ['horizontal']);
     this.cardField = new BaseComponent('div', ['visiting__card-field']);

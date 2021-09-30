@@ -4,14 +4,32 @@
   display: flex
   flex-direction: column
   justify-content: space-between
+  @media screen and (max-width: 1040px)
+    width: 330px
+    height: 345px
+  @media screen and (max-width: 868px)
+    width: 280px
+    height: 301px
+  @media screen and (max-width: 420px)
+    height: 295px
   &__img
     width: 100%
     height: 285px
+    @media screen and (max-width: 1040px)
+      height: 215px
+    @media screen and (max-width: 868px)
+      height: 180px
   &__info
     height: 114px
     display: flex
     flex-direction: column
     justify-content: space-between
+    @media screen and (max-width: 1040px)
+      height: 105px
+    @media screen and (max-width: 868px)
+      height: 96px
+    @media screen and (max-width: 420px)
+      height: 90px
   &__title
     font-family: Forum, cursive
     font-weight: normal
@@ -19,17 +37,43 @@
     line-height: 35px
     letter-spacing: 5px
     text-transform: uppercase
+    @media screen and (max-width: 1040px)
+      font-size: 28px
+      line-height: 31px
+      letter-spacing: 0.03em
+    @media screen and (max-width: 868px)
+      font-size: 22px
+      line-height: 24px
+      letter-spacing: 3px
+    @media screen and (max-width: 420px)
+      font-size: 18px
+      line-height: 20px
+      letter-spacing: 5px
   &__hr
     width: 300px
     height: 2px
     color: #710707
     border: none
     background-color: #710707
+    @media screen and (max-width: 1040px)
+      width: 150px
   &__text1
     font-weight: 200
     font-size: 22px
     line-height: 26px
+    @media screen and (max-width: 1040px)
+      font-size: 20px
+      line-height: 23px
+    @media screen and (max-width: 868px)
+      font-size: 18px
+      line-height: 21px
+    @media screen and (max-width: 420px)
+      font-size: 16px
+      line-height: 19px
   &__text2
     font-weight: 200
     font-size: 18px
     line-height: 21px
+    @media screen and (max-width: 1040px)
+      font-size: 16px
+      line-height: 19px
