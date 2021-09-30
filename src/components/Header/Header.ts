@@ -34,5 +34,6 @@ export class Header extends BaseComponent {
     const welcomeContent = document.querySelector('.welcome__content');
     welcomeContent?.classList.toggle('hidden');
     this.burgerMenu.element.classList.toggle('burger-menu_open');
+    this.burger.element.classList.toggle('burger_cross')
   };
 }

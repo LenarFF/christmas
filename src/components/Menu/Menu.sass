@@ -8,7 +8,7 @@
     display: none
 
 .burger-menu
-  display: flex
+  display: none
   justify-content: space-between
   list-style: none
   flex-direction: column
@@ -21,6 +21,9 @@
   z-index: 1
   transition: 0.5s
   padding: 35px 0 287px 55px
+  @media screen and (max-width: 1024px)
+    display: flex
   &_open
     left: 0
+
 
