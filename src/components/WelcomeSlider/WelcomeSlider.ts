@@ -41,8 +41,6 @@ export class WelcomeSlider extends BaseComponent {
 
     this.pageSquares.map((square) => this.pageField.element.append(square.element));
 
-    console.log(this.pageSquares);
-
     this.pageControls.element.append(this.leftArrow.element, this.rightArrow.element);
     this.element.append(
       this.pageCounter.element,

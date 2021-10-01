@@ -12,6 +12,10 @@ export class VideoSection extends BaseComponent {
   videos: HTMLImageElement[];
   mainVideo: VideoWrap;
   additionalVideos: BaseComponent;
+  videoSlider: BaseComponent;
+  leftArrow: BaseComponent;
+  rightArrow: BaseComponent;
+  mainVideoIndex: number;
   constructor() {
     super('section', ['video']);
 
@@ -23,23 +27,39 @@ export class VideoSection extends BaseComponent {
     this.text.element.innerText =
       "Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or Hammurabi's Code";
 
+    this.videoSlider = new BaseComponent('div', ['video__slider']);
+    this.leftArrow = new BaseComponent('div', ['video__left-arrow', 'video__arrows']);
+    this.rightArrow = new BaseComponent('div', ['video__right-arrow', 'video__arrows']);
+    this.videoSlider.element.append(this.leftArrow.element);
     this.videosWrap = new BaseComponent('div', ['video__videos-wrap']);
     this.videos = [];
+    this.additionalVideos = new BaseComponent('div', ['video__additional']);
     videoContent.map((video) => {
       const videoSample = document.createElement('img');
       videoSample.src = `./video/${video}`;
-
       this.videos.push(videoSample);
     });
 
-    this.mainVideo = new VideoWrap(this.videos[0]);
+    this.mainVideoIndex = 0;
+    this.mainVideo = new VideoWrap(this.videos[this.mainVideoIndex]);
 
-    this.additionalVideos = new BaseComponent('div', ['video__additional']);
-    this.additionalVideos.element.append(this.videos[1], this.videos[2], this.videos[3]);
-
-    this.videosWrap.element.append(this.mainVideo.element, this.additionalVideos.element);
+    this.videos.map((video, index) => {
+      if (index !== this.mainVideoIndex) {
+        const otherVideoWrap = new BaseComponent('div', ['video__other-wrap']);
+        otherVideoWrap.element.append(video);
+        this.additionalVideos.element.append(otherVideoWrap.element);
+        const circle = new BaseComponent('div', ['video__circle']);
+         this.videoSlider.element.append(circle.element);
+      }
+    });
+     this.videoSlider.element.append(this.rightArrow.element);
+    this.videosWrap.element.append(
+      this.mainVideo.element,
+      this.additionalVideos.element,
+      this.videoSlider.element
+    );
     this.header.element.append(this.title.element, this.text.element);
     this.container.element.append(this.header.element, this.videosWrap.element);
-    this.element.append(this.container.element)
+    this.element.append(this.container.element);
   }
 }
