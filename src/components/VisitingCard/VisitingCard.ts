@@ -11,6 +11,7 @@ export class VisitingCard extends BaseComponent {
   text1: BaseComponent;
 
   text2: BaseComponent;
+
   info: BaseComponent;
 
   constructor(imgSrc: string, titleContent: string) {
@@ -35,7 +36,7 @@ export class VisitingCard extends BaseComponent {
       this.title.element,
       this.horizontal.element,
       this.text1.element,
-      this.text2.element
+      this.text2.element,
     );
 
     this.element.append(this.img, this.info.element);

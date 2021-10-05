@@ -3,11 +3,17 @@ import './VideoWrap.sass';
 
 export class VideoWrap extends BaseComponent {
   controls: BaseComponent;
+
   play: BaseComponent;
+
   volume: BaseComponent;
+
   fullScreen: BaseComponent;
+
   progressBar: HTMLInputElement;
+
   volumeBar: HTMLInputElement;
+
   videoWrapper: BaseComponent;
 
   constructor(video: HTMLImageElement) {

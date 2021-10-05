@@ -4,6 +4,7 @@ import { Header } from '../Header/Header';
 import { Main } from '../Main/Main';
 import { VideoSection } from '../VideoSection/VideoSection';
 import { Visiting } from '../Visting/Visting';
+import { Gallery } from '../Gallery/Gallery';
 
 export class App extends BaseComponent {
   header: Header;
@@ -11,8 +12,11 @@ export class App extends BaseComponent {
   main: Main;
 
   visinting: Visiting;
+
   explore: ExploreSection;
-  videoSection: VideoSection
+
+  videoSection: VideoSection;
+  gallery: Gallery;
 
   constructor() {
     super('div', ['app']);
@@ -21,14 +25,16 @@ export class App extends BaseComponent {
     this.main = new Main();
     this.visinting = new Visiting();
     this.explore = new ExploreSection();
-    this.videoSection = new VideoSection;
+    this.videoSection = new VideoSection();
+    this.gallery = new Gallery(3);
 
     this.element.append(
       this.header.element,
       this.main.element,
       this.visinting.element,
       this.explore.element,
-      this.videoSection.element
+      this.videoSection.element,
+      this.gallery.element,
     );
   }
 }

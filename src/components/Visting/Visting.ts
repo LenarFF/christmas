@@ -9,19 +9,18 @@ export class Visiting extends BaseComponent {
   horizontal: BaseComponent;
 
   cardField: BaseComponent;
+
   container: BaseComponent;
 
   constructor() {
     super('section', ['visiting']);
     this.container = new BaseComponent('div', ['visiting-container', 'container']);
     this.header = new BaseComponent('h2', ['section-title']);
-    this.header.element.id = 'visiting'
+    this.header.element.id = 'visiting';
     this.header.element.innerText = 'Virtual tour';
     this.horizontal = new BaseComponent('hr', ['horizontal']);
     this.cardField = new BaseComponent('div', ['visiting__card-field']);
-    cardContent.map((card) =>
-      this.cardField.element.append(new VisitingCard(card.imgSrc, card.titleContent).element),
-    );
+    cardContent.map((card) => this.cardField.element.append(new VisitingCard(card.imgSrc, card.titleContent).element));
 
     this.container.element.append(
       this.header.element,
@@ -29,6 +28,6 @@ export class Visiting extends BaseComponent {
       this.cardField.element,
     );
 
-    this.element.append(this.container.element)
+    this.element.append(this.container.element);
   }
 }
