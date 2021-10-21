@@ -1,5 +1,5 @@
 {
-  "name": "museum",
+  "name": "momentum",
   "scripts": {
     "build": "webpack",
     "dev": "webpack serve --env develop",
