@@ -129,6 +129,14 @@ body {
   text-align: left;
 }
 
+.weather-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 12px;
+}
+
 .weather-error {
   margin-top: -10px;
 }
