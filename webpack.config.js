@@ -4,6 +4,8 @@ const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
+
 
 const devServer = (isDev) =>
   !isDev
@@ -68,6 +70,20 @@ module.exports = ({ develop }) => ({
     }),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     ...eslintPlugin(develop),
+    new ImageminWebpWebpackPlugin({
+      config: [
+        {
+          test: /\.(jpe?g|png)/,
+          options: {
+            quality: 75,
+          },
+        },
+      ],
+      overrideExtension: true,
+      detailedLogs: false,
+      silent: false,
+      strict: true,
+    }),
   ],
   ...devServer(develop),
 });
