@@ -54,12 +54,7 @@ module.exports = ({ develop }) => ({
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
     ],
-    loaders: [
-      {
-        test: /\.json$/,
-        loader: 'json-loader',
-      },
-    ],
+
   },
   resolve: {
     extensions: ['.ts', '.js'],
