@@ -7,7 +7,6 @@ const slideNext = document.querySelector('.slide-next') as HTMLElement;
 const slidePrev = document.querySelector('.slide-prev') as HTMLElement;
 
 export const getLinkToImage = async () => {
-  console.log(1);
   const img = new Image();
   const url =
     data.state.photoSource === 'unsplash'
@@ -18,7 +17,7 @@ export const getLinkToImage = async () => {
   img.src =
     data.state.photoSource === 'unsplash'
       ? imgData.urls.regular
-      : imgData.photos.photo[Math.round(Math.random() * 50)].url_l;
+      : imgData.photos.photo[Math.round(Math.random() * 10)].url_l;
   img.onload = () => {
     body.style.backgroundImage = `url('${img.src}')`;
   };

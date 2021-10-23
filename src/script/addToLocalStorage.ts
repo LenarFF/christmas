@@ -2,7 +2,7 @@ import { data } from '../data/state';
 import { createPlaylist, playMusic } from './audio';
 import { changeSlideApi, getLinkToImage } from './backgroundImage';
 import { changeQuote, getQuotes } from './quote';
-import { handleSettings } from './settings';
+import { handleImage, handleLanguage, handleSettings, hideElement } from './settings';
 import { changeSlide, setBg } from './slider';
 import { showTime } from './time';
 import { getWeather } from './weather';
@@ -22,7 +22,6 @@ const showData = async () => {
       data.state = JSON.parse(
         localStorage.getItem('momentum_state_LenarFF') as string,
       );
-      console.log(data.state);
       addUserName();
 
       showTime();
@@ -38,8 +37,10 @@ const showData = async () => {
       playMusic();
       createPlaylist();
       handleSettings();
-      console.log(data.state.city)
       getWeather();
+      handleLanguage();
+      handleImage();
+      hideElement();
       // document.addEventListener('DOMContentLoaded', getWeather);
     }
   };
