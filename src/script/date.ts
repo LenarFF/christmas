@@ -1,3 +1,5 @@
+import { data } from "../data/state";
+
 const calendar = document.querySelector('.date');
 
 export const showDate = () => {
@@ -16,6 +18,6 @@ export const showDate = () => {
     hour: undefined,
     minute: undefined,
   };
-  const currentDate = date.toLocaleDateString('en-US', options);
+  const currentDate = date.toLocaleDateString(data.state.language, options);
   if (calendar) calendar.textContent = currentDate;
 };

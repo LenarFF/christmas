@@ -1,50 +1,74 @@
 [
   {
-    "text": "Light travels faster than sound. This is why some people appear bright until you hear them speak",
-    "author": "Alan Dundes"
+    "textEN": "Light travels faster than sound. This is why some people appear bright until you hear them speak",
+    "textRU": "Свет распространяется быстрее звука. Вот почему некоторые люди кажутся яркими, пока вы не услышите, как они говорят",
+    "authorEN": "Alan Dundes",
+    "authorRU": "Алан Дандес"
   },
   {
-    "text": "I don’t believe in astrology; I’m a Sagittarius and we’re skeptical",
-    "author": "Arthur C. Clarke"
+    "textEN": "I don’t believe in astrology; I’m a Sagittarius and we’re skeptical",
+    "textRU": "Я не верю в астрологию. Я cтрелец, а cтрельцы скептики",
+    "authorEN": "Arthur C. Clarke",
+    "authorRU": "Артур Кларк"
   },
   {
-    "text": "A bank is a place that will lend you money if you can prove that you don’t need it",
-    "author": "Bob Hope"
+    "textEN": "A bank is a place that will lend you money if you can prove that you don’t need it",
+    "textRU": "Банк - это место, которое ссудит вам деньги, если вы докажете, что они вам не нужны",
+    "authorEN": "Bob Hope",
+    "authorRU": "Боб Хоуп"
   },
   {
-    "text": "Education is learning what you didn’t even know you didn’t know",
-    "author": "Daniel J. Boorstin"
+    "textEN": "Education is learning what you didn’t even know you didn’t know",
+    "textRU": "Образование - это познание того, о чем вы даже не подозревали",
+    "authorEN": "Daniel J. Boorstin",
+    "authorRU": "Дэниел Дж. Бурстин"
   },
   {
-    "text": "People who think they know everything are a great annoyance to those of us who do",
-    "author": "Isaac Asimov"
+    "textEN": "People who think they know everything are a great annoyance to those of us who do",
+    "textRU": "Люди, которые думают, что знают все, сильно раздражают тех из нас, кто действительно знает",
+    "authorEN": "Isaac Asimov",
+    "authorRU": "Айзек Азимов"
   },
   {
-    "text": "Originality is the fine art of remembering what you hear but forgetting where you heard it",
-    "author": "Laurence J. Peter"
+    "textEN": "Originality is the fine art of remembering what you hear but forgetting where you heard it",
+    "textRU": "Оригинальность - это прекрасное искусство запоминать то, что вы слышите, но забывать, где вы это слышали.",
+    "authorEN": "Laurence J. Peter",
+    "authorRU": "Лоуренс Дж. Питер"
   },
   {
-    "text": "When I was a boy the Dead Sea was only sick",
-    "author": "George Burns"
+    "textEN": "When I was a boy the Dead Sea was only sick",
+    "textRU": "Когда я был мальчиком, Мертвое море ещё только болело",
+    "authorEN": "George Burns",
+    "authorRU": "Джордж Бернс"
   },
   {
-    "text": "I always wanted to be somebody, but now I realize I should have been more specific",
-    "author": "Lily Tomlin"
+    "textEN": "I always wanted to be somebody, but now I realize I should have been more specific",
+    "textRU": "Я всегда хотел быть кем-то, но теперь понимаю, что мне стоит быть более конкретным",
+    "authorEN": "Lily Tomlin",
+    "authorRU": "Лили Томлин"
   },
   {
-    "text": "A day without sunshine is like, you know, night",
-    "author": "Steve Martin"
+    "textEN": "A day without sunshine is like, you know, night",
+    "textRU": "День без солнечного света похож на ночь",
+    "authorEN": "Steve Martin",
+    "authorRU": "Стив Мартин"
   },
   {
-    "text": "I refuse to join any club that would have me as a member",
-    "author": "Groucho Marx"
+    "textEN": "I refuse to join any club that would have me as a member",
+    "textRU": "Я отказываюсь вступать в какой-либо клуб, в который меня приняли бы членом",
+    "authorEN": "Groucho Marx",
+    "authorRU": "Граучо Маркс"
   },
   {
-    "text": "Always borrow money from a pessimist. He won’t expect it back",
-    "author": "Oscar Wilde"
+    "textEN": "Always borrow money from a pessimist. He won’t expect it back",
+    "textRU": "Всегда занимай деньги у пессимиста. Он не будет ждать, что вы их вернёте",
+    "authorEN": "Oscar Wilde",
+    "authorRU": "Оскар Уальд"
   },
   {
-    "text": "He who laughs last didn’t get the joke.",
-    "author": "Charles de Gaulle"
+    "textEN": "He who laughs last didn’t get the joke",
+    "textRU": "Тот, кто смеется последним, не понял шутки",
+    "authorEN": "Charles de Gaulle",
+    "authorRU": "Шарль де Голль"
   }
 ]

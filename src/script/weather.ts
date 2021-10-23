@@ -1,4 +1,4 @@
-import { addToLocalStorage } from "./addToLocalStorage";
+import { data } from '../data/state';
 
 const weatherIcon = document.querySelector('.weather-icon') as HTMLElement;
 const temperature = document.querySelector('.temperature') as HTMLElement;
@@ -8,34 +8,39 @@ const humidity = document.querySelector('.humidity') as HTMLElement;
 const city = document.querySelector('.city') as HTMLInputElement;
 
 const key = 'bd092b21aa906492fea3e9bdbd0ba960';
-const lang = 'en';
 const units = 'metric';
 
 export async function getWeather() {
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${lang}&appid=${key}&units=${units}`;
+  city.value = data.state.city;
+  const url: string = `https://api.openweathermap.org/data/2.5/weather?q=${data.state.city}&lang=${data.state.language}&appid=${key}&units=${units}`;
 
   const res = await fetch(url);
-  const data = await res.json();
+  const weatherData = await res.json();
 
   weatherIcon.className = 'weather-icon owf';
-  weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-  temperature.textContent = `${Math.round(data.main.temp)}°C`;
-  wind.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
-  humidity.textContent = `Humidity: ${data.main.humidity}%`;
-  weatherDescription.textContent = data.weather[0].description;
+  weatherIcon.classList.add(`owf-${weatherData.weather[0].id}`);
+  temperature.textContent = `${Math.round(weatherData.main.temp)}°C`;
+  wind.textContent = `${
+    data.state.language === 'en' ? 'Wind speed' : 'Скорость ветра'
+  }: ${Math.round(weatherData.wind.speed)} m/s`;
+  humidity.textContent = `${data.state.language === 'en' ? 'Humidity' : 'Влажность'}: ${
+    weatherData.main.humidity
+  }%`;
+  weatherDescription.textContent = weatherData.weather[0].description;
 }
 
 const setCity = (event: KeyboardEvent) => {
   if (event.code === 'Enter') {
+    data.state.city = city.value;
     getWeather();
     city.blur();
   }
 };
 
-export const addCity = () => {
-  addToLocalStorage('city', city);
-}
-
-city.addEventListener('keypress', setCity);
-city.addEventListener('focusout', getWeather);
-
+export const handleWeather = () => {
+  city.addEventListener('keypress', setCity);
+  city.addEventListener('focusout', () => {
+    data.state.city = city.value;
+    getWeather();
+  });
+};

@@ -1,3 +1,5 @@
+import { data } from "../data/state";
+
 const json = require('../data/quotes.json');
 
 const quote = document.querySelector('.quote') as HTMLElement;
@@ -6,14 +8,14 @@ const buttonChange = document.querySelector('.change-quote') as HTMLElement;
 let quoteIndex = 0;
 
 const getRndQuoteIndex = () => {
-  const newQuoteIndex =  Math.floor(Math.random() * (json.length + 1));
+  const newQuoteIndex =  Math.floor(Math.random() * (json.length));
   quoteIndex === newQuoteIndex ? getRndQuoteIndex() : quoteIndex = newQuoteIndex
 }
 
 export const getQuotes = () => {
   getRndQuoteIndex()
-  quote.innerText = json[quoteIndex].text;
-  author.innerText = json[quoteIndex].author
+  quote.innerText = data.state.language === 'en' ? json[quoteIndex].textEN : json[quoteIndex].textRU;
+  author.innerText = data.state.language === 'en' ? json[quoteIndex].authorEN : json[quoteIndex].authorRU;
 }
 
 export const changeQuote = () => {

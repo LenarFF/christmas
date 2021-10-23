@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Arial-MT';
-  src: url("../assets/fonts/Arial-MT.woff"); /* Путь к файлу со шрифтом */
- }
+  src: url('../assets/fonts/Arial-MT.woff'); /* Путь к файлу со шрифтом */
+}
 
 * {
   box-sizing: border-box;
@@ -31,6 +31,10 @@ body {
   padding: 20px;
 }
 
+.player {
+  transition: all 0.5s;
+}
+
 .player-controls {
   display: flex;
   align-items: center;
@@ -48,9 +52,9 @@ body {
   padding: 5px;
   padding-left: 20px;
   list-style: none;
-  opacity: .8;
+  opacity: 0.8;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .play-item:hover {
@@ -58,7 +62,7 @@ body {
 }
 
 .play-item::before {
-  content: "\2713";
+  content: '\2713';
   position: absolute;
   left: 0;
   top: 2px;
@@ -66,7 +70,7 @@ body {
 }
 
 .item-active::before {
-  color: #C5B358;
+  color: #c5b358;
 }
 
 .player-icon,
@@ -80,9 +84,9 @@ body {
   background-color: transparent;
   border: 0;
   outline: 0;
-  opacity: .8;
+  opacity: 0.8;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .player-icon:hover,
@@ -103,19 +107,19 @@ body {
   width: 40px;
   height: 40px;
   background-size: 40px 40px;
-  background-image: url("../assets/svg/play.svg");
+  background-image: url('../assets/svg/play.svg');
 }
 
 .pause {
-  background-image: url("../assets/svg/pause.svg");
+  background-image: url('../assets/svg/pause.svg');
 }
 
 .play-prev {
-  background-image: url("../assets/svg/play-prev.svg");
+  background-image: url('../assets/svg/play-prev.svg');
 }
 
 .play-next {
-  background-image: url("../assets/svg/play-next.svg");
+  background-image: url('../assets/svg/play-next.svg');
 }
 
 .weather {
@@ -127,6 +131,7 @@ body {
   width: 180px;
   min-height: 180px;
   text-align: left;
+  transition: all 0.5s;
 }
 
 .weather-top {
@@ -169,7 +174,7 @@ body {
 .city::placeholder {
   font-size: 20px;
   color: #fff;
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .main {
@@ -193,12 +198,12 @@ body {
 
 .slide-prev {
   left: 20px;
-  background-image: url("../assets/svg/slider-prev.svg");
+  background-image: url('../assets/svg/slider-prev.svg');
 }
 
 .slide-next {
   right: 20px;
-  background-image: url("../assets/svg/slider-next.svg");
+  background-image: url('../assets/svg/slider-next.svg');
 }
 
 .time {
@@ -207,12 +212,14 @@ body {
   font-family: 'Arial-MT';
   font-size: 100px;
   letter-spacing: -4px;
+  transition: all 0.5s;
 }
 
 .date {
   min-height: 28px;
   font-size: 24px;
   margin-bottom: 20px;
+  transition: all 0.5s;
 }
 
 .greeting-container {
@@ -223,6 +230,7 @@ body {
   min-height: 48px;
   width: 100vw;
   font-size: 40px;
+  transition: all 0.5s;
 }
 
 .greeting {
@@ -241,11 +249,12 @@ body {
   background-color: transparent;
   border: 0;
   outline: 0;
+  transition: all 0.5s;
 }
 
 .name::placeholder {
   color: #fff;
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .footer {
@@ -257,11 +266,13 @@ body {
   height: 30vh;
   min-height: 160px;
   padding: 20px;
+  padding-top: 0;
 }
 
 .change-quote {
   margin-bottom: 30px;
-  background-image: url("../assets/svg/reload.svg");
+  background-image: url('../assets/svg/reload.svg');
+  transition: all 0.5s;
 }
 
 .quote {
@@ -270,6 +281,73 @@ body {
 
 .author {
   min-height: 20px;
+  transition: all 0.5s;
+}
+
+.settings {
+  width: 300px;
+  height: 120px;
+  align-self: flex-end;
+  transition: all 0.5s;
+  display: flex;
+  font-size: 16px;
+  justify-content: space-around;
+}
+
+.settings label {
+  display: flex;
+  width: 100px;
+  justify-content: space-between;
+}
+
+.settings__other {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: self-start;
+}
+
+.settings_img {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 88px;
+}
+
+.settings__img-theme {
+  width: 150 px;
+  background: transparent;
+  outline: none;
+  color: white;
+  border: none;
+  height: 20 px;
+  align-self: end;
+}
+
+.visibility {
+  opacity: 0;
+}
+
+.settings__btn {
+  background-image: url('../assets/svg/settings.svg');
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: all 0.5s;
+  background-position: center center;
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  align-self: flex-end;
+}
+
+.settings__btn:hover {
+  transform: rotate(45deg);
+  opacity: 0.5;
+}
+
+select {
+  outline: none;
+  width: 100px;
 }
 
 @media (max-width: 768px) {
