@@ -14,7 +14,7 @@ export interface IState {
   city: string;
 }
 
-export const data: { state: IState; blocks: any[] } = {
+export const data: { state: IState } = {
   state: {
     language: 'en',
     photoSource: 'github',
@@ -29,13 +29,5 @@ export const data: { state: IState; blocks: any[] } = {
     bcgrdTag: 'cat',
     userName: '',
     city: 'Minsk',
-  },
-  blocks: [
-    { time: true },
-    { date: true },
-    { greeting: true },
-    { weather: true },
-    { audio: true },
-    { quote: true },
-  ],
+  }
 };

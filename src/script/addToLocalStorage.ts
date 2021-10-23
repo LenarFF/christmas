@@ -7,6 +7,7 @@ import { changeSlide, setBg } from './slider';
 import { showTime } from './time';
 import { getWeather } from './weather';
 import { addUserName } from './userName';
+import { translateSettings } from './translatePage';
 
 const saveData = () => {
   function setLocalStorage() {
@@ -41,6 +42,7 @@ const showData = async () => {
       handleLanguage();
       handleImage();
       hideElement();
+      translateSettings();
       // document.addEventListener('DOMContentLoaded', getWeather);
     }
   };

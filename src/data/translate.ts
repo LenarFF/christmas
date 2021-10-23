@@ -12,3 +12,8 @@ export const greetingTranslation = {
     night: 'Good night',
   },
 };
+
+export const settingsTranslation = {
+  en: ['time', 'date', 'greeting', 'quote', 'weather', 'audio'],
+  ru: ['время', 'дата', 'приветствие', 'цитата', 'погода', 'аудио']
+}

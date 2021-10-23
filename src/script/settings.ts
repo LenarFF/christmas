@@ -1,4 +1,7 @@
 import { data } from '../data/state';
+import { getQuotes } from './quote';
+import { translateSettings } from './translatePage';
+import { getWeather } from './weather';
 
 const settingsBtn = document.querySelector('.settings__btn') as HTMLElement;
 const settingsContainer = document.querySelector('.settings') as HTMLElement;
@@ -8,7 +11,9 @@ const timeContainer = document.querySelector('.time') as HTMLElement;
 const greetingContainer = document.querySelector('.greeting-container') as HTMLElement;
 const weatherContainer = document.querySelector('.weather') as HTMLElement;
 const audioContainer = document.querySelector('.player') as HTMLElement;
-const imageThemeInput = document.querySelector('.settings__img-theme') as HTMLElement;
+const imageThemeInput = document.querySelector('.settings__img-theme') as HTMLInputElement;
+const name = document.querySelector('.name') as HTMLInputElement;
+
 const quoteContainer = [
   document.querySelector('.quote') as HTMLElement,
   document.querySelector('.author') as HTMLElement,
@@ -22,15 +27,6 @@ const quoteInput = document.getElementById('quote') as HTMLInputElement;
 const english = document.getElementById('en') as HTMLInputElement;
 const russian = document.getElementById('ru') as HTMLInputElement;
 const photoSource = document.getElementById('photoSource') as HTMLSelectElement;
-
-const appBlocks = [
-  dateContainer,
-  timeContainer,
-  greetingContainer,
-  weatherContainer,
-  audioContainer,
-  quoteContainer,
-];
 
 const showElement = (
   element: HTMLElement,
@@ -59,9 +55,19 @@ export const hideElement = () => {
 
 const changeToEnglish = () => {
   data.state.language = 'en';
+  translateSettings();
+  imageThemeInput.placeholder = 'background theme';
+  name.placeholder = 'input name';
+  getQuotes();
+  getWeather();
 };
 const changeToRussian = () => {
   data.state.language = 'ru';
+  translateSettings();
+  getQuotes();
+  imageThemeInput.placeholder = 'фоновая тема';
+  name.placeholder = 'введите имя';
+  getWeather();
 };
 
 export const handleLanguage = () => {
