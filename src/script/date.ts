@@ -1,8 +1,8 @@
-import { data } from "../data/state";
+import { data } from '../data/state';
 
 const calendar = document.querySelector('.date');
 
-export const showDate = () => {
+export const showDate: () => void = () => {
   const date = new Date();
 
   const options: {

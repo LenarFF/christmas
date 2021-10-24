@@ -11,9 +11,7 @@ const nameLabel = document.getElementById('name-label') as HTMLElement;
 const hrefLabel = document.getElementById('href-label') as HTMLElement;
 const themeLabel = document.getElementById('theme') as HTMLElement;
 
-
-export const translateSettings = () => {
-
+export const translateSettings: () => void = () => {
   settings.forEach((item, index) => {
     const text = document.createElement('span');
     text.innerText = `${settingsTranslation[data.state.language][index]}`;
@@ -21,18 +19,19 @@ export const translateSettings = () => {
   });
 };
 
-export const translateLinks = () => {
-  linksSave.textContent = (data.state.language === 'en') ? 'save': 'сохранить';
-  linkName.placeholder = (data.state.language === 'en') ? 'name' : 'название';
-  linkHref.placeholder = (data.state.language === 'en') ? 'link' : 'ссылка';
-  linkBTN.textContent = (data.state.language === 'en') ? 'link' : 'ссылка';
+export const translateLinks: () => void = () => {
+  linksSave.textContent = data.state.language === 'en' ? 'save' : 'сохранить';
+  linkName.placeholder = data.state.language === 'en' ? 'name' : 'название';
+  linkHref.placeholder = data.state.language === 'en' ? 'link' : 'ссылка';
+  linkBTN.textContent = data.state.language === 'en' ? 'link' : 'ссылка';
   cancelBTN.textContent = data.state.language === 'en' ? 'cancel' : 'отмена';
-  if (nameLabel.firstChild){
-    nameLabel.firstChild.textContent = data.state.language === 'en' ? 'Name' : 'Название';}
+  if (nameLabel.firstChild) {
+    nameLabel.firstChild.textContent = data.state.language === 'en' ? 'Name' : 'Название';
+  }
   if (hrefLabel.firstChild) {
     hrefLabel.firstChild.textContent = data.state.language === 'en' ? 'Link' : 'Ссылка';
   }
   if (themeLabel.firstChild) {
     themeLabel.firstChild.textContent = data.state.language === 'en' ? 'Background theme' : 'Фоновая тема';
   }
-}
+};

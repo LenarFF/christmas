@@ -2,18 +2,25 @@ import { data } from '../data/state';
 import { createPlaylist, playMusic } from './audio';
 import { changeSlideApi, getLinkToImage } from './backgroundImage';
 import { changeQuote, getQuotes } from './quote';
-import { handleImage, handleLanguage, handleSettings, hideElement, showImageTheme } from './settings';
+import {
+  handleImage,
+  handleLanguage,
+  handleSettings,
+  hideElement,
+  showImageTheme,
+} from './settings';
 import { changeSlide, setBg } from './slider';
 import { showTime } from './time';
 import { getWeather } from './weather';
 import { addUserName } from './userName';
 import { translateLinks, translateSettings } from './translatePage';
-import { addLinkListener, changeLinksState, fillList, handleLink } from './links';
+import {
+  addLinkListener, changeLinksState, fillList, handleLink,
+} from './links';
 
 const saveData = () => {
   function setLocalStorage() {
     changeLinksState();
-    console.log(data.state.links)
     localStorage.setItem('momentum_state_LenarFF4', JSON.stringify(data.state));
   }
 
@@ -55,7 +62,7 @@ const showData = async () => {
   window.addEventListener('load', getLocalStorage);
 };
 
-export const addToLocalStorage = () => {
+export const addToLocalStorage: () => void = () => {
   saveData();
   showData();
 };

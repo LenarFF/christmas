@@ -7,12 +7,12 @@ export interface IState {
   weather: boolean;
   audio: boolean;
   quote: boolean;
-  linksBlock: boolean
+  linksBlock: boolean;
   timeOfDay: 'morning' | 'day' | 'evening' | 'night';
   bcgrdTag: string;
   userName: string;
   city: string;
-  links: {name: string, href: string}[],
+  links: { name: string; href: string }[];
 }
 
 export const data: { state: IState } = {

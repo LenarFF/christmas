@@ -1,4 +1,4 @@
-export const getTimeOfDay = () => {
+export const getTimeOfDay: () => 'night' | 'morning' | 'day' | 'evening' = () => {
   const date = new Date();
   const hours = date.getHours();
   switch (true) {

@@ -5,13 +5,11 @@ const slideNext = document.querySelector('.slide-next') as HTMLElement;
 const slidePrev = document.querySelector('.slide-prev') as HTMLElement;
 const bckgrQuantity = 20;
 
-const getRandomNum = (max: number) => {
-  return Math.ceil(Math.random() * max);
-};
+const getRandomNum = (max: number) => Math.ceil(Math.random() * max);
 
 let randomNum = getRandomNum(bckgrQuantity);
 
-export const setBg = () => {
+export const setBg: () => void = () => {
   const timeOfDay = getTimeOfDay();
   const img = new Image();
   const rndNumString = String(randomNum).padStart(2, '0');
@@ -32,7 +30,7 @@ const getSlidePrev = () => {
   setBg();
 };
 
-export const changeSlide = () => {
+export const changeSlide: () => void = () => {
   slideNext.addEventListener('click', getSlideNext);
   slidePrev.addEventListener('click', getSlidePrev);
 };

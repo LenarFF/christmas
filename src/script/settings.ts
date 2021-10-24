@@ -16,7 +16,7 @@ const greetingContainer = document.querySelector('.greeting-container') as HTMLE
 const weatherContainer = document.querySelector('.weather') as HTMLElement;
 const audioContainer = document.querySelector('.player') as HTMLElement;
 const imageThemeInput = document.querySelector('.settings__img-theme') as HTMLInputElement;
-const name = document.querySelector('.name') as HTMLInputElement;
+const nameInput = document.querySelector('.name') as HTMLInputElement;
 
 const quoteContainer = [
   document.querySelector('.quote') as HTMLElement,
@@ -42,7 +42,7 @@ const showElement = (
   element.classList.toggle('visibility');
 };
 
-export const hideElement = () => {
+export const hideElement: () => void = () => {
   if (!data.state.date) dateContainer.classList.add('visibility');
   if (!data.state.time) timeContainer.classList.add('visibility');
   if (!data.state.greeting) greetingContainer.classList.add('visibility');
@@ -57,13 +57,13 @@ export const hideElement = () => {
   audioInput.checked = data.state.audio;
   quoteInput.checked = data.state.quote;
   linksInput.checked = data.state.linksBlock;
-}
+};
 
 const changeToEnglish = () => {
   data.state.language = 'en';
   translateSettings();
   imageThemeInput.placeholder = 'background theme';
-  name.placeholder = 'input name';
+  nameInput.placeholder = 'input name';
   linksContainer.textContent = 'links';
   changeLinksState();
   fillList();
@@ -78,16 +78,16 @@ const changeToRussian = () => {
   fillList();
   translateLinks();
   imageThemeInput.placeholder = 'фоновая тема';
-  name.placeholder = 'введите имя';
+  nameInput.placeholder = 'введите имя';
   linksContainer.textContent = 'ссылки';
   getWeather();
 };
 
-export const handleLanguage = () => {
+export const handleLanguage: () => void = () => {
   data.state.language === 'en' ? (english.checked = true) : (russian.checked = true);
 };
 
-export const handleImage = () => {
+export const handleImage: () => void = () => {
   photoSource.value = data.state.photoSource;
 };
 
@@ -105,33 +105,29 @@ const handlePhotoSource = (e: Event) => {
       data.state.photoSource = 'unsplash';
       getLinkToImage();
       break;
+    default:
+      break;
   }
 };
 
-export const showImageTheme = () => {
+export const showImageTheme: () => void = () => {
   imageThemeInput.value = data.state.bcgrdTag;
-}
+};
 
-export const handleSettings = () => {
+export const handleSettings: () => void = () => {
   settingsBtn.addEventListener('click', () => settingsContainer.classList.toggle('visibility'));
   dateInput.addEventListener('change', (event) => showElement(dateContainer, 'date', event));
   timeInput.addEventListener('change', (event) => showElement(timeContainer, 'time', event));
-  linksInput.addEventListener('change', (event) =>
-    showElement(linksContainer, 'linksBlock', event),
-  );
-  greetingInput.addEventListener('change', (event) =>
-    showElement(greetingContainer, 'greeting', event),
-  );
-  weatherInput.addEventListener('change', (event) =>
-    showElement(weatherContainer, 'weather', event),
-  );
+  linksInput.addEventListener('change', (event) => showElement(linksContainer, 'linksBlock', event));
+  greetingInput.addEventListener('change', (event) => showElement(greetingContainer, 'greeting', event));
+  weatherInput.addEventListener('change', (event) => showElement(weatherContainer, 'weather', event));
   audioInput.addEventListener('change', (event) => showElement(audioContainer, 'audio', event));
   quoteInput.addEventListener('change', (event) => {
     quoteContainer.forEach((item) => showElement(item, 'quote', event));
   });
   imageThemeInput.addEventListener(
     'change',
-    (e) => (data.state.bcgrdTag = (e.target as HTMLInputElement).value),
+    (e) => { data.state.bcgrdTag = (e.target as HTMLInputElement).value; },
   );
   english.addEventListener('change', changeToEnglish);
   russian.addEventListener('change', changeToRussian);

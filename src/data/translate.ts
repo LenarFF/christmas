@@ -15,5 +15,5 @@ export const greetingTranslation = {
 
 export const settingsTranslation = {
   en: ['time', 'date', 'greeting', 'quote', 'weather', 'audio', 'links'],
-  ru: ['время', 'дата', 'приветствие', 'цитата', 'погода', 'аудио', 'ссылки']
-}
+  ru: ['время', 'дата', 'приветствие', 'цитата', 'погода', 'аудио', 'ссылки'],
+};

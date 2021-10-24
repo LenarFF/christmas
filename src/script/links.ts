@@ -44,7 +44,7 @@ const createLink = (link: { name: string; href: string }) => {
   linksList.prepend(li);
 };
 
-export const fillList = () => {
+export const fillList: () => void = () => {
   linksList.innerHTML = '';
   data.state.links.map((item) => createLink(item));
   const addButton = document.createElement('button');
@@ -71,7 +71,7 @@ const changeLink = (e: Event) => {
   }
 };
 
-export const changeLinksState = () => {
+export const changeLinksState: () => void = () => {
   const newLinks = document.querySelectorAll('.links__anchor') as NodeListOf<HTMLAnchorElement>;
   const newArray: { name: string; href: string }[] = [];
   newLinks.forEach((item) => {
@@ -80,7 +80,7 @@ export const changeLinksState = () => {
   data.state.links = newArray;
 };
 
-export const handleLink = () => {
+export const handleLink: () => void = () => {
   linksList.addEventListener('click', changeLink);
   linksBTN.addEventListener('click', showLinks);
 };
@@ -88,7 +88,9 @@ export const handleLink = () => {
 const handleSaveLink = (e: Event) => {
   e.preventDefault();
   if (!linkNameInput.value || !linkHrefInput.value) {
-    const validityMessage = `${data.state.language === 'en' ? 'fill in the field' : 'заполните поле'}`
+    const validityMessage = `${
+      data.state.language === 'en' ? 'fill in the field' : 'заполните поле'
+    }`;
     linkNameInput.setCustomValidity(validityMessage);
     linkHrefInput.setCustomValidity(validityMessage);
     !linkNameInput.value ? linkNameInput.reportValidity() : linkHrefInput.reportValidity();
@@ -108,7 +110,7 @@ const handleCancel = (e: Event) => {
   editedLinkHref = '';
 };
 
-export const addLinkListener = () => {
+export const addLinkListener: () => void = () => {
   saveBtn.addEventListener('click', handleSaveLink);
   cancelBtn.addEventListener('click', handleCancel);
-}
+};

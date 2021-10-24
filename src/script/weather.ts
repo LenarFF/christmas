@@ -10,9 +10,9 @@ const city = document.querySelector('.city') as HTMLInputElement;
 const key = 'bd092b21aa906492fea3e9bdbd0ba960';
 const units = 'metric';
 
-export async function getWeather() {
+export async function getWeather(): Promise<void> {
   city.value = data.state.city;
-  const url: string = `https://api.openweathermap.org/data/2.5/weather?q=${data.state.city}&lang=${data.state.language}&appid=${key}&units=${units}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${data.state.city}&lang=${data.state.language}&appid=${key}&units=${units}`;
 
   const res = await fetch(url);
   const weatherData = await res.json();
@@ -37,7 +37,7 @@ const setCity = (event: KeyboardEvent) => {
   }
 };
 
-export const handleWeather = () => {
+export const handleWeather: () => void = () => {
   city.addEventListener('keypress', setCity);
   city.addEventListener('focusout', () => {
     data.state.city = city.value;

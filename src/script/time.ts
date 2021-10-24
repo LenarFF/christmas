@@ -4,7 +4,7 @@ import { data } from '../data/state';
 
 const time = document.querySelector('.time');
 
-export const showTime = () => {
+export const showTime: () => void = () => {
   const date = new Date();
   const currentTime = date.toLocaleTimeString();
   if (time) time.textContent = currentTime;

@@ -13,6 +13,11 @@ const changeBtn = () => {
   isPlay ? btnPlay.classList.remove('pause') : btnPlay.classList.add('pause');
 };
 
+const activePlayList = () => {
+  Array.from(playListContainer.children).forEach((item) => item.classList.remove('item-active'));
+  playListContainer.children[playNum].classList.add('item-active');
+};
+
 const playAudio = () => {
   changeBtn();
   if (isPlay) {
@@ -33,27 +38,23 @@ const playNext = () => {
   playAudio();
 };
 
-const playPrev = () => {
+const playPrev: () => void = () => {
   isPlay = false;
   playNum > 0 ? playNum-- : (playNum = playList.length - 1);
   playAudio();
 };
 
-export const createPlaylist = () => {
+export const createPlaylist: () => void = () => {
   playList.map((item) => {
     const li = document.createElement('li');
     li.classList.add('play-item');
     li.innerText = item.title;
     playListContainer.append(li);
+    return null;
   });
 };
 
-const activePlayList = () => {
-  Array.from(playListContainer.children).forEach((item) => item.classList.remove('item-active'));
-  playListContainer.children[playNum].classList.add('item-active');
-};
-
-export const playMusic = () => {
+export const playMusic: () => void = () => {
   btnPlay.addEventListener('click', playAudio);
   btnNext.addEventListener('click', playNext);
   btnPrev.addEventListener('click', playPrev);
