@@ -11,7 +11,11 @@ const key = 'bd092b21aa906492fea3e9bdbd0ba960';
 const units = 'metric';
 
 export async function getWeather(): Promise<void> {
-  city.value = data.state.city;
+  if (data.state.city === "Minsk") {
+    city.value = (data.state.language === 'en') ? 'Minsk' : 'Минск';
+  } else {
+    city.value = data.state.city;
+  }
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${data.state.city}&lang=${data.state.language}&appid=${key}&units=${units}`;
 
   const res = await fetch(url);
