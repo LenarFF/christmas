@@ -9,6 +9,7 @@ const linkBTN = document.querySelector('.links__button') as HTMLElement;
 const cancelBTN = document.querySelector('.links__cancel') as HTMLElement;
 const nameLabel = document.getElementById('name-label') as HTMLElement;
 const hrefLabel = document.getElementById('href-label') as HTMLElement;
+const themeLabel = document.getElementById('theme') as HTMLElement;
 
 
 export const translateSettings = () => {
@@ -30,5 +31,8 @@ export const translateLinks = () => {
     nameLabel.firstChild.textContent = data.state.language === 'en' ? 'Name' : 'Название';}
   if (hrefLabel.firstChild) {
     hrefLabel.firstChild.textContent = data.state.language === 'en' ? 'Link' : 'Ссылка';
+  }
+  if (themeLabel.firstChild) {
+    themeLabel.firstChild.textContent = data.state.language === 'en' ? 'Background theme' : 'Фоновая тема';
   }
 }

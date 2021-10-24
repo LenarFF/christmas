@@ -434,7 +434,7 @@ body {
 
 .settings {
   width: 300px;
-  height: 120px;
+  height: 140px;
   transition: all 0.5s;
   display: flex;
   font-size: 16px;
@@ -458,7 +458,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 88px;
+  height: 107px;
 }
 
 .settings__img-theme {

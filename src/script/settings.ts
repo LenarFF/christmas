@@ -1,6 +1,8 @@
 import { data } from '../data/state';
+import { getLinkToImage } from './backgroundImage';
 import { changeLinksState, fillList } from './links';
 import { getQuotes } from './quote';
+import { setBg } from './slider';
 import { translateLinks, translateSettings } from './translatePage';
 import { getWeather } from './weather';
 
@@ -93,12 +95,15 @@ const handlePhotoSource = (e: Event) => {
   switch ((e.target as HTMLSelectElement).value) {
     case 'github':
       data.state.photoSource = 'github';
+      setBg();
       break;
     case 'flickr':
       data.state.photoSource = 'flickr';
+      getLinkToImage();
       break;
     case 'unsplash':
       data.state.photoSource = 'unsplash';
+      getLinkToImage();
       break;
   }
 };
