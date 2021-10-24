@@ -16,7 +16,14 @@ export async function getWeather(): Promise<void> {
 
   const res = await fetch(url);
   const weatherData = await res.json();
-
+  console.log(weatherData);
+  if (weatherData.cod !== 200) {
+    temperature.textContent = "Нет данных";
+    wind.textContent = '';
+    humidity.textContent = '';
+    weatherDescription.textContent = ''
+    return
+  }
   weatherIcon.className = 'weather-icon owf';
   weatherIcon.classList.add(`owf-${weatherData.weather[0].id}`);
   temperature.textContent = `${Math.round(weatherData.main.temp)}°C`;
