@@ -9,6 +9,7 @@
   padding: 0;
 }
 
+
 body {
   min-width: 480px;
   min-height: 100vh;
@@ -284,10 +285,112 @@ body {
   transition: all 0.5s;
 }
 
+.footer__top {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.links__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.links__button {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.links__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.links__edit {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.links__li {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.links__change {
+  display: flex;
+  gap: 10px;
+  width: 150px;
+}
+
+.links_anchor {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.links {
+  width: 300px;
+  min-height: 120px;
+  transition: all 0.5s;
+  border: 1px solid hotpink;
+}
+
+.links__delete {
+  width: 16px;
+  height: 16px;
+  background-image: url('../assets/svg/delete-button.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 100%;
+}
+
+.links__add-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.links__add-container input {
+  width: 200px;
+  outline: none;
+}
+
+.settings__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .settings {
   width: 300px;
   height: 120px;
-  align-self: flex-end;
   transition: all 0.5s;
   display: flex;
   font-size: 16px;
@@ -320,7 +423,7 @@ body {
   outline: none;
   color: white;
   border: none;
-  height: 20 px;
+  height: 20px;
   align-self: end;
 }
 
@@ -348,6 +451,11 @@ body {
 select {
   outline: none;
   width: 100px;
+}
+
+
+.hidden {
+  display: none;
 }
 
 @media (max-width: 768px) {

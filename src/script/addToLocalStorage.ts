@@ -8,10 +8,13 @@ import { showTime } from './time';
 import { getWeather } from './weather';
 import { addUserName } from './userName';
 import { translateSettings } from './translatePage';
+import { changeLinksState, fillList, handleLink, saveLink } from './links';
 
 const saveData = () => {
   function setLocalStorage() {
-    localStorage.setItem('momentum_state_LenarFF', JSON.stringify(data.state));
+    changeLinksState();
+    console.log(data.state.links)
+    localStorage.setItem('momentum_state_LenarFF4', JSON.stringify(data.state));
   }
 
   window.addEventListener('beforeunload', setLocalStorage);
@@ -19,10 +22,8 @@ const saveData = () => {
 
 const showData = async () => {
   const getLocalStorage = () => {
-    if (localStorage.getItem('momentum_state_LenarFF')) {
-      data.state = JSON.parse(
-        localStorage.getItem('momentum_state_LenarFF') as string,
-      );
+    if (localStorage.getItem('momentum_state_LenarFF4')) {
+      data.state = JSON.parse(localStorage.getItem('momentum_state_LenarFF4') as string);
       addUserName();
 
       showTime();
@@ -43,6 +44,9 @@ const showData = async () => {
       handleImage();
       hideElement();
       translateSettings();
+      fillList();
+      saveLink();
+      handleLink();
       // document.addEventListener('DOMContentLoaded', getWeather);
     }
   };

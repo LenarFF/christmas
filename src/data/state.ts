@@ -7,11 +7,11 @@ export interface IState {
   weather: boolean;
   audio: boolean;
   quote: boolean;
-  todolist: boolean;
   timeOfDay: 'morning' | 'day' | 'evening' | 'night';
   bcgrdTag: string;
   userName: string;
   city: string;
+  links: {name: string, href: string}[],
 }
 
 export const data: { state: IState } = {
@@ -24,10 +24,13 @@ export const data: { state: IState } = {
     weather: true,
     audio: true,
     quote: true,
-    todolist: true,
     timeOfDay: 'morning',
     bcgrdTag: 'cat',
     userName: '',
     city: 'Minsk',
-  }
+    links: [
+      { name: 'RSSchool', href: 'https://rs.school/' },
+      { name: 'GitHub', href: 'https://github.com/LenarFF?tab=repositories' },
+    ],
+  },
 };
