@@ -7,6 +7,7 @@ export interface IState {
   weather: boolean;
   audio: boolean;
   quote: boolean;
+  linksBlock: boolean
   timeOfDay: 'morning' | 'day' | 'evening' | 'night';
   bcgrdTag: string;
   userName: string;
@@ -24,6 +25,7 @@ export const data: { state: IState } = {
     weather: true,
     audio: true,
     quote: true,
+    linksBlock: true,
     timeOfDay: 'morning',
     bcgrdTag: 'cat',
     userName: '',

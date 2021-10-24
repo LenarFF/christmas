@@ -1,11 +1,13 @@
 import { data } from '../data/state';
+import { changeLinksState, fillList } from './links';
 import { getQuotes } from './quote';
-import { translateSettings } from './translatePage';
+import { translateLinks, translateSettings } from './translatePage';
 import { getWeather } from './weather';
 
 const settingsBtn = document.querySelector('.settings__btn') as HTMLElement;
 const settingsContainer = document.querySelector('.settings') as HTMLElement;
 const dateContainer = document.querySelector('.date') as HTMLElement;
+const linksContainer = document.querySelector('.links__button') as HTMLElement;
 const dateInput = document.getElementById('date') as HTMLInputElement;
 const timeContainer = document.querySelector('.time') as HTMLElement;
 const greetingContainer = document.querySelector('.greeting-container') as HTMLElement;
@@ -24,16 +26,16 @@ const greetingInput = document.getElementById('greeting') as HTMLInputElement;
 const weatherInput = document.getElementById('weather') as HTMLInputElement;
 const audioInput = document.getElementById('audio') as HTMLInputElement;
 const quoteInput = document.getElementById('quote') as HTMLInputElement;
+const linksInput = document.getElementById('links') as HTMLInputElement;
 const english = document.getElementById('en') as HTMLInputElement;
 const russian = document.getElementById('ru') as HTMLInputElement;
 const photoSource = document.getElementById('photoSource') as HTMLSelectElement;
 
 const showElement = (
   element: HTMLElement,
-  name: 'time' | 'date' | 'greeting' | 'weather' | 'audio' | 'quote',
+  name: 'time' | 'date' | 'greeting' | 'weather' | 'audio' | 'quote' | 'linksBlock',
   event: Event,
 ) => {
-
   data.state[name] = (event.target as HTMLInputElement).checked;
   element.classList.toggle('visibility');
 };
@@ -45,12 +47,14 @@ export const hideElement = () => {
   if (!data.state.weather) weatherContainer.classList.add('visibility');
   if (!data.state.audio) audioContainer.classList.add('visibility');
   if (!data.state.quote) quoteContainer.forEach((item) => item.classList.add('visibility'));
+  if (!data.state.linksBlock) linksContainer.classList.add('visibility');
   dateInput.checked = data.state.date;
   timeInput.checked = data.state.time;
   greetingInput.checked = data.state.greeting;
   weatherInput.checked = data.state.weather;
   audioInput.checked = data.state.audio;
   quoteInput.checked = data.state.quote;
+  linksInput.checked = data.state.linksBlock;
 }
 
 const changeToEnglish = () => {
@@ -58,15 +62,22 @@ const changeToEnglish = () => {
   translateSettings();
   imageThemeInput.placeholder = 'background theme';
   name.placeholder = 'input name';
+  linksContainer.textContent = 'links';
+  changeLinksState();
+  fillList();
   getQuotes();
   getWeather();
+  translateLinks();
 };
 const changeToRussian = () => {
   data.state.language = 'ru';
   translateSettings();
   getQuotes();
+  fillList();
+  translateLinks();
   imageThemeInput.placeholder = 'фоновая тема';
   name.placeholder = 'введите имя';
+  linksContainer.textContent = 'ссылки';
   getWeather();
 };
 
@@ -92,10 +103,17 @@ const handlePhotoSource = (e: Event) => {
   }
 };
 
+export const showImageTheme = () => {
+  imageThemeInput.value = data.state.bcgrdTag;
+}
+
 export const handleSettings = () => {
   settingsBtn.addEventListener('click', () => settingsContainer.classList.toggle('visibility'));
   dateInput.addEventListener('change', (event) => showElement(dateContainer, 'date', event));
   timeInput.addEventListener('change', (event) => showElement(timeContainer, 'time', event));
+  linksInput.addEventListener('change', (event) =>
+    showElement(linksContainer, 'linksBlock', event),
+  );
   greetingInput.addEventListener('change', (event) =>
     showElement(greetingContainer, 'greeting', event),
   );

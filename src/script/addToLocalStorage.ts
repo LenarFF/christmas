@@ -2,13 +2,13 @@ import { data } from '../data/state';
 import { createPlaylist, playMusic } from './audio';
 import { changeSlideApi, getLinkToImage } from './backgroundImage';
 import { changeQuote, getQuotes } from './quote';
-import { handleImage, handleLanguage, handleSettings, hideElement } from './settings';
+import { handleImage, handleLanguage, handleSettings, hideElement, showImageTheme } from './settings';
 import { changeSlide, setBg } from './slider';
 import { showTime } from './time';
 import { getWeather } from './weather';
 import { addUserName } from './userName';
-import { translateSettings } from './translatePage';
-import { changeLinksState, fillList, handleLink, saveLink } from './links';
+import { translateLinks, translateSettings } from './translatePage';
+import { addLinkListener, changeLinksState, fillList, handleLink } from './links';
 
 const saveData = () => {
   function setLocalStorage() {
@@ -45,8 +45,10 @@ const showData = async () => {
       hideElement();
       translateSettings();
       fillList();
-      saveLink();
       handleLink();
+      translateLinks();
+      addLinkListener();
+      showImageTheme();
       // document.addEventListener('DOMContentLoaded', getWeather);
     }
   };

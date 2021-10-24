@@ -51,15 +51,23 @@
     <footer class="footer">
       <div class="footer__top">
         <div class="links__container">
-          <div class="links">
+          <div class="links visibility">
             <ul class="links__list"></ul>
           </div>
           <button class="links__button">links</button>
-          <div class="links__add-container hidden">
-            <input type="text" placeholder="name" id="link-name">
-            <input type="text" placeholder="link" id="link-href">
-            <button class="links__save">save</button>
-          </div>
+          <form novalidate name="add-link" class="links__add-container hidden">
+            <label for="link-name" id="name-label">Name
+              <input required type="text" placeholder="name" id="link-name">
+            </label>
+            <label for="link-href" id="href-label">Link
+              <input required type="text" placeholder="link" id="link-href">
+            </label>
+            <div class="links__form-buttons">
+              <button type="submit" class="links__save">save</button>
+              <button type="cancel" class="links__cancel">cancel</button>
+            </div>
+
+          </form>
         </div>
 
         <button class="change-quote"></button>
@@ -90,6 +98,10 @@
                 audio:
                 <input type="checkbox" name="audio" id="audio" checked />
               </label>
+              <label for="links">
+                links:
+                <input type="checkbox" name="links" id="links" checked />
+              </label>
             </div>
             <div class="settings__other">
               <div class="settings_lang">
@@ -102,7 +114,9 @@
                   <option id="unsplash" value="unsplash">Unsplash</option>
                   <option id="flickr" value="flickr">Flickr</option>
                 </select>
-                <input class="settings__img-theme" type="text" placeholder="background theme" />
+                <label for="theme">Background theme
+                  <input class="settings__img-theme" type="text" name='theme' placeholder="background theme" />
+                </label>
               </div>
             </div>
           </div>
