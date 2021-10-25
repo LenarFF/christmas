@@ -1,6 +1,6 @@
 import { playList } from '../data/playList';
 
-const btnPlay = document.querySelector('.play') as HTMLElement;
+const btnPlay = document.getElementById('play') as HTMLElement;
 const btnNext = document.querySelector('.play-next') as HTMLElement;
 const btnPrev = document.querySelector('.play-prev') as HTMLElement;
 const playListContainer = document.querySelector('.play-list') as HTMLUListElement;
@@ -16,10 +16,18 @@ let playNum = 0;
 let isPlay = false;
 const audio = new Audio();
 audio.volume = 0.5;
-let currentVolume = audio.volume
+let currentVolume = audio.volume;
 
-const changeBtn = () => {
-  isPlay ? btnPlay.classList.remove('pause') : btnPlay.classList.add('pause');
+const changeBtn = (btn: HTMLElement) => {
+  const playListButtons = document.querySelectorAll('.play_small');
+  playListButtons.forEach((btn) => btn.classList.remove('pause'));
+  if (isPlay) {
+    btn.classList.remove('pause');
+    playListButtons[playNum].classList.remove('pause');
+  } else {
+    btn.classList.add('pause');
+    playListButtons[playNum].classList.add('pause');
+  }
 };
 
 const activePlayList = () => {
@@ -28,7 +36,7 @@ const activePlayList = () => {
 };
 
 const playAudio = () => {
-  changeBtn();
+  changeBtn(btnPlay);
   if (isPlay) {
     audio.pause();
     isPlay = false;
@@ -55,17 +63,26 @@ const playPrev: () => void = () => {
 };
 
 export const createPlaylist: () => void = () => {
-  playList.map((item) => {
+  playList.map((item, index) => {
+    const playThisMusicBtn = document.createElement('button');
+    playThisMusicBtn.classList.add('play', 'player-icon', 'play_small');
+    playThisMusicBtn.setAttribute('data-index', String(index));
     const li = document.createElement('li');
     li.classList.add('play-item');
     li.innerText = item.title;
+    li.prepend(playThisMusicBtn);
     playListContainer.append(li);
     return null;
   });
 };
 
 const handleVolume = () => {
-  audio.volume = Number(volumeRange.value)
+  audio.volume = Number(volumeRange.value);
+  if (audio.volume === 0) {
+    volumeBtn.classList.add('volume-btn_off');
+  } else {
+    volumeBtn.classList.remove('volume-btn_off');
+  }
 };
 
 const switchVolume = () => {
@@ -81,7 +98,24 @@ const switchVolume = () => {
   }
 };
 
+const playFromPlaylist = (e: Event) => {
+  const playListBtn = e.target as HTMLElement;
+  if (playListBtn.classList.contains('play_small')) {
+    if (playListBtn.classList.contains('pause')) {
+      playListBtn.classList.remove('pause');
+      isPlay = true;
+    } else {
+
+      isPlay = false;
+      playListBtn.classList.add('pause');
+    }
+    playNum = Number(playListBtn.dataset.index);
+    playAudio();
+  }
+};
+
 export const playMusic: () => void = () => {
+  playListContainer.addEventListener('click', playFromPlaylist);
   volumeBtn.addEventListener('click', switchVolume);
   volumeRange.addEventListener('change', handleVolume);
   btnPlay.addEventListener('click', playAudio);

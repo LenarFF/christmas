@@ -111,11 +111,14 @@ body {
 .play-item {
   position: relative;
   padding: 5px;
-  padding-left: 20px;
+  padding-left: 0px;
   list-style: none;
   opacity: 0.8;
   cursor: pointer;
   transition: 0.3s;
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
 .play-item:hover {
@@ -125,8 +128,8 @@ body {
 .play-item::before {
   content: '\2713';
   position: absolute;
-  left: 0;
-  top: 2px;
+  left: 24px;
+  top: 0px;
   font-weight: 900;
 }
 
@@ -169,6 +172,12 @@ body {
   height: 40px;
   background-size: 40px 40px;
   background-image: url('../assets/svg/play.svg');
+}
+
+.play_small {
+  width: 20px;
+  height: 20px;
+  background-size: cover;
 }
 
 .pause {
