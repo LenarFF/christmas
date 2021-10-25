@@ -20,7 +20,6 @@ export async function getWeather(): Promise<void> {
 
   const res = await fetch(url);
   const weatherData = await res.json();
-  console.log(weatherData);
   if (weatherData.cod !== 200) {
     temperature.textContent = "Нет данных";
     wind.textContent = '';

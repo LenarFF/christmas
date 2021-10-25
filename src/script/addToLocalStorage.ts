@@ -18,7 +18,7 @@ import {
   addLinkListener, changeLinksState, fillList, handleLink,
 } from './links';
 
-const saveData = () => {
+export const saveData = () => {
   function setLocalStorage() {
     changeLinksState();
     localStorage.setItem('momentum_state_LenarFF4', JSON.stringify(data.state));
