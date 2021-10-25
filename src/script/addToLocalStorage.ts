@@ -1,5 +1,5 @@
 import { data } from '../data/state';
-import { createPlaylist, playMusic } from './audio';
+import { playMusic } from './audio';
 import { changeSlideApi, getLinkToImage } from './backgroundImage';
 import { changeQuote, getQuotes } from './quote';
 import {
