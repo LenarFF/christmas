@@ -62,7 +62,6 @@ export const hideElement: () => void = () => {
 const changeToEnglish = () => {
   data.state.language = 'en';
   translateSettings();
-  imageThemeInput.placeholder = 'background theme';
   nameInput.placeholder = 'input name';
   linksContainer.textContent = 'links';
   changeLinksState();
@@ -77,7 +76,6 @@ const changeToRussian = () => {
   getQuotes();
   fillList();
   translateLinks();
-  imageThemeInput.placeholder = 'фоновая тема';
   nameInput.placeholder = 'введите имя';
   linksContainer.textContent = 'ссылки';
   getWeather();

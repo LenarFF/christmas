@@ -304,8 +304,9 @@ body {
   color: #fff;
   background: transparent;
   cursor: pointer;
-  border: none;
   transition: 0.5s;
+  width: 60px;
+  border-radius: 5px;
 }
 
 .links__list {
@@ -347,13 +348,15 @@ body {
 }
 
 .links__add {
-  min-width: 51px;
+  min-width: 72px;
   background-color: transparent;
   color: white;
   outline: none;
   border: 1px solid white;
   cursor: pointer;
   align-self: center;
+  transition: 0.5s;
+  border-radius: 5px;
 }
 
 .links__add:hover {
@@ -469,6 +472,7 @@ body {
   border: none;
   height: 20px;
   align-self: end;
+  border-bottom: 1px solid white;
 }
 
 .settings_img label {
@@ -476,10 +480,6 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-}
-
-.settings__img-theme::placeholder {
-  color: white;
 }
 
 .visibility {

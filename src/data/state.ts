@@ -27,7 +27,7 @@ export const data: { state: IState } = {
     quote: true,
     linksBlock: true,
     timeOfDay: 'morning',
-    bcgrdTag: 'cat',
+    bcgrdTag: '',
     userName: '',
     city: 'Minsk',
     links: [

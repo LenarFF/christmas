@@ -23,7 +23,7 @@ export const translateLinks: () => void = () => {
   linksSave.textContent = data.state.language === 'en' ? 'save' : 'сохранить';
   linkName.placeholder = data.state.language === 'en' ? 'name' : 'название';
   linkHref.placeholder = data.state.language === 'en' ? 'link' : 'ссылка';
-  linkBTN.textContent = data.state.language === 'en' ? 'link' : 'ссылка';
+  linkBTN.textContent = data.state.language === 'en' ? 'link' : 'ссылки';
   cancelBTN.textContent = data.state.language === 'en' ? 'cancel' : 'отмена';
   if (nameLabel.firstChild) {
     nameLabel.firstChild.textContent = data.state.language === 'en' ? 'Name' : 'Название';

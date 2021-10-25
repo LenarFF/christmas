@@ -21,7 +21,7 @@ import {
 export const saveData = () => {
   function setLocalStorage() {
     changeLinksState();
-    localStorage.setItem('momentum_state_LenarFF4', JSON.stringify(data.state));
+    localStorage.setItem('momentum_state_LenarFF22', JSON.stringify(data.state));
   }
 
   window.addEventListener('beforeunload', setLocalStorage);
@@ -29,10 +29,9 @@ export const saveData = () => {
 
 const showData = async () => {
   const getLocalStorage = () => {
-    if (localStorage.getItem('momentum_state_LenarFF4')) {
-      data.state = JSON.parse(localStorage.getItem('momentum_state_LenarFF4') as string);
+    if (localStorage.getItem('momentum_state_LenarFF22')) {
+      data.state = JSON.parse(localStorage.getItem('momentum_state_LenarFF22') as string);
       addUserName();
-
       showTime();
       if (data.state.photoSource === 'github') {
         setBg();
@@ -44,7 +43,6 @@ const showData = async () => {
       getQuotes();
       changeQuote();
       playMusic();
-      createPlaylist();
       handleSettings();
       getWeather();
       handleLanguage();
