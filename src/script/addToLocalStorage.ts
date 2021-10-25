@@ -56,7 +56,7 @@ const showData = async () => {
       showImageTheme();
     }
   };
-  window.addEventListener('load', getLocalStorage);
+  window.addEventListener('DOMContentLoaded', getLocalStorage);
 };
 
 export const addToLocalStorage: () => void = () => {
