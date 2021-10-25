@@ -4,20 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./assets/favicon2.ico" type="image/x-icon" rel="shortcut icon" />
-    <!-- <link rel="stylesheet" href="./css/owfont-regular.css" />
-  <link rel="stylesheet" href="./css/style.css" /> -->
     <title>momentum</title>
   </head>
   <body>
     <header class="header">
       <div class="player">
-        <div class="player-controls">
-          <button class="play-prev player-icon"></button>
-          <button class="play player-icon"></button>
-          <button class="play-next player-icon"></button>
+        <div class="song">Aqua Caelestis</div>
+        <div class="player__time">
+          <div class="progress__container">
+            <div class="progress"></div>
+          </div>
+          <span class="player__timer"></span>
+        </div>
+        <div class="buttons">
+          <div class="player-controls">
+            <button class="play-prev player-icon"></button>
+            <button class="play player-icon"></button>
+            <button class="play-next player-icon"></button>
+          </div>
+          <div class="player__volume">
+            <div class="volume-btn"></div>
+            <input class="volume-range" type="range" id="volume" min="0" max="1" step="0.01">
+          </div>
         </div>
         <ul class="play-list"></ul>
       </div>
+
       <div class="weather">
         <input type="text" class="city" value="Minsk" />
         <i class="weather-icon owf"></i>
@@ -117,11 +129,7 @@
                 </select>
                 <label for="theme" id="theme"
                   >Background theme
-                  <input
-                    class="settings__img-theme"
-                    type="text"
-                    name="theme"
-                  />
+                  <input class="settings__img-theme" type="text" name="theme" />
                 </label>
               </div>
             </div>

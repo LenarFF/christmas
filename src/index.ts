@@ -25,7 +25,6 @@ const init = () => {
   hideElement();
   translateSettings();
   playMusic();
-
   fillList();
   handleLink();
   translateLinks();
@@ -38,9 +37,9 @@ const init = () => {
 }
 
 
-if (!localStorage['momentum-first4']) {
+if (!localStorage['momentum-first5']) {
   init();
-  localStorage['momentum-first4'] = true;
+  localStorage['momentum-first5'] = true;
 }
 
 

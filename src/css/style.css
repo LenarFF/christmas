@@ -33,6 +33,39 @@ body {
 
 .player {
   transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 230px;
+  align-items: flex-start;
+}
+
+.player__time {
+  display: flex;
+  justify-content: space-between;
+  width: 245px;
+  align-items: center;
+}
+
+.song {
+  text-align: center;
+  min-width: 160px;
+}
+
+.progress__container {
+  width: 160px;
+  background: white;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.progress {
+  background: #c5b358;
+  height: 10px;
+  border-radius: 5px;
 }
 
 .player-controls {
@@ -40,7 +73,35 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 120px;
-  margin-bottom: 28px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  width: 245px;
+  justify-content: space-between;
+}
+
+.player__volume {
+  display: flex;
+  width: 115px;
+  justify-content: space-between;
+}
+
+.volume-btn {
+  width: 30px;
+  height: 30px;
+  background-image: url('../assets/svg/volume_on.svg');
+  cursor: pointer;
+}
+
+.volume-btn_off {
+  background-image: url('../assets/svg/volume_off.svg');
+}
+
+.volume-range {
+  width: 80px;
+  cursor: pointer;
 }
 
 .play-list {
