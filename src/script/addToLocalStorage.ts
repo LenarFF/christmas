@@ -59,7 +59,7 @@ const showData = async () => {
       // document.addEventListener('DOMContentLoaded', getWeather);
     }
   };
-  window.addEventListener('load', getLocalStorage);
+  window.addEventListener('DOMContentLoaded', getLocalStorage);
 };
 
 export const addToLocalStorage: () => void = () => {
