@@ -1,5 +1,5 @@
 {
-  "name": "momentum",
+  "name": "art-quiz",
   "scripts": {
     "build": "webpack",
     "dev": "webpack serve --env develop",

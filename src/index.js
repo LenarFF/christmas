@@ -1,10 +1,3 @@
-import bootstrap from 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const app = document.getElementById('root');
-
-const Button = document.createElement('button')
-
-console.log(bootstrap)
-const bsButton = new bootstrap.Button(Button);
-
-app.innerHTML = Button;
+const app = document.getElementById('root')
