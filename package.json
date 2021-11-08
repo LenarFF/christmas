@@ -1,0 +1,34 @@
+{
+  "name": "momentum",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack serve --env develop",
+    "lint": "eslint src",
+    "prettier": "prettier --write src"
+  },
+  "devDependencies": {
+    "bundle-loader": "^0.5.6",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "copy-webpack-plugin": "^9.0.0",
+    "css-loader": "^5.2.6",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-webpack-plugin": "^2.5.4",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "json-loader": "^0.5.7",
+    "mini-css-extract-plugin": "^1.6.0",
+    "prettier": "^2.3.0",
+    "sass": "^1.34.1",
+    "sass-loader": "^12.0.0",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "bootstrap-icons": "^1.7.0",
+    "lint-staged": "^11.0.0"
+  }
+}
