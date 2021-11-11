@@ -22,6 +22,8 @@ export class Router {
       case '#/categories/':
         pageWrap.append(categoriesPage.element);
         break;
+      default:
+        pageWrap.append(startPage.element);
     }
   };
 }
