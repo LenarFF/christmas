@@ -5,7 +5,7 @@ import { CategoryItem } from '../../components/CategoryItem/CategoryItem';
 
 export class CategoriesPage extends BaseComponent {
   constructor() {
-    super('div', ['container', 'categories'])
+    super('div', ['container', 'categories', 'hidden'])
     this.title = new BaseComponent('h2', ['categories__title'], 'Category');
     this.categoriesWrap = new BaseComponent('div', ['categories__wrap']);
     categories.map((item) => {

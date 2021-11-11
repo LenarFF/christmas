@@ -8,7 +8,7 @@ export class StartPage extends BaseComponent {
     super('main', ['container', 'main', 'hidden']);
     this.title = new BaseComponent('h1', ['main-title'], 'art quiz');
     this.ul = new StartNav();
-    this.imgWrap = new ImgWrap('./img/0.jpg', ['col-8']);
+    this.imgWrap = new ImgWrap('./startPageImg/240.webp', ['col-8']);
     this.element.append(this.title.element, this.ul.element, this.imgWrap.element);
   }
 }

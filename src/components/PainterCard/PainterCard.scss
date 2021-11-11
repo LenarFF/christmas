@@ -1,0 +1,25 @@
+.painter-card {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: space-around;
+  &__title {
+    text-align: center;
+    width: 90%;
+  }
+  &__pictures {
+    width: 90%;
+    min-height: 320px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__img-wrapper {
+    width: 40vw;
+    height: 40vw;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+}
