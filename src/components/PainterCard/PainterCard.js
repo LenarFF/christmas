@@ -5,7 +5,7 @@ import './PainterCard.scss';
 
 export class PainterCard extends BaseComponent {
   constructor(painter, category) {
-    super('div', ['container', 'painter-card']);
+    super('div', ['container', 'painter-card', 'hidden']);
     this.title = new BaseComponent(
       'h3',
       ['painter-card__title'],
