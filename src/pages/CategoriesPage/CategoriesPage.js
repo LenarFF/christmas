@@ -5,6 +5,7 @@ import { CategoryItem } from '../../components/CategoryItem/CategoryItem';
 import { Button } from '../../components/Button/Button';
 import { PainterCard } from '../../components/PainterCard/PainterCard';
 import { images } from '../../data/images';
+import { Slider } from '../../components/Slider/Slider';
 
 export class CategoriesPage extends BaseComponent {
   constructor() {
@@ -33,7 +34,7 @@ export class CategoriesPage extends BaseComponent {
 
   handleCategoryCard = (e) => {
       if (e.target.dataset.category) {
-        const painterCard = new PainterCard(Number(e.target.dataset.category), 0);
+        const painterCard = new Slider(Number(e.target.dataset.category));
         const pageWrap = this.categoriesWrap.element.parentElement;
         pageWrap.innerHTML = '';
         pageWrap.append(painterCard.element);
