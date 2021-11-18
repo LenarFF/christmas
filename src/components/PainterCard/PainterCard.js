@@ -10,6 +10,8 @@ export class PainterCard extends BaseComponent {
 
     this.numberPicturesOnPage = 4;
     this.numberAllPictures = 240;
+    this.category = category;
+    this.cardNumber = cardNumber
     this.trueImageNum = Number(images[category][cardNumber].imageNum);
     this.imagesNum = [this.trueImageNum];
     this.fillImagesNum();
@@ -22,22 +24,18 @@ export class PainterCard extends BaseComponent {
 
     this.picturesWrap = new BaseComponent('div', ['painter-card__pictures']);
     this.modalBackdrop = new BaseComponent('div', ['modal-window__backdrop', 'hidden']);
-    this.modal = new Modal(this.modalBackdrop.element);
-
 
     this.imagesNum.map((number) => {
       const picture = new ImageWrapper(`./img/${number}.webp`, ['painter-card__img-wrapper']);
-      picture.element.setAttribute('data-bs-toggle', 'modal');
-      picture.element.setAttribute('data-bs-target', '#exampleModal');
+      picture.element.setAttribute('data-imgNum', `${number}`);
 
-      picture.element.addEventListener('click', () => this.showModal());
+      picture.element.addEventListener('click', (e) => this.handleModal(e));
       this.picturesWrap.element.append(picture.element);
     });
 
     this.element.append(
       this.title.element,
       this.picturesWrap.element,
-      this.modal.element,
       this.modalBackdrop.element,
     );
   }
@@ -59,9 +57,31 @@ export class PainterCard extends BaseComponent {
     arr.sort(() => Math.random() - 0.5);
   };
 
-   showModal = () => {
-    this.modal.element.classList.add('show');
+  checkCorrectnessAnswer = (currentImg) => {
+    console.log(currentImg.getAttribute('data-imgNum'), String(this.trueImageNum));
+    return currentImg.getAttribute('data-imgNum') === String(this.trueImageNum);
+  };
+
+  createModal = (correctness) => {
+    const modal = new Modal(
+      this.modalBackdrop.element,
+      this.element,
+      images[this.category][this.cardNumber],
+      correctness,
+    );
+    this.element.append(modal.element);
+    return modal;
+  };
+
+  showModal = (modal) => {
+    modal.element.classList.add('show');
     this.modalBackdrop.element.classList.remove('hidden');
   }
 
+  handleModal = (e) => {
+    if (!e.target.parentElement.getAttribute('data-imgNum')) return;
+    const correctness = this.checkCorrectnessAnswer(e.target.parentElement);
+    const modal = this.createModal(correctness);
+    this.showModal(modal);
+  };
 }

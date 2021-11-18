@@ -1,18 +1,35 @@
 import { BaseComponent } from '../BaseComponent/BaseComponent';
+import { ModalCard } from '../ModalCard/ModalCard';
 import './Modal.scss';
 
 export class Modal extends BaseComponent {
-  constructor(backdrop) {
+  constructor(backdrop, currentSlide, rightCardInfo, correctness) {
     super('div', ['modal-window']);
-    this.closeBtn = new BaseComponent('button', ['modal-close'], 'close');
+    this.backdrop = backdrop;
+    this.currentSlide = currentSlide;
+    this.nextBtn = new BaseComponent('button', ['modal-close'], 'next');
 
-    this.closeBtn.element.addEventListener('click', () => this.hideModal(backdrop));
+    this.modalCard = new ModalCard(rightCardInfo, correctness);
 
-    this.element.append(this.closeBtn.element);
+    this.nextBtn.element.addEventListener('click', () => this.handleNextBtn());
+
+    this.element.append(this.modalCard.element, this.nextBtn.element);
   }
 
-  hideModal = (backdrop) => {
+  hideModal = () => {
     this.element.classList.remove('show');
-    backdrop.classList.add('hidden');
+    this.backdrop.classList.add('hidden');
+  };
+
+  changeSlide = () => {
+    if (this.currentSlide.nextSibling) {
+      this.currentSlide.classList.add('hidden');
+      this.currentSlide.nextSibling.classList.remove('hidden');
+    }
+  };
+
+  handleNextBtn = () => {
+    this.hideModal();
+    this.changeSlide();
   };
 }
