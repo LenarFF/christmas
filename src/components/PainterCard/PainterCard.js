@@ -20,7 +20,7 @@ export class PainterCard extends BaseComponent {
     this.shuffleArray(this.imagesNum);
     this.title = new BaseComponent(
       'h3',
-      ['painter-card__title'],
+      ['painter-card__title', 'card-title'],
       `Какую из этих картин написал ${images[category][cardNumber].author}?`,
     );
 

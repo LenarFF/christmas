@@ -6,7 +6,6 @@ import { state } from '../../state';
 export class Results extends BaseComponent {
   constructor() {
     super('div', ['results']);
-    console.log(state)
     this.resultSpan = new BaseComponent('span', ['results__result'], `${state.rightAnswers} / ${state.allAnswers}`)
     this.homeBtn = new Button('Home')
     this.homeBtn.element.addEventListener('click', this.handleHomeBtn);

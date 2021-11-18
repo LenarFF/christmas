@@ -1,7 +1,14 @@
 .category__item {
   height: 70px;
   width: 70px;
-  background-color: blue;
   cursor: pointer;
   color: white;
+
+  &_artists {
+    background-color: #197f7f;
+  }
+
+  &_paintings {
+    background-color: darkgray;
+  }
 }
