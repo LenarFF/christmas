@@ -33,11 +33,19 @@ export class PainterCard extends BaseComponent {
       this.picturesWrap.element.append(picture.element);
     });
 
+    this.counterSpan = new BaseComponent(
+      'span',
+      ['painter-card__counter'],
+      `${this.cardNumber + 1} / ${images[this.category].length}`,
+    );
+
     this.element.append(
       this.title.element,
       this.picturesWrap.element,
+      this.counterSpan.element,
       this.modalBackdrop.element,
     );
+
   }
 
   fillImagesNum = () => {
@@ -58,7 +66,6 @@ export class PainterCard extends BaseComponent {
   };
 
   checkCorrectnessAnswer = (currentImg) => {
-    console.log(currentImg.getAttribute('data-imgNum'), String(this.trueImageNum));
     return currentImg.getAttribute('data-imgNum') === String(this.trueImageNum);
   };
 
@@ -78,10 +85,13 @@ export class PainterCard extends BaseComponent {
     this.modalBackdrop.element.classList.remove('hidden');
   }
 
+
+
   handleModal = (e) => {
     if (!e.target.parentElement.getAttribute('data-imgNum')) return;
     const correctness = this.checkCorrectnessAnswer(e.target.parentElement);
     const modal = this.createModal(correctness);
     this.showModal(modal);
   };
+
 }
