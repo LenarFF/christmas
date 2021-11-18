@@ -3,6 +3,7 @@ import { BaseComponent } from '../BaseComponent/BaseComponent';
 import { ImageWrapper } from '../ImageWrapper/ImageWrapper';
 import './PainterCard.scss';
 import { Modal } from '../Modal/Modal';
+import { state } from './../../state';
 
 export class PainterCard extends BaseComponent {
   constructor(category, cardNumber) {
@@ -10,6 +11,7 @@ export class PainterCard extends BaseComponent {
 
     this.numberPicturesOnPage = 4;
     this.numberAllPictures = 240;
+    state.allAnswers = images[category].length;
     this.category = category;
     this.cardNumber = cardNumber
     this.trueImageNum = Number(images[category][cardNumber].imageNum);
@@ -66,7 +68,9 @@ export class PainterCard extends BaseComponent {
   };
 
   checkCorrectnessAnswer = (currentImg) => {
-    return currentImg.getAttribute('data-imgNum') === String(this.trueImageNum);
+    const correctness = currentImg.getAttribute('data-imgNum') === String(this.trueImageNum)
+    if (correctness) state.rightAnswers++
+    return correctness;
   };
 
   createModal = (correctness) => {
@@ -75,7 +79,9 @@ export class PainterCard extends BaseComponent {
       this.element,
       images[this.category][this.cardNumber],
       correctness,
+      this.cardNumber === images[this.category].length - 1
     );
+
     this.element.append(modal.element);
     return modal;
   };
@@ -85,10 +91,9 @@ export class PainterCard extends BaseComponent {
     this.modalBackdrop.element.classList.remove('hidden');
   }
 
-
-
   handleModal = (e) => {
     if (!e.target.parentElement.getAttribute('data-imgNum')) return;
+
     const correctness = this.checkCorrectnessAnswer(e.target.parentElement);
     const modal = this.createModal(correctness);
     this.showModal(modal);

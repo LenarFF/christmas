@@ -3,10 +3,11 @@ import { ModalCard } from '../ModalCard/ModalCard';
 import './Modal.scss';
 
 export class Modal extends BaseComponent {
-  constructor(backdrop, currentSlide, rightCardInfo, correctness) {
+  constructor(backdrop, currentSlide, rightCardInfo, correctness, isEndSlides) {
     super('div', ['modal-window']);
     this.backdrop = backdrop;
     this.currentSlide = currentSlide;
+    this.isEndSlides = isEndSlides;
     this.nextBtn = new BaseComponent('button', ['modal-close'], 'next');
 
     this.modalCard = new ModalCard(rightCardInfo, correctness);
@@ -29,7 +30,12 @@ export class Modal extends BaseComponent {
   };
 
   handleNextBtn = () => {
+        if (this.isEndSlides) {
+          location.hash = '#/results/';
+          return;
+        }
     this.hideModal();
     this.changeSlide();
+
   };
 }
