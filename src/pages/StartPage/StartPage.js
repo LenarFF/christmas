@@ -23,6 +23,8 @@ export class StartPage extends BaseComponent {
       } else if (e.target.dataset.value === 'paintings') {
         state.currentQuizVariant = 'paintings';
         location.hash = '#/categories/';
+      } else if (e.target.dataset.value === 'settings') {
+        location.hash = '#/settings/';
       }
     }
   };
