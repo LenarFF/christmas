@@ -31,8 +31,9 @@ export class App extends BaseComponent {
 
   getLocalStorage = () => {
     if (localStorage.getItem('ArtQuiz_state_LenarFF')) {
-      const state = JSON.parse(localStorage.getItem('ArtQuiz_state_LenarFF'));
-      // console.log(x);
+      const localStorageInfo = JSON.parse(localStorage.getItem('ArtQuiz_state_LenarFF'));
+      state.paintingsRightAnswers = localStorageInfo.paintingsRightAnswers;
+      state.artistsRightAnswers = localStorageInfo.artistsRightAnswers;
     }
   };
 }
