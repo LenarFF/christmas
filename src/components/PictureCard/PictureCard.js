@@ -15,6 +15,7 @@ export class PictureCard extends BaseComponent {
     this.category = category;
     this.cardNumber = cardNumber;
     this.numberAnswersOnPage = 4;
+    if (this.cardNumber === 0) state.paintingsRightAnswers[this.category + 1] = 0;
     this.trueAnswerNum = Number(images[category][cardNumber].imageNum);
     this.answersObj = [images[category][cardNumber]];
     this.answers = [images[category][cardNumber].author];
@@ -72,16 +73,8 @@ export class PictureCard extends BaseComponent {
   };
 
   checkCorrectnessAnswer = (currentImg) => {
-    console.log(currentImg.getAttribute('data-imgNum'), String(this.trueAnswerNum));
     const correctness = currentImg.getAttribute('data-imgNum') === String(this.trueAnswerNum);
-    console.log(correctness);
-    if (correctness) {
-      if (state.paintingsRightAnswers[this.category + 1]) {
-        state.paintingsRightAnswers[this.category + 1]++;
-      } else {
-        state.paintingsRightAnswers[this.category] = 1;
-      }
-    }
+    if (correctness) this.setRightAnswersInState();
     return correctness;
   };
 
@@ -91,11 +84,19 @@ export class PictureCard extends BaseComponent {
       this.element,
       images[this.category][this.cardNumber],
       correctness,
-      this.cardNumber === images[this.category].length - 1,
+      this.checkEndSlides(),
     );
 
     this.element.append(modal.element);
     return modal;
+  };
+
+  setRightAnswersInState = () => {
+    state.paintingsRightAnswers[this.category + 1]++;
+  };
+
+  checkEndSlides = () => {
+    return this.cardNumber === images[this.category].length - 1;
   };
 
   showModal = (modal) => {

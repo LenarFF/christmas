@@ -30,6 +30,7 @@ export class Results extends BaseComponent {
 
   getRightAnswersNumber = () => {
     if (state.currentQuizVariant === 'artists') {
+      console.log(this.currentCategory);
       this.rightAnswers = state.artistsRightAnswers[this.currentCategory];
     } else if (state.currentQuizVariant === 'paintings') {
       this.rightAnswers = state.paintingsRightAnswers[this.currentCategory]

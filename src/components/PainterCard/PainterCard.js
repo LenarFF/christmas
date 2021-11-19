@@ -17,6 +17,7 @@ export class PainterCard extends BaseComponent {
     this.cardNumber = cardNumber;
     this.trueImageNum = Number(images[category][cardNumber].imageNum);
     this.imagesNum = [this.trueImageNum];
+    if (this.cardNumber === 0) state.artistsRightAnswers[this.category + 1] = 0;
     this.fillImagesNum();
     this.shuffleArray(this.imagesNum);
     this.title = new BaseComponent(
@@ -69,14 +70,12 @@ export class PainterCard extends BaseComponent {
 
   checkCorrectnessAnswer = (currentImg) => {
     const correctness = currentImg.getAttribute('data-imgNum') === String(this.trueImageNum);
-    if (correctness) {
-      if (state.artistsRightAnswers[this.category]) {
-        state.artistsRightAnswers[this.category + 1]++;
-      } else {
-        state.artistsRightAnswers[this.category + 1] = 1;
-      }
-    }
+    if (correctness) this.setRightAnswersInState();
     return correctness;
+  };
+
+  setRightAnswersInState = () => {
+    state.artistsRightAnswers[this.category + 1]++;
   };
 
   createModal = (correctness) => {
@@ -85,11 +84,15 @@ export class PainterCard extends BaseComponent {
       this.element,
       images[this.category][this.cardNumber],
       correctness,
-      this.cardNumber === images[this.category].length - 1,
+      this.checkEndSlides(),
     );
 
     this.element.append(modal.element);
     return modal;
+  };
+
+  checkEndSlides = () => {
+    return this.cardNumber === images[this.category].length - 1;
   };
 
   showModal = (modal) => {

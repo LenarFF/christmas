@@ -1,5 +1,6 @@
 import { BaseComponent } from '../components/BaseComponent/BaseComponent';
 import { Footer } from '../components/Footer/Footer';
+import { StartPage } from '../pages/StartPage/StartPage';
 import { Router } from '../routing';
 import { state } from '../state';
 import './App.scss';
@@ -10,12 +11,16 @@ export class App extends BaseComponent {
     this.footer = new Footer();
     this.pageWrap = new BaseComponent('div', ['page-wrapper']);
     this.router = new Router();
+    this.startPage = new StartPage();
     this.router.addListener(this.pageWrap.element);
     window.onload = () => {
       window.location.hash = '#/start-page/';
     };
 
+    this.pageWrap.element.append(this.startPage.element);
+
     this.element.append(this.pageWrap.element, this.footer.element);
+
     window.addEventListener('beforeunload', this.setLocalStorage);
     window.addEventListener('DOMContentLoaded', this.getLocalStorage);
   }
