@@ -12,7 +12,7 @@ export class PainterCard extends BaseComponent {
     this.numberPicturesOnPage = 4;
     this.numberAllPictures = 240;
     state.allAnswers = images[category].length;
-    state.currentCategory = category;
+    state.currentCategory = category + 1;
     this.category = category;
     this.cardNumber = cardNumber;
     this.trueImageNum = Number(images[category][cardNumber].imageNum);
@@ -71,9 +71,9 @@ export class PainterCard extends BaseComponent {
     const correctness = currentImg.getAttribute('data-imgNum') === String(this.trueImageNum);
     if (correctness) {
       if (state.artistsRightAnswers[this.category]) {
-        state.artistsRightAnswers[this.category]++;
+        state.artistsRightAnswers[this.category + 1]++;
       } else {
-        state.artistsRightAnswers[this.category] = 1;
+        state.artistsRightAnswers[this.category + 1] = 1;
       }
     }
     return correctness;

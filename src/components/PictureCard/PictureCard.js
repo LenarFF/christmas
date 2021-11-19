@@ -10,7 +10,7 @@ export class PictureCard extends BaseComponent {
   constructor(category, cardNumber) {
     super('div', ['picture-card', 'hidden']);
 
-    state.currentCategory = category;
+    state.currentCategory = category + 1;
     state.allAnswers = images[category].length;
     this.category = category;
     this.cardNumber = cardNumber;
@@ -76,8 +76,8 @@ export class PictureCard extends BaseComponent {
     const correctness = currentImg.getAttribute('data-imgNum') === String(this.trueAnswerNum);
     console.log(correctness);
     if (correctness) {
-      if (state.paintingsRightAnswers[this.category]) {
-        state.paintingsRightAnswers[this.category]++;
+      if (state.paintingsRightAnswers[this.category + 1]) {
+        state.paintingsRightAnswers[this.category + 1]++;
       } else {
         state.paintingsRightAnswers[this.category] = 1;
       }

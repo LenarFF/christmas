@@ -1,4 +1,4 @@
-export const state = {
+export let state = {
   currentQuizVariant: '',
   currentCategory: null,
   allAnswers: 10,
