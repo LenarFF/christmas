@@ -5,9 +5,9 @@ import './CategoryItem.scss';
 export class CategoryItem extends BaseComponent {
   constructor(text) {
     super('div', ['category__item'], text);
-    if (state.quizVariant === 'artists') {
+    if (state.currentQuizVariant === 'artists') {
       this.element.classList.add('category__item_artists');
-    } else if (state.quizVariant === 'paintings') {
+    } else if (state.currentQuizVariant === 'paintings') {
       this.element.classList.add('category__item_paintings');
     }
   }

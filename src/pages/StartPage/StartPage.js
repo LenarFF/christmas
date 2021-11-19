@@ -18,10 +18,10 @@ export class StartPage extends BaseComponent {
   handleBtn = (e) => {
     if (e.target.dataset) {
       if (e.target.dataset.value === 'artists') {
-        state.quizVariant = 'artists';
+        state.currentQuizVariant = 'artists';
         location.hash = '#/categories/';
       } else if (e.target.dataset.value === 'paintings') {
-        state.quizVariant = 'paintings';
+        state.currentQuizVariant = 'paintings';
         location.hash = '#/categories/';
       }
     }

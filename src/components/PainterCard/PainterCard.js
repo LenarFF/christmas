@@ -12,8 +12,9 @@ export class PainterCard extends BaseComponent {
     this.numberPicturesOnPage = 4;
     this.numberAllPictures = 240;
     state.allAnswers = images[category].length;
+    state.currentCategory = category;
     this.category = category;
-    this.cardNumber = cardNumber
+    this.cardNumber = cardNumber;
     this.trueImageNum = Number(images[category][cardNumber].imageNum);
     this.imagesNum = [this.trueImageNum];
     this.fillImagesNum();
@@ -28,7 +29,7 @@ export class PainterCard extends BaseComponent {
     this.modalBackdrop = new BaseComponent('div', ['modal-window__backdrop', 'hidden']);
 
     this.imagesNum.map((number) => {
-      const picture = new ImageWrapper(`./img/${number}.webp`, ['painter-card__img-wrapper']);
+      const picture = new ImageWrapper(`./img/${number}.webp`, ['inner-img-wrapper']);
       picture.element.setAttribute('data-imgNum', `${number}`);
 
       picture.element.addEventListener('click', (e) => this.handleModal(e));
@@ -47,7 +48,6 @@ export class PainterCard extends BaseComponent {
       this.counterSpan.element,
       this.modalBackdrop.element,
     );
-
   }
 
   fillImagesNum = () => {
@@ -68,8 +68,14 @@ export class PainterCard extends BaseComponent {
   };
 
   checkCorrectnessAnswer = (currentImg) => {
-    const correctness = currentImg.getAttribute('data-imgNum') === String(this.trueImageNum)
-    if (correctness) state.rightAnswers++
+    const correctness = currentImg.getAttribute('data-imgNum') === String(this.trueImageNum);
+    if (correctness) {
+      if (state.artistsRightAnswers[this.category]) {
+        state.artistsRightAnswers[this.category]++;
+      } else {
+        state.artistsRightAnswers[this.category] = 1;
+      }
+    }
     return correctness;
   };
 
@@ -79,7 +85,7 @@ export class PainterCard extends BaseComponent {
       this.element,
       images[this.category][this.cardNumber],
       correctness,
-      this.cardNumber === images[this.category].length - 1
+      this.cardNumber === images[this.category].length - 1,
     );
 
     this.element.append(modal.element);
@@ -89,7 +95,7 @@ export class PainterCard extends BaseComponent {
   showModal = (modal) => {
     modal.element.classList.add('show');
     this.modalBackdrop.element.classList.remove('hidden');
-  }
+  };
 
   handleModal = (e) => {
     if (!e.target.parentElement.getAttribute('data-imgNum')) return;
@@ -98,5 +104,4 @@ export class PainterCard extends BaseComponent {
     const modal = this.createModal(correctness);
     this.showModal(modal);
   };
-
 }

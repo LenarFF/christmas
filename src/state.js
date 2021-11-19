@@ -1,5 +1,7 @@
 export const state = {
-  quizVariant: '',
-  rightAnswers: 0,
-  allAnswers: 10
-}
+  currentQuizVariant: '',
+  currentCategory: null,
+  allAnswers: 10,
+  paintingsRightAnswers: {},
+  artistsRightAnswers: {},
+};

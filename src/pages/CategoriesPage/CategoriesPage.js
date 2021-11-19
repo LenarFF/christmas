@@ -16,7 +16,7 @@ export class CategoriesPage extends BaseComponent {
 
     categories.map((item, index) => {
       const category = new CategoryItem(item);
-      category.element.setAttribute('data-category', index);
+      category.element.setAttribute('data-category', index + 1);
       this.categoriesWrap.element.append(category.element);
     });
 

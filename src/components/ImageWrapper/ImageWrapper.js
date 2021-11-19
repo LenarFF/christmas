@@ -5,7 +5,7 @@ export class ImageWrapper extends BaseComponent {
   constructor(src, styles = []) {
     super('div');
 
-    this.img = new BaseComponent('img', ['painter-card__img']);
+    this.img = new BaseComponent('img', ['inner-img']);
     this.element.classList.add(...styles);
     this.img.element.src = src;
 

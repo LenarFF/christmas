@@ -6,7 +6,18 @@ import { state } from '../../state';
 export class Results extends BaseComponent {
   constructor() {
     super('div', ['results']);
-    this.resultSpan = new BaseComponent('span', ['results__result'], `${state.rightAnswers} / ${state.allAnswers}`)
+
+    console.log(state)
+    this.rightAnswers = 0;
+    this.currentCategory = state.currentCategory;
+
+    this.getRightAnswersNumber();
+
+    this.resultSpan = new BaseComponent(
+      'span',
+      ['results__result'],
+      `${this.rightAnswers} / ${state.allAnswers}`,
+    );
     this.homeBtn = new Button('Home')
     this.homeBtn.element.addEventListener('click', this.handleHomeBtn);
 
@@ -15,5 +26,13 @@ export class Results extends BaseComponent {
 
   handleHomeBtn = () => {
     location.hash = '#/start-page/'
+  }
+
+  getRightAnswersNumber = () => {
+    if (state.currentQuizVariant === 'artists') {
+      this.rightAnswers = state.artistsRightAnswers[this.currentCategory];
+    } else if (state.currentQuizVariant === 'paintings') {
+      this.rightAnswers = state.paintingsRightAnswers[this.currentCategory]
+    }
   }
 }

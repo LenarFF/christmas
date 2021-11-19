@@ -10,9 +10,9 @@ export class Slider extends BaseComponent {
     super('div', ['slider-wrap']);
     images[category].map((item, index) => {
       let card = null;
-      if (state.quizVariant === 'artists') {
+      if (state.currentQuizVariant === 'artists') {
         card = new PainterCard(category, index);
-      } else if (state.quizVariant === 'paintings') {
+      } else if (state.currentQuizVariant === 'paintings') {
         card = new PictureCard(category, index);
       }
       if (index === 0) card.element.classList.remove('hidden');
