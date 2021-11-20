@@ -6,7 +6,11 @@
 
 .page-wrapper {
   flex-grow: 1;
-  display: flex;
+  overflow: hidden;
+}
+
+.page-container {
+  height: 100%;
 }
 
 .hidden {

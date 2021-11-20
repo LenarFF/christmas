@@ -2,6 +2,7 @@ import { CategoriesPage } from './pages/CategoriesPage/CategoriesPage';
 import { StartPage } from './pages/StartPage/StartPage';
 import { Results } from './pages/Results/Results';
 import { SettingsPage } from './pages/SettingsPage/SettingsPage';
+import { BaseComponent } from './components/BaseComponent/BaseComponent';
 
 export class Router {
   addListener(pageWrap) {
@@ -13,27 +14,49 @@ export class Router {
     }
   }
 
-  locationResolver = (locationHash, pageWrap) => {
-    pageWrap.innerHTML = '';
+  locationResolver = (locationHash, parent) => {
+    const pageContainer = parent.firstChild;
+    const newPageContainer = this.createNewContainer(parent);
     const startPage = new StartPage();
     const categoriesPage = new CategoriesPage();
     const results = new Results();
     const settingsPage = new SettingsPage();
     switch (locationHash) {
       case '#/start-page/':
-        pageWrap.append(startPage.element);
+        newPageContainer.element.append(startPage.element);
         break;
       case '#/categories/':
-        pageWrap.append(categoriesPage.element);
+        newPageContainer.element.append(categoriesPage.element);
         break;
       case '#/results/':
-        pageWrap.append(results.element);
+        newPageContainer.element.append(results.element);
         break;
       case '#/settings/':
-        pageWrap.append(settingsPage.element);
+        newPageContainer.element.append(settingsPage.element);
         break;
       default:
-        pageWrap.append(startPage.element);
+        newPageContainer.element.append(startPage.element);
     }
+    this.scrollPage(parent);
+    this.removeOldPage(parent, pageContainer);
+  };
+
+  createNewContainer = (parent) => {
+    const newPageContainer = new BaseComponent('div', ['page-container']);
+    parent.append(newPageContainer.element);
+    return newPageContainer;
+  };
+
+  scrollPage = (pageWrap) => {
+    pageWrap.scrollTo({
+      top: 2000,
+      behavior: 'smooth',
+    });
+  };
+
+  removeOldPage = (parent, oldPage) => {
+    setTimeout(() => {
+      parent.removeChild(oldPage);
+    }, 500);
   };
 }

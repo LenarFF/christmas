@@ -10,14 +10,17 @@ export class App extends BaseComponent {
     super('div', ['app']);
     this.footer = new Footer();
     this.pageWrap = new BaseComponent('div', ['page-wrapper']);
+    this.pageContainer = new BaseComponent('div', ['page-container']);
     this.router = new Router();
     this.startPage = new StartPage();
-    this.router.addListener(this.pageWrap.element);
     window.onload = () => {
       window.location.hash = '#/start-page/';
     };
+    this.router.addListener(this.pageWrap.element);
 
-    this.pageWrap.element.append(this.startPage.element);
+    this.pageWrap.element.append(this.pageContainer.element);
+
+    this.pageContainer.element.append(this.startPage.element);
 
     this.element.append(this.pageWrap.element, this.footer.element);
 
