@@ -3,6 +3,7 @@ import { StartPage } from './pages/StartPage/StartPage';
 import { Results } from './pages/Results/Results';
 import { SettingsPage } from './pages/SettingsPage/SettingsPage';
 import { BaseComponent } from './components/BaseComponent/BaseComponent';
+import { ScorePage } from './pages/ScorePage/ScorePage';
 
 export class Router {
   addListener(pageWrap) {
@@ -21,6 +22,7 @@ export class Router {
     const categoriesPage = new CategoriesPage();
     const results = new Results();
     const settingsPage = new SettingsPage();
+    const scorePage = new ScorePage(1)
     switch (locationHash) {
       case '#/start-page/':
         newPageContainer.element.append(startPage.element);
@@ -33,6 +35,9 @@ export class Router {
         break;
       case '#/settings/':
         newPageContainer.element.append(settingsPage.element);
+        break;
+      case '#/score/':
+        newPageContainer.element.append(scorePage.element);
         break;
       default:
         newPageContainer.element.append(startPage.element);
