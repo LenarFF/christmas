@@ -1,6 +1,7 @@
 import './SettingsPage.scss';
 import { BaseComponent } from '../../components/BaseComponent/BaseComponent';
 import { Button } from '../../components/Button/Button';
+import { SettingsCard } from '../../components/SettingsCard/SettingsCard';
 
 export class SettingsPage extends BaseComponent {
   constructor() {
@@ -10,7 +11,21 @@ export class SettingsPage extends BaseComponent {
 
     this.homeBtn.element.addEventListener('click', this.handleHomeBtn);
 
-    this.element.append(this.title.element, this.homeBtn.element);
+    this.top = new BaseComponent('div', ['settings__top']);
+    this.top.element.append(this.homeBtn.element, this.title.element);
+
+    this.volumeCard = new SettingsCard(
+      'Volume',
+      'soundVolume',
+      'settings-card__controls-btn_volume-on',
+      'settings-card__controls-btn_volume-off',
+      './settingImg/volume.jpg',
+      '0',
+      '1',
+      '0.01',
+    );
+
+    this.element.append(this.title.element, this.homeBtn.element, this.volumeCard.element);
   }
 
   handleHomeBtn = () => {

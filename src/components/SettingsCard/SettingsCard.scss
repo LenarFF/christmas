@@ -1,0 +1,31 @@
+.settings-card {
+  width: 80wv;
+  height: 80wv;
+  &__controls {
+    display: flex;
+  }
+  &__controls-btn-wrap {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__controls-btn {
+    width: 20px;
+    height: 20px;
+    &_volume-on {
+      background-image: url('../../assets/volume_on.svg');
+    }
+    &_volume-off {
+      background-image: url('../../assets/volume_off.svg');
+    }
+    &_time-on {
+      background-image: url('../../assets/time_on.jpg');
+    }
+    &_time-off {
+      background-image: url('../../assets/time_off.jpg');
+    }
+  }
+}

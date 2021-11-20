@@ -37,6 +37,8 @@ export class App extends BaseComponent {
       const localStorageInfo = JSON.parse(localStorage.getItem('ArtQuiz_state_LenarFF'));
       state.paintingsRightAnswers = localStorageInfo.paintingsRightAnswers;
       state.artistsRightAnswers = localStorageInfo.artistsRightAnswers;
+      state.soundVolume = localStorageInfo.soundVolume;
+      state.timer = localStorageInfo.timer;
     }
   };
 }
