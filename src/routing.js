@@ -22,7 +22,7 @@ export class Router {
     const categoriesPage = new CategoriesPage();
     const results = new Results();
     const settingsPage = new SettingsPage();
-    const scorePage = new ScorePage(1)
+    const scorePage = new ScorePage(1);
     switch (locationHash) {
       case '#/start-page/':
         newPageContainer.element.append(startPage.element);

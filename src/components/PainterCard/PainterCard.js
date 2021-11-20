@@ -16,6 +16,8 @@ export class PainterCard extends BaseComponent {
     this.category = category;
     this.cardNumber = cardNumber;
     this.trueImageNum = Number(images[category][cardNumber].imageNum);
+    this.correctAudio = new Audio('./sound/correct.mp3');
+    this.incorrectAudio = new Audio('./sound/incorrect.mp3');
     this.imagesNum = [this.trueImageNum];
     if (this.cardNumber === 0) state.artistsRightAnswers[this.category + 1] = 0;
     this.fillImagesNum();
@@ -100,11 +102,18 @@ export class PainterCard extends BaseComponent {
     this.modalBackdrop.element.classList.remove('hidden');
   };
 
+  playAudio = (correctness) => {
+    const audio = new Audio(`./sound/${correctness ? 'correct.mp3' : 'incorrect.wav'}`);
+    audio.volume = state.soundVolume;
+    audio.play();
+  }
+
   handleModal = (e) => {
     if (!e.target.parentElement.getAttribute('data-imgNum')) return;
 
     const correctness = this.checkCorrectnessAnswer(e.target.parentElement);
     const modal = this.createModal(correctness);
     this.showModal(modal);
+    this.playAudio(correctness);
   };
 }

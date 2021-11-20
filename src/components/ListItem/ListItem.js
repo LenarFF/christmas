@@ -8,6 +8,6 @@ export class ListItem extends BaseComponent {
       ['list-group-item', 'list-group-item-action', 'list-group-item-warning', 'nav__item'],
       itemInfo.text,
     );
-    this.element.setAttribute('data-value', `${itemInfo.attribute}`)
+    this.element.setAttribute('data-value', `${itemInfo.attribute}`);
   }
 }

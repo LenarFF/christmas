@@ -7,9 +7,9 @@ export class Results extends BaseComponent {
   constructor() {
     super('div', ['results']);
 
-    console.log(state)
     this.rightAnswers = 0;
     this.currentCategory = state.currentCategory;
+ 
 
     this.getRightAnswersNumber();
 
@@ -18,22 +18,22 @@ export class Results extends BaseComponent {
       ['results__result'],
       `${this.rightAnswers} / ${state.allAnswers}`,
     );
-    this.homeBtn = new Button('Home')
+    this.homeBtn = new Button('Home');
     this.homeBtn.element.addEventListener('click', this.handleHomeBtn);
 
     this.element.append(this.resultSpan.element, this.homeBtn.element);
   }
 
   handleHomeBtn = () => {
-    location.hash = '#/start-page/'
-  }
+    location.hash = '#/start-page/';
+  };
 
   getRightAnswersNumber = () => {
     if (state.currentQuizVariant === 'artists') {
       console.log(this.currentCategory);
       this.rightAnswers = state.artistsRightAnswers[this.currentCategory];
     } else if (state.currentQuizVariant === 'paintings') {
-      this.rightAnswers = state.paintingsRightAnswers[this.currentCategory]
+      this.rightAnswers = state.paintingsRightAnswers[this.currentCategory];
     }
-  }
+  };
 }

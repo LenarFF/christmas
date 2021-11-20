@@ -1,7 +1,7 @@
 import './ScorePage.scss';
 import { BaseComponent } from '../../components/BaseComponent/BaseComponent';
 import { images } from '../../data/images';
-import { ImageWrapper } from './../../components/ImageWrapper/ImageWrapper';
+import { ImageWrapper } from '../../components/ImageWrapper/ImageWrapper';
 
 export class ScorePage extends BaseComponent {
   constructor(category) {
@@ -11,9 +11,9 @@ export class ScorePage extends BaseComponent {
 
     images[category].map((item) => {
       const image = new ImageWrapper(`./img/${item.imageNum}.webp`, ['score-page__image']);
-      this.imagesWrap.element.append(image.element)
-    })
+      this.imagesWrap.element.append(image.element);
+    });
 
-    this.element.append(this.imagesWrap.element)
+    this.element.append(this.imagesWrap.element);
   }
 }

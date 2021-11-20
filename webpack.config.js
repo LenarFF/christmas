@@ -5,7 +5,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
-
 const devServer = (isDev) =>
   !isDev
     ? {}
@@ -18,7 +17,7 @@ const devServer = (isDev) =>
         },
       };
 
-const eslintPlugin = (isDev) => (isDev ? [] : [new ESLintPlugin({ extensions: [ 'js'] })]);
+const eslintPlugin = (isDev) => (isDev ? [] : [new ESLintPlugin({ extensions: ['ts'] })]);
 
 module.exports = ({ develop }) => ({
   mode: develop ? 'development' : 'production',
@@ -47,8 +46,14 @@ module.exports = ({ develop }) => ({
         test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.(mp3|wav)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+        },
+      },
     ],
-
   },
   resolve: {
     extensions: ['.ts', '.js'],
@@ -64,7 +69,7 @@ module.exports = ({ develop }) => ({
       patterns: [{ from: './public' }],
     }),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-    ...eslintPlugin(develop)
+    ...eslintPlugin(develop),
   ],
   ...devServer(develop),
 });

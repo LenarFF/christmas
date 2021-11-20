@@ -1,5 +1,5 @@
 import './ModalCard.scss';
-import { BaseComponent } from './../BaseComponent/BaseComponent';
+import { BaseComponent } from '../BaseComponent/BaseComponent';
 import { ImageWrapper } from '../ImageWrapper/ImageWrapper';
 
 export class ModalCard extends BaseComponent {

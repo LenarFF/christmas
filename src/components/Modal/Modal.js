@@ -1,3 +1,4 @@
+import { state } from '../../state';
 import { BaseComponent } from '../BaseComponent/BaseComponent';
 import { ModalCard } from '../ModalCard/ModalCard';
 import './Modal.scss';
@@ -30,12 +31,18 @@ export class Modal extends BaseComponent {
   };
 
   handleNextBtn = () => {
-        if (this.isEndSlides) {
-          location.hash = '#/results/';
-          return;
-        }
+    if (this.isEndSlides) {
+      location.hash = '#/results/';
+      this.playEndSound();
+      return;
+    }
     this.hideModal();
     this.changeSlide();
+  };
 
+  playEndSound = () => {
+    this.audio = new Audio('./sound/end.mp3');
+    this.audio.volume = state.soundVolume;
+    this.audio.play();
   };
 }

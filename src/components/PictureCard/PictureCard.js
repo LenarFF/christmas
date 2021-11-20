@@ -104,10 +104,17 @@ export class PictureCard extends BaseComponent {
     this.modalBackdrop.element.classList.remove('hidden');
   };
 
+  playAudio = (correctness) => {
+    const audio = new Audio(`./sound/${correctness ? 'correct.mp3' : 'incorrect.wav'}`);
+    audio.volume = state.soundVolume;
+    audio.play();
+  };
+
   handleModal = (e) => {
     if (!e.target.getAttribute('data-imgNum')) return;
     const correctness = this.checkCorrectnessAnswer(e.target);
     const modal = this.createModal(correctness);
     this.showModal(modal);
+    this.playAudio(correctness);
   };
 }
