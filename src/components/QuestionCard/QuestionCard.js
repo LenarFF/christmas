@@ -9,33 +9,38 @@ export class QuestionCard extends BaseComponent {
     super('div', ['question-card']);
 
     this.time = Number(state.timer) + 1;
-    console.log(this.time)
     this.category = category;
     this.cardNumber = cardNumber;
-    this.timerStop = false;
+    this.isTimerStop = false;
 
     this.counterSpan = new BaseComponent(
       'span',
       ['question-card__counter'],
-      `${state.currentSlide} / ${images[state.currentCategory - 1].length}`,
+      `${state.currentSlide} / ${images[state.currentCategory].length}`,
     );
 
-    this.timer = new BaseComponent('span', ['question-card__timer'], state.timer);
-
     this.cardInfo = new BaseComponent('div', ['question-card__info']);
-    this.cardInfo.element.append(this.counterSpan.element, this.timer.element);
-
     this.modalBackdrop = new BaseComponent('div', ['modal-window__backdrop', 'hidden']);
 
+    if (state.timer !== '0') {
+      this.timer = new BaseComponent('span', ['question-card__timer'], state.timer);
+      this.showTimer();
+    }
+    this.cardInfo.element.append(this.counterSpan.element, this.timer.element);
     this.element.append(this.cardInfo.element, this.modalBackdrop.element);
-    this.showTimer();
+    window.addEventListener(
+      'popstate',
+      () => {
+        this.isTimerStop = true;
+      },
+      false,
+    );
   }
 
   showTimer = () => {
-    if (this.timerStop) return
+    if (this.isTimerStop) return;
     this.time--;
     this.timer.element.innerText = this.time;
-    console.log(this.time);
     if (this.time === 0) {
       this.showModal(this.createModal(false));
       this.playAudio(false);
@@ -49,16 +54,18 @@ export class QuestionCard extends BaseComponent {
   };
 
   checkCorrectnessAnswer = (currentImg, rightImageNum) => {
+    console.log(currentImg.getAttribute('data-imgNum'), String(rightImageNum));
+    console.log(state.paintingsRightAnswers);
     const correctness = currentImg.getAttribute('data-imgNum') === String(rightImageNum);
     if (correctness) this.setRightAnswersInState();
     return correctness;
   };
 
   setRightAnswersInState = () => {
-    if (state.currentCategory === 'artists') {
-      state.artistsRightAnswers[this.category + 1]++;
-    } else if (state.currentCategory === 'paintings') {
-      state.paintingsRightAnswers[this.category + 1]++;
+    if (state.currentQuizVariant === 'artists') {
+      state.artistsRightAnswers[String(this.category)]++;
+    } else if (state.currentQuizVariant === 'paintings') {
+      state.paintingsRightAnswers[String(this.category)]++;
     }
   };
 
@@ -72,7 +79,7 @@ export class QuestionCard extends BaseComponent {
   };
 
   playAudio = (correctness) => {
-    const audio = new Audio(`./sound/${correctness ? 'correct.mp3' : 'incorrect.wav'}`);
+    const audio = new Audio(`./sound/${correctness ? 'correct.mp3' : 'incorrect.mp3'}`);
     audio.volume = state.soundVolume;
     audio.play();
   };

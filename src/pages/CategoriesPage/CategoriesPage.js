@@ -33,7 +33,7 @@ export class CategoriesPage extends BaseComponent {
 
   handleCategoryCard = (e) => {
     if (e.target.dataset.category) {
-      const slider = new Slider(Number(e.target.dataset.category) - 1);
+      const slider = new Slider(Number(e.target.dataset.category));
       const pageWrap = this.categoriesWrap.element.parentElement;
       pageWrap.innerHTML = '';
       pageWrap.append(slider.element);

@@ -35,7 +35,6 @@ export class Modal extends BaseComponent {
         card = new PictureCard(state.currentCategory, state.currentSlide);
       }
       this.currentSlide.style.left = '2000px';
-      console.log('change');
       this.currentSlide.addEventListener('transitionend', (e) => {
         if (e.propertyName !== 'left') return;
         card.element.style.left = '0px';

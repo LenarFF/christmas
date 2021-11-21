@@ -15,7 +15,7 @@ export class PainterCard extends QuestionCard {
     state.allAnswers = images[category].length;
     this.trueImageNum = Number(images[category][cardNumber].imageNum);
     this.imagesNum = [this.trueImageNum];
-    if (this.cardNumber === 0) state.artistsRightAnswers[this.category + 1] = 0;
+    if (this.cardNumber === 0) state.artistsRightAnswers[this.category] = 0;
     this.fillImagesNum();
     this.shuffleArray(this.imagesNum);
     this.title = new BaseComponent(

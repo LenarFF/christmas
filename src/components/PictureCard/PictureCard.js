@@ -3,7 +3,6 @@ import { BaseComponent } from '../BaseComponent/BaseComponent';
 import { ImageWrapper } from '../ImageWrapper/ImageWrapper';
 import { images } from '../../data/images';
 import { Button } from '../Button/Button';
-import { Modal } from '../Modal/Modal';
 import { state } from '../../state';
 import { QuestionCard } from '../QuestionCard/QuestionCard';
 
@@ -13,7 +12,7 @@ export class PictureCard extends QuestionCard {
 
     state.allAnswers = images[category].length;
     this.numberAnswersOnPage = 4;
-    if (this.cardNumber === 0) state.paintingsRightAnswers[this.category + 1] = 0;
+    if (this.cardNumber === 0) state.paintingsRightAnswers[this.category] = 0;
     this.trueAnswerNum = Number(images[category][cardNumber].imageNum);
     this.answersObj = [images[category][cardNumber]];
     this.answers = [images[category][cardNumber].author];
@@ -64,7 +63,7 @@ export class PictureCard extends QuestionCard {
 
   handleModal = (e) => {
     if (!e.target.getAttribute('data-imgNum')) return;
-    this.timerStop = true;
+    this.isTimerStop = true;
     const correctness = this.checkCorrectnessAnswer(e.target, this.trueAnswerNum);
     const modal = this.createModal(correctness);
     this.showModal(modal);

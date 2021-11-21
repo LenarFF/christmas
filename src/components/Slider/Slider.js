@@ -11,7 +11,7 @@ export class Slider extends BaseComponent {
 
     state.currentSlide = 0;
     let card = null;
-    state.currentCategory = category + 1;
+    state.currentCategory = category;
     if (state.currentQuizVariant === 'artists') {
       card = new PainterCard(category, state.currentSlide);
     } else if (state.currentQuizVariant === 'paintings') {
@@ -19,6 +19,6 @@ export class Slider extends BaseComponent {
     }
 
     this.element.append(card.element);
-    card.element.style.left = '0px';
+    card.element.style.left = '0px'
   }
 }
