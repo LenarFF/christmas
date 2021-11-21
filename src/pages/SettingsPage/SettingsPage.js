@@ -37,14 +37,12 @@ export class SettingsPage extends BaseComponent {
       '5',
     );
 
+    this.cards = new BaseComponent('div', ['settings__cards']);
+    this.cards.element.append(this.volumeCard.element, this.timerCard.element);
+
     this.top.element.append(this.title.element, this.homeBtn.element);
 
-    this.element.append(
-      this.top.element,
-      this.volumeCard.element,
-      this.timerCard.element,
-      this.homeBtn.element,
-    );
+    this.element.append(this.top.element, this.cards.element, this.homeBtn.element);
   }
 
   handleHomeBtn = () => {
