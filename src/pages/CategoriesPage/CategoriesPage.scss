@@ -1,8 +1,6 @@
 .categories {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   flex-grow: 1;
+  overflow: hidden;
   &__title {
     text-align: center;
   }

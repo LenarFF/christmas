@@ -5,12 +5,13 @@ import { images } from '../../data/images';
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
 import { state } from '../../state';
+import { QuestionCard } from '../QuestionCard/QuestionCard';
 
-export class PictureCard extends BaseComponent {
+export class PictureCard extends QuestionCard {
   constructor(category, cardNumber) {
-    super('div', ['picture-card', 'hidden']);
+    super();
 
-    state.currentCategory = category + 1;
+    console.log(category, cardNumber);
     state.allAnswers = images[category].length;
     this.category = category;
     this.cardNumber = cardNumber;
@@ -20,6 +21,7 @@ export class PictureCard extends BaseComponent {
     this.answersObj = [images[category][cardNumber]];
     this.answers = [images[category][cardNumber].author];
     this.fillAnswersArray();
+    this.shuffleArray(this.answersObj);
 
     this.title = new BaseComponent(
       'h3',
@@ -43,16 +45,24 @@ export class PictureCard extends BaseComponent {
       `${cardNumber + 1} / ${images[category].length}`,
     );
 
+    this.cardInfo = new BaseComponent('div', ['picture-card__info']);
+    this.cardInfo.element.append(this.counterSpan.element);
+
     this.modalBackdrop = new BaseComponent('div', ['modal-window__backdrop', 'hidden']);
 
     this.element.append(
       this.title.element,
       this.img.element,
       this.answersWrap.element,
-      this.counterSpan.element,
+      this.cardInfo.element,
       this.modalBackdrop.element,
     );
   }
+
+  showTimer = () => {
+    const timer = new BaseComponent('span', ['picture-card__timer'], state.timer);
+    this.cardInfo.element.append(timer.element);
+  };
 
   getRandomCategory = () => {
     return Math.floor(Math.random() * images.length);
@@ -72,12 +82,6 @@ export class PictureCard extends BaseComponent {
     }
   };
 
-  checkCorrectnessAnswer = (currentImg) => {
-    const correctness = currentImg.getAttribute('data-imgNum') === String(this.trueAnswerNum);
-    if (correctness) this.setRightAnswersInState();
-    return correctness;
-  };
-
   createModal = (correctness) => {
     const modal = new Modal(
       this.modalBackdrop.element,
@@ -89,10 +93,6 @@ export class PictureCard extends BaseComponent {
 
     this.element.append(modal.element);
     return modal;
-  };
-
-  setRightAnswersInState = () => {
-    state.paintingsRightAnswers[this.category + 1]++;
   };
 
   checkEndSlides = () => {
@@ -113,7 +113,7 @@ export class PictureCard extends BaseComponent {
 
   handleModal = (e) => {
     if (!e.target.getAttribute('data-imgNum')) return;
-    const correctness = this.checkCorrectnessAnswer(e.target);
+    const correctness = this.checkCorrectnessAnswer(e.target, this.trueAnswerNum);
     const modal = this.createModal(correctness);
     this.showModal(modal);
     this.playAudio(correctness);

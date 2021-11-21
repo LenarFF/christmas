@@ -4,15 +4,15 @@ import { ImageWrapper } from '../ImageWrapper/ImageWrapper';
 import './PainterCard.scss';
 import { Modal } from '../Modal/Modal';
 import { state } from './../../state';
+import { QuestionCard } from '../QuestionCard/QuestionCard';
 
-export class PainterCard extends BaseComponent {
+export class PainterCard extends QuestionCard {
   constructor(category, cardNumber) {
-    super('div', ['painter-card', 'hidden']);
+    super();
 
     this.numberPicturesOnPage = 4;
     this.numberAllPictures = 240;
     state.allAnswers = images[category].length;
-    state.currentCategory = category + 1;
     this.category = category;
     this.cardNumber = cardNumber;
     this.trueImageNum = Number(images[category][cardNumber].imageNum);
@@ -64,27 +64,13 @@ export class PainterCard extends BaseComponent {
     return Math.floor(Math.random() * this.numberAllPictures);
   };
 
-  shuffleArray = (arr) => {
-    arr.sort(() => Math.random() - 0.5);
-  };
-
-  checkCorrectnessAnswer = (currentImg) => {
-    const correctness = currentImg.getAttribute('data-imgNum') === String(this.trueImageNum);
-    if (correctness) this.setRightAnswersInState();
-    return correctness;
-  };
-
-  setRightAnswersInState = () => {
-    state.artistsRightAnswers[this.category + 1]++;
-  };
-
   createModal = (correctness) => {
     const modal = new Modal(
       this.modalBackdrop.element,
       this.element,
       images[this.category][this.cardNumber],
       correctness,
-      this.checkEndSlides(),
+      this.checkEndSlides()
     );
 
     this.element.append(modal.element);
@@ -109,7 +95,7 @@ export class PainterCard extends BaseComponent {
   handleModal = (e) => {
     if (!e.target.parentElement.getAttribute('data-imgNum')) return;
 
-    const correctness = this.checkCorrectnessAnswer(e.target.parentElement);
+    const correctness = this.checkCorrectnessAnswer(e.target.parentElement, this.trueImageNum);
     const modal = this.createModal(correctness);
     this.showModal(modal);
     this.playAudio(correctness);

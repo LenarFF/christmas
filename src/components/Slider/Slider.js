@@ -8,15 +8,18 @@ import './Slider.scss';
 export class Slider extends BaseComponent {
   constructor(category) {
     super('div', ['slider-wrap']);
-    images[category].map((item, index) => {
+
+      state.currentSlide = 0
       let card = null;
       if (state.currentQuizVariant === 'artists') {
-        card = new PainterCard(category, index);
+        card = new PainterCard(category, state.currentSlide);
       } else if (state.currentQuizVariant === 'paintings') {
-        card = new PictureCard(category, index);
+        card = new PictureCard(category, state.currentSlide);
       }
-      if (index === 0) card.element.classList.remove('hidden');
+      state.currentCategory = category + 1;
+
       this.element.append(card.element);
-    });
+      card.element.style.left = '0px';
+
   }
 }

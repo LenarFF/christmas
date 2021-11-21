@@ -1,6 +1,8 @@
 import { state } from '../../state';
 import { BaseComponent } from '../BaseComponent/BaseComponent';
 import { ModalCard } from '../ModalCard/ModalCard';
+import { PainterCard } from '../PainterCard/PainterCard';
+import { PictureCard } from '../PictureCard/PictureCard';
 import './Modal.scss';
 
 export class Modal extends BaseComponent {
@@ -24,9 +26,22 @@ export class Modal extends BaseComponent {
   };
 
   changeSlide = () => {
-    if (this.currentSlide.nextSibling) {
-      this.currentSlide.classList.add('hidden');
-      this.currentSlide.nextSibling.classList.remove('hidden');
+    if (this.currentSlide) {
+      state.currentSlide++;
+      let card = null;
+      if (state.currentQuizVariant === 'artists') {
+        card = new PainterCard(state.currentCategory, state.currentSlide);
+      } else if (state.currentQuizVariant === 'paintings') {
+        card = new PictureCard(state.currentCategory, state.currentSlide);
+      }
+      this.currentSlide.style.left = '2000px';
+      console.log('change');
+      this.currentSlide.addEventListener('transitionend', (e) => {
+        if (e.propertyName !== 'left') return;
+        card.element.style.left = '0px';
+      });
+
+      this.currentSlide.parentNode.append(card.element);
     }
   };
 

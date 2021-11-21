@@ -4,4 +4,5 @@ export class BaseComponent {
     this.element.classList.add(...styles);
     if (text) this.element.innerText = text;
   }
+
 }
