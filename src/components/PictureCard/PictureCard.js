@@ -9,12 +9,9 @@ import { QuestionCard } from '../QuestionCard/QuestionCard';
 
 export class PictureCard extends QuestionCard {
   constructor(category, cardNumber) {
-    super();
+    super(category, cardNumber);
 
-    console.log(category, cardNumber);
     state.allAnswers = images[category].length;
-    this.category = category;
-    this.cardNumber = cardNumber;
     this.numberAnswersOnPage = 4;
     if (this.cardNumber === 0) state.paintingsRightAnswers[this.category + 1] = 0;
     this.trueAnswerNum = Number(images[category][cardNumber].imageNum);
@@ -39,30 +36,12 @@ export class PictureCard extends QuestionCard {
       this.answersWrap.element.append(answerBtn.element);
     });
 
-    this.counterSpan = new BaseComponent(
-      'span',
-      ['painter-card__counter'],
-      `${cardNumber + 1} / ${images[category].length}`,
-    );
-
-    this.cardInfo = new BaseComponent('div', ['picture-card__info']);
-    this.cardInfo.element.append(this.counterSpan.element);
-
-    this.modalBackdrop = new BaseComponent('div', ['modal-window__backdrop', 'hidden']);
-
-    this.element.append(
+    this.element.prepend(
       this.title.element,
       this.img.element,
       this.answersWrap.element,
-      this.cardInfo.element,
-      this.modalBackdrop.element,
     );
   }
-
-  showTimer = () => {
-    const timer = new BaseComponent('span', ['picture-card__timer'], state.timer);
-    this.cardInfo.element.append(timer.element);
-  };
 
   getRandomCategory = () => {
     return Math.floor(Math.random() * images.length);
@@ -82,37 +61,10 @@ export class PictureCard extends QuestionCard {
     }
   };
 
-  createModal = (correctness) => {
-    const modal = new Modal(
-      this.modalBackdrop.element,
-      this.element,
-      images[this.category][this.cardNumber],
-      correctness,
-      this.checkEndSlides(),
-    );
-
-    this.element.append(modal.element);
-    return modal;
-  };
-
-  checkEndSlides = () => {
-    return this.cardNumber === images[this.category].length - 1;
-  };
-
-  showModal = (modal) => {
-    modal.element.classList.add('show');
-    this.modalBackdrop.element.classList.remove('hidden');
-  };
-
-  playAudio = (correctness) => {
-    const audio = new Audio(`./sound/${correctness ? 'correct.mp3' : 'incorrect.wav'}`);
-    console.log(state.soundVolume);
-    audio.volume = state.soundVolume;
-    audio.play();
-  };
 
   handleModal = (e) => {
     if (!e.target.getAttribute('data-imgNum')) return;
+    this.timerStop = true;
     const correctness = this.checkCorrectnessAnswer(e.target, this.trueAnswerNum);
     const modal = this.createModal(correctness);
     this.showModal(modal);

@@ -3,4 +3,9 @@
   top: 0;
   left: -2000px;
   transition: all 0.7s;
+    &__info {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
 }

@@ -9,17 +9,16 @@ export class Slider extends BaseComponent {
   constructor(category) {
     super('div', ['slider-wrap']);
 
-      state.currentSlide = 0
-      let card = null;
-      if (state.currentQuizVariant === 'artists') {
-        card = new PainterCard(category, state.currentSlide);
-      } else if (state.currentQuizVariant === 'paintings') {
-        card = new PictureCard(category, state.currentSlide);
-      }
-      state.currentCategory = category + 1;
+    state.currentSlide = 0;
+    let card = null;
+    state.currentCategory = category + 1;
+    if (state.currentQuizVariant === 'artists') {
+      card = new PainterCard(category, state.currentSlide);
+    } else if (state.currentQuizVariant === 'paintings') {
+      card = new PictureCard(category, state.currentSlide);
+    }
 
-      this.element.append(card.element);
-      card.element.style.left = '0px';
-
+    this.element.append(card.element);
+    card.element.style.left = '0px';
   }
 }

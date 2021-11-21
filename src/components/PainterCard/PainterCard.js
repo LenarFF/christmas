@@ -8,13 +8,11 @@ import { QuestionCard } from '../QuestionCard/QuestionCard';
 
 export class PainterCard extends QuestionCard {
   constructor(category, cardNumber) {
-    super();
+    super(category, cardNumber);
 
     this.numberPicturesOnPage = 4;
     this.numberAllPictures = 240;
     state.allAnswers = images[category].length;
-    this.category = category;
-    this.cardNumber = cardNumber;
     this.trueImageNum = Number(images[category][cardNumber].imageNum);
     this.imagesNum = [this.trueImageNum];
     if (this.cardNumber === 0) state.artistsRightAnswers[this.category + 1] = 0;
@@ -27,7 +25,6 @@ export class PainterCard extends QuestionCard {
     );
 
     this.picturesWrap = new BaseComponent('div', ['painter-card__pictures']);
-    this.modalBackdrop = new BaseComponent('div', ['modal-window__backdrop', 'hidden']);
 
     this.imagesNum.map((number) => {
       const picture = new ImageWrapper(`./img/${number}.webp`, ['inner-img-wrapper']);
@@ -37,17 +34,9 @@ export class PainterCard extends QuestionCard {
       this.picturesWrap.element.append(picture.element);
     });
 
-    this.counterSpan = new BaseComponent(
-      'span',
-      ['painter-card__counter'],
-      `${this.cardNumber + 1} / ${images[this.category].length}`,
-    );
-
-    this.element.append(
+    this.element.prepend(
       this.title.element,
       this.picturesWrap.element,
-      this.counterSpan.element,
-      this.modalBackdrop.element,
     );
   }
 
@@ -64,36 +53,9 @@ export class PainterCard extends QuestionCard {
     return Math.floor(Math.random() * this.numberAllPictures);
   };
 
-  createModal = (correctness) => {
-    const modal = new Modal(
-      this.modalBackdrop.element,
-      this.element,
-      images[this.category][this.cardNumber],
-      correctness,
-      this.checkEndSlides()
-    );
-
-    this.element.append(modal.element);
-    return modal;
-  };
-
-  checkEndSlides = () => {
-    return this.cardNumber === images[this.category].length - 1;
-  };
-
-  showModal = (modal) => {
-    modal.element.classList.add('show');
-    this.modalBackdrop.element.classList.remove('hidden');
-  };
-
-  playAudio = (correctness) => {
-    const audio = new Audio(`./sound/${correctness ? 'correct.mp3' : 'incorrect.wav'}`);
-    audio.volume = state.soundVolume;
-    audio.play();
-  }
-
   handleModal = (e) => {
     if (!e.target.parentElement.getAttribute('data-imgNum')) return;
+
 
     const correctness = this.checkCorrectnessAnswer(e.target.parentElement, this.trueImageNum);
     const modal = this.createModal(correctness);
