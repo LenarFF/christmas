@@ -29,12 +29,12 @@ export class App extends BaseComponent {
   }
 
   setLocalStorage = () => {
-    localStorage.setItem('ArtQuiz_state_LenarFF', JSON.stringify(state));
+    localStorage.setItem('ArtQuiz_state_LenarFF2', JSON.stringify(state));
   };
 
   getLocalStorage = () => {
-    if (localStorage.getItem('ArtQuiz_state_LenarFF')) {
-      const localStorageInfo = JSON.parse(localStorage.getItem('ArtQuiz_state_LenarFF'));
+    if (localStorage.getItem('ArtQuiz_state_LenarFF2')) {
+      const localStorageInfo = JSON.parse(localStorage.getItem('ArtQuiz_state_LenarFF2'));
       state.paintingsRightAnswers = localStorageInfo.paintingsRightAnswers;
       state.artistsRightAnswers = localStorageInfo.artistsRightAnswers;
       state.soundVolume = localStorageInfo.soundVolume;

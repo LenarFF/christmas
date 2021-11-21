@@ -25,7 +25,19 @@ export class SettingsPage extends BaseComponent {
       '0.01',
     );
 
-    this.element.append(this.title.element, this.homeBtn.element, this.volumeCard.element);
+    this.timerCard = new SettingsCard(
+      'Timer',
+      'timer',
+      'settings-card__controls-btn_timer-on',
+      'settings-card__controls-btn_timer-off',
+      './settingImg/timer.webp',
+      '0',
+      '30',
+      '5'
+    );
+
+
+    this.element.append(this.title.element, this.homeBtn.element, this.volumeCard.element, this.timerCard.element);
   }
 
   handleHomeBtn = () => {

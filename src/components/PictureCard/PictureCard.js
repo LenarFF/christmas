@@ -106,6 +106,7 @@ export class PictureCard extends BaseComponent {
 
   playAudio = (correctness) => {
     const audio = new Audio(`./sound/${correctness ? 'correct.mp3' : 'incorrect.wav'}`);
+    console.log(state.soundVolume);
     audio.volume = state.soundVolume;
     audio.play();
   };

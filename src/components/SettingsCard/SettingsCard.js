@@ -4,7 +4,16 @@ import { ImageWrapper } from '../ImageWrapper/ImageWrapper';
 import './SettingsCard.scss';
 
 export class SettingsCard extends BaseComponent {
-  constructor(title, stateSetting, iconClassOn, iconClassOff, imgSrc, rangeMin, rangeMax, rangeStep) {
+  constructor(
+    title,
+    stateSetting,
+    iconClassOn,
+    iconClassOff,
+    imgSrc,
+    rangeMin,
+    rangeMax,
+    rangeStep,
+  ) {
     super('div', ['settings-card']);
 
     this.rangeValue = state[stateSetting];
@@ -36,18 +45,23 @@ export class SettingsCard extends BaseComponent {
   handleRange = () => {
     this.rangeValue = this.cardRange.element.value;
     state[this.stateSetting] = this.rangeValue;
+    this.toggleIcon();
   };
 
   toggleControl = () => {
-    console.log(state[this.stateSetting]);
     if (state[this.stateSetting] === 0) {
       state[this.stateSetting] = this.rangeValue;
-      this.cardBtn.element.classList.remove(this.iconClassOff);
       this.cardRange.element.value = this.rangeValue;
     } else {
       state[this.stateSetting] = 0;
-      this.cardBtn.element.classList.add(this.iconClassOff);
       this.cardRange.element.value = 0;
     }
+    this.toggleIcon();
+  };
+
+  toggleIcon = () => {
+    state[this.stateSetting] === 0
+      ? this.cardBtn.element.classList.add(this.iconClassOff)
+      : this.cardBtn.element.classList.remove(this.iconClassOff);
   };
 }

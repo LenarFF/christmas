@@ -15,16 +15,19 @@
   &__controls-btn {
     width: 20px;
     height: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     &_volume-on {
       background-image: url('../../assets/volume_on.svg');
     }
     &_volume-off {
       background-image: url('../../assets/volume_off.svg');
     }
-    &_time-on {
+    &_timer-on {
       background-image: url('../../assets/time_on.jpg');
     }
-    &_time-off {
+    &_timer-off {
       background-image: url('../../assets/time_off.jpg');
     }
   }

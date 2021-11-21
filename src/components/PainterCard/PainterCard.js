@@ -16,8 +16,6 @@ export class PainterCard extends BaseComponent {
     this.category = category;
     this.cardNumber = cardNumber;
     this.trueImageNum = Number(images[category][cardNumber].imageNum);
-    this.correctAudio = new Audio('./sound/correct.mp3');
-    this.incorrectAudio = new Audio('./sound/incorrect.mp3');
     this.imagesNum = [this.trueImageNum];
     if (this.cardNumber === 0) state.artistsRightAnswers[this.category + 1] = 0;
     this.fillImagesNum();
