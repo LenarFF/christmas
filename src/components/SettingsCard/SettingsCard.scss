@@ -1,6 +1,5 @@
 .settings-card {
-  width: 80wv;
-  height: 80wv;
+  width: 50%;
   &__controls {
     display: flex;
   }
@@ -30,5 +29,10 @@
     &_timer-off {
       background-image: url('../../assets/time_off.jpg');
     }
+  }
+  &__img-wrapper {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
   }
 }

@@ -7,7 +7,8 @@ export class SettingsPage extends BaseComponent {
   constructor() {
     super('div', ['settings']);
     this.title = new BaseComponent('h2', ['settings__title'], 'Settings');
-    this.homeBtn = new Button('home');
+    this.homeBtn = new Button('home', ['btn-primary', 'btn-lg']);
+    this.top = new BaseComponent('div', ['settings__top']);
 
     this.homeBtn.element.addEventListener('click', this.handleHomeBtn);
 
@@ -33,11 +34,17 @@ export class SettingsPage extends BaseComponent {
       './settingImg/timer.webp',
       '0',
       '30',
-      '5'
+      '5',
     );
 
+    this.top.element.append(this.title.element, this.homeBtn.element);
 
-    this.element.append(this.title.element, this.homeBtn.element, this.volumeCard.element, this.timerCard.element);
+    this.element.append(
+      this.top.element,
+      this.volumeCard.element,
+      this.timerCard.element,
+      this.homeBtn.element,
+    );
   }
 
   handleHomeBtn = () => {

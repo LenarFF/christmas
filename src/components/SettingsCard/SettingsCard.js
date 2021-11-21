@@ -19,7 +19,7 @@ export class SettingsCard extends BaseComponent {
     this.rangeValue = state[stateSetting];
     this.stateSetting = stateSetting;
     this.iconClassOff = iconClassOff;
-    this.cardImg = new ImageWrapper(imgSrc);
+    this.cardImg = new ImageWrapper(imgSrc, ['settings-card__img-wrapper']);
     this.card = new BaseComponent('div', ['settings-card__controls']);
     this.cardBtnWrap = new BaseComponent('div', ['settings-card__controls-btn-wrap']);
     this.cardBtn = new BaseComponent('div', ['settings-card__controls-btn', iconClassOn]);
