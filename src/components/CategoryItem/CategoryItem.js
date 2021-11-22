@@ -27,7 +27,7 @@ export class CategoryItem extends BaseComponent {
         ['category__item-result'],
         `${this.rightAnswers} / ${state.allAnswers}`,
       );
-
+      this.categoryName.element.classList.add('category__item-title_played');
       this.element.append(this.result.element);
     }
   }
