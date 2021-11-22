@@ -11,7 +11,7 @@ export class Modal extends BaseComponent {
     this.backdrop = backdrop;
     this.currentSlide = currentSlide;
     this.isEndSlides = isEndSlides;
-    this.nextBtn = new BaseComponent('button', ['modal-close'], 'next');
+    this.nextBtn = new BaseComponent('button', ['btn', 'btn-warning', 'modal-close'], 'Следующая');
 
     this.modalCard = new ModalCard(rightCardInfo, correctness);
 

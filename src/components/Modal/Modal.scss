@@ -6,13 +6,17 @@
   transform: translate(-50%, -80%) scale(0.9);
   width: 520px;
   max-width: 95%;
-  min-height: 355px;
+  height: 350px;
   box-shadow: 0 10px 30px rgba(#000, 0.2);
   background-color: #fff;
   border-radius: 4px;
   transition: all 0.18s ease-in-out;
   visibility: hidden;
   opacity: 0;
+  text-align: center;
+  @media screen and (min-width: 650px) {
+    height: 500px;
+  }
 
   &.show {
     transform: translate(-50%, -50%) scale(1);

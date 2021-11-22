@@ -9,11 +9,16 @@
     width: 90%;
   }
   &__pictures {
-    width: 90%;
-    min-height: 320px;
+    width: 295px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    height: 300px;
+    gap: 5px;
+    @media screen and (min-width: 650px) {
+      width: 435px;
+      height: 455px;
+    }
   }
   &__img-wrapper {
     width: 38vw;
@@ -25,5 +30,14 @@
 }
 
 .inner-img-wrapper {
-  width: 40%;
+  width: 140px;
+  height: 140px;
+  @media screen and (min-width: 650px) {
+    width: 200px;
+    height: 200px;
+  }
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+  }
 }
