@@ -16,17 +16,18 @@ export class QuestionCard extends BaseComponent {
     this.counterSpan = new BaseComponent(
       'span',
       ['question-card__counter'],
-      `${state.currentSlide} / ${images[state.currentCategory].length}`,
+      `${state.currentSlide + 1} / ${images[state.currentCategory].length}`,
     );
 
     this.cardInfo = new BaseComponent('div', ['question-card__info']);
     this.modalBackdrop = new BaseComponent('div', ['modal-window__backdrop', 'hidden']);
 
-    if (state.timer !== '0') {
-      this.timer = new BaseComponent('span', ['question-card__timer'], state.timer);
+    if (state.timer != '0') {
+      this.timer = new BaseComponent('span', ['question-card__timer'], this.time);
       this.showTimer();
+      this.cardInfo.element.append(this.timer.element);
     }
-    this.cardInfo.element.append(this.counterSpan.element, this.timer.element);
+    this.cardInfo.element.append(this.counterSpan.element);
     this.element.append(this.cardInfo.element, this.modalBackdrop.element);
     window.addEventListener(
       'popstate',
@@ -54,14 +55,13 @@ export class QuestionCard extends BaseComponent {
   };
 
   checkCorrectnessAnswer = (currentImg, rightImageNum) => {
-    console.log(currentImg.getAttribute('data-imgNum'), String(rightImageNum));
-    console.log(state.paintingsRightAnswers);
     const correctness = currentImg.getAttribute('data-imgNum') === String(rightImageNum);
     if (correctness) this.setRightAnswersInState();
     return correctness;
   };
 
   setRightAnswersInState = () => {
+    console.log(this.category)
     if (state.currentQuizVariant === 'artists') {
       state.artistsRightAnswers[String(this.category)]++;
     } else if (state.currentQuizVariant === 'paintings') {
@@ -75,7 +75,7 @@ export class QuestionCard extends BaseComponent {
   };
 
   checkEndSlides = () => {
-    return this.cardNumber === images[this.category].length - 1;
+    return this.cardNumber + 1 === images[this.category].length;
   };
 
   playAudio = (correctness) => {

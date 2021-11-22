@@ -13,6 +13,7 @@ export class PictureCard extends QuestionCard {
     state.allAnswers = images[category].length;
     this.numberAnswersOnPage = 4;
     if (this.cardNumber === 0) state.paintingsRightAnswers[this.category] = 0;
+    console.log(category, cardNumber)
     this.trueAnswerNum = Number(images[category][cardNumber].imageNum);
     this.answersObj = [images[category][cardNumber]];
     this.answers = [images[category][cardNumber].author];

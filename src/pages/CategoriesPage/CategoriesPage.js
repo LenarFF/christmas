@@ -14,9 +14,9 @@ export class CategoriesPage extends BaseComponent {
 
     this.categoriesWrap = new BaseComponent('div', ['categories__wrap']);
 
-    categories.map((item, index) => {
-      const category = new CategoryItem(item, index + 1);
-      category.element.setAttribute('data-category', index + 1);
+    categories.map((item) => {
+      const category = new CategoryItem(item);
+      category.element.setAttribute('data-category', item);
       this.categoriesWrap.element.append(category.element);
     });
 
@@ -32,8 +32,12 @@ export class CategoriesPage extends BaseComponent {
   };
 
   handleCategoryCard = (e) => {
-    if (e.target.dataset.category) {
-      const slider = new Slider(Number(e.target.dataset.category));
+    if (e.target.classList.contains('category__item-result')) {
+      location.hash = '#/score/';
+      return
+    }
+    if (e.target.closest('.category__item').dataset.category) {
+      const slider = new Slider(Number(e.target.closest('.category__item').dataset.category));
       const pageWrap = this.categoriesWrap.element.parentElement;
       pageWrap.innerHTML = '';
       pageWrap.append(slider.element);

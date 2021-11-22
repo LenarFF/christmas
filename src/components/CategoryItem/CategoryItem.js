@@ -1,28 +1,34 @@
+import { images } from '../../data/images';
 import { state } from '../../state';
 import { BaseComponent } from '../BaseComponent/BaseComponent';
+import { ImageWrapper } from '../ImageWrapper/ImageWrapper';
 import './CategoryItem.scss';
 
 export class CategoryItem extends BaseComponent {
-  constructor(text, category) {
-    super('div', ['category__item'], text);
+  constructor(category) {
+    super('div', ['category__item']);
 
     this.rightAnswers = null;
+
+    this.categoryName = new BaseComponent('h3', ['category__item-title'], String(category));
+    this.img = null;
     if (state.currentQuizVariant === 'artists') {
       this.rightAnswers = state.artistsRightAnswers[category];
-      this.element.classList.add('category__item_artists');
+      this.img = new ImageWrapper(`./img/${images[category][9].imageNum}.webp`);
     } else if (state.currentQuizVariant === 'paintings') {
       this.rightAnswers = state.paintingsRightAnswers[category];
-      this.element.classList.add('category__item_paintings');
+      this.img = new ImageWrapper(`./img/${images[category][0].imageNum}.webp`);
     }
+    if (this.img) this.element.append(this.img.element, this.categoryName.element);
 
     if (this.rightAnswers) {
-      this.resultSpan = new BaseComponent(
+      this.result = new BaseComponent(
         'span',
-        ['results__result'],
+        ['category__item-result'],
         `${this.rightAnswers} / ${state.allAnswers}`,
       );
 
-      this.element.append(this.resultSpan.element);
+      this.element.append(this.result.element);
     }
   }
 }
