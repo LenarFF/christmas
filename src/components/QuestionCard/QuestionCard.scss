@@ -28,6 +28,9 @@
       justify-content: space-between;
     }
   }
+  &__counter {
+    font-size: 20px
+  }
   &__controls {
     width: 250px;
     display: flex;

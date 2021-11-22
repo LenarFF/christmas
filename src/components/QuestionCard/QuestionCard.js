@@ -85,7 +85,6 @@ export class QuestionCard extends BaseComponent {
   };
 
   setRightAnswersInState = () => {
-    console.log(this.category);
     if (state.currentQuizVariant === 'artists') {
       state.artistsRightAnswers[String(this.category)]++;
     } else if (state.currentQuizVariant === 'paintings') {
