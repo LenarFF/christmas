@@ -1,9 +1,18 @@
 .category__item {
   width: 70px;
+  height: 70px;
   cursor: pointer;
   color: white;
   position: relative;
   overflow: hidden;
+  @media screen and (min-width: 600px) {
+    width: 125px;
+    height: 125px;
+  }
+  @media screen and (min-width: 1300px) {
+    width: 160px;
+    height: 160px;
+  }
   &:hover {
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2);
   }

@@ -7,9 +7,9 @@ import { Slider } from '../../components/Slider/Slider';
 
 export class CategoriesPage extends BaseComponent {
   constructor() {
-    super('div', ['container', 'categories']);
+    super('div', ['categories']);
     this.title = new BaseComponent('h2', ['categories__title'], 'Category');
-    this.backBtn = new Button('back', ['btn-info']);
+    this.backBtn = new Button('back', ['btn-info', 'categories__back']);
     this.top = new BaseComponent('div', ['categories__top']);
 
     this.categoriesWrap = new BaseComponent('div', ['categories__wrap']);
@@ -20,8 +20,8 @@ export class CategoriesPage extends BaseComponent {
       this.categoriesWrap.element.append(category.element);
     });
 
-    this.top.element.append(this.backBtn.element, this.title.element);
-    this.element.append(this.top.element, this.categoriesWrap.element);
+    this.top.element.append(this.title.element);
+    this.element.append(this.top.element, this.categoriesWrap.element, this.backBtn.element);
 
     this.backBtn.element.addEventListener('click', () => this.handleBackBtn());
     this.categoriesWrap.element.addEventListener('click', (e) => this.handleCategoryCard(e));
