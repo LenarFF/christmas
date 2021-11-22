@@ -9,5 +9,15 @@
     max-height: 100%;
     overflow: hidden;
   }
+  &__answers-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @media screen and (min-width: 650px) {
+      width: 550px;
+    }
+  }
+  &__answers-btn {
+    width: 50%;
+  }
 }
-

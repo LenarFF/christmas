@@ -31,13 +31,14 @@ export class PictureCard extends QuestionCard {
 
     this.answersWrap.element.addEventListener('click', (e) => this.handleModal(e));
     this.answersObj.map((item) => {
-      const answerBtn = new Button(item.author, ['picture-card__answers-btn']);
+      const answerBtn = new Button(item.author, ['btn-outline-dark','picture-card__answers-btn']);
       answerBtn.element.setAttribute('data-imgNum', `${item.imageNum}`);
       this.answersWrap.element.append(answerBtn.element);
     });
 
-    this.element.prepend(
+    this.content.element.prepend(
       this.title.element,
+      this.cardInfo.element,
       this.img.element,
       this.answersWrap.element,
     );

@@ -34,8 +34,9 @@ export class PainterCard extends QuestionCard {
       this.picturesWrap.element.append(picture.element);
     });
 
-    this.element.prepend(
+    this.content.element.prepend(
       this.title.element,
+      this.cardInfo.element,
       this.picturesWrap.element,
     );
   }

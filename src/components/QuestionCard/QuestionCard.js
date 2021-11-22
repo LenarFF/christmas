@@ -1,6 +1,7 @@
 import { images } from '../../data/images';
 import { state } from '../../state';
 import { BaseComponent } from '../BaseComponent/BaseComponent';
+import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
 import './QuestionCard.scss';
 
@@ -25,10 +26,24 @@ export class QuestionCard extends BaseComponent {
     if (state.timer != '0') {
       this.timer = new BaseComponent('span', ['question-card__timer'], this.time);
       this.showTimer();
+      this.cardInfo.element.classList.add('question-card__info_space');
       this.cardInfo.element.append(this.timer.element);
     }
+
+    this.controls = new BaseComponent('div', ['question-card__controls']);
+    this.startPageBtn = new Button('На главную', ['btn-info', 'question-card__btn-start-page']);
+    this.categoryBtn = new Button('Категории', ['btn-info', 'question-card__btn-category']);
+    this.controls.element.append(this.startPageBtn.element, this.categoryBtn.element);
+
+    this.startPageBtn.element.addEventListener('click', this.goStartPage);
+    this.categoryBtn.element.addEventListener('click', this.goCategoryPage);
+
+    this.content = new BaseComponent('div', ['question-card__content']);
+
+    this.content.element.append(this.controls.element, this.modalBackdrop.element);
+
     this.cardInfo.element.append(this.counterSpan.element);
-    this.element.append(this.cardInfo.element, this.modalBackdrop.element);
+    this.element.append(this.content.element);
     window.addEventListener(
       'popstate',
       () => {
@@ -38,9 +53,18 @@ export class QuestionCard extends BaseComponent {
     );
   }
 
+  goCategoryPage = () => {
+    window.dispatchEvent(new HashChangeEvent('hashchange'));
+  };
+
+  goStartPage = () => {
+    location.hash = '#/start-page/';
+  };
+
   showTimer = () => {
     if (this.isTimerStop) return;
     this.time--;
+    if (this.time < 6) this.timer.element.classList.add('question-card__timer_red');
     this.timer.element.innerText = this.time;
     if (this.time === 0) {
       this.showModal(this.createModal(false));
@@ -61,7 +85,7 @@ export class QuestionCard extends BaseComponent {
   };
 
   setRightAnswersInState = () => {
-    console.log(this.category)
+    console.log(this.category);
     if (state.currentQuizVariant === 'artists') {
       state.artistsRightAnswers[String(this.category)]++;
     } else if (state.currentQuizVariant === 'paintings') {

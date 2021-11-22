@@ -8,8 +8,8 @@ import { Slider } from '../../components/Slider/Slider';
 export class CategoriesPage extends BaseComponent {
   constructor() {
     super('div', ['categories']);
-    this.title = new BaseComponent('h2', ['categories__title'], 'Category');
-    this.backBtn = new Button('back', ['btn-info', 'categories__back']);
+    this.title = new BaseComponent('h2', ['categories__title'], 'Категории');
+    this.backBtn = new Button('На главную', ['btn-info', 'categories__back']);
     this.top = new BaseComponent('div', ['categories__top']);
 
     this.categoriesWrap = new BaseComponent('div', ['categories__wrap']);
