@@ -1,0 +1,26 @@
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  align-items: center;
+  &__top {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+  }
+  &__img {
+    width: 300px;
+    @media screen and (min-width: 600px) {
+      width: 400px;
+    }
+    @media screen and (min-width: 900px) {
+      width: 500px;
+    }
+  }
+  &__controls {
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+  }
+}

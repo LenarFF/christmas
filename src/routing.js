@@ -4,6 +4,7 @@ import { Results } from './pages/Results/Results';
 import { SettingsPage } from './pages/SettingsPage/SettingsPage';
 import { BaseComponent } from './components/BaseComponent/BaseComponent';
 import { ScorePage } from './pages/ScorePage/ScorePage';
+import { state } from './state';
 
 export class Router {
   addListener(pageWrap) {
@@ -22,7 +23,7 @@ export class Router {
     const categoriesPage = new CategoriesPage();
     const results = new Results();
     const settingsPage = new SettingsPage();
-    const scorePage = new ScorePage(1);
+    const scorePage = new ScorePage(state.currentCategory || 0);
     switch (locationHash) {
       case '#/start-page/':
         newPageContainer.element.append(startPage.element);

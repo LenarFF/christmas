@@ -67,6 +67,7 @@ export class QuestionCard extends BaseComponent {
     if (this.time < 6) this.timer.element.classList.add('question-card__timer_red');
     this.timer.element.innerText = this.time;
     if (this.time === 0) {
+      this.setAllAnswersResults(false);
       this.showModal(this.createModal(false));
       this.playAudio(false);
       return;
@@ -81,7 +82,18 @@ export class QuestionCard extends BaseComponent {
   checkCorrectnessAnswer = (currentImg, rightImageNum) => {
     const correctness = currentImg.getAttribute('data-imgNum') === String(rightImageNum);
     if (correctness) this.setRightAnswersInState();
+    this.setAllAnswersResults(correctness);
     return correctness;
+  };
+
+  setAllAnswersResults = (correctness) => {
+    if (state.currentQuizVariant === 'artists') {
+      if (!state.artistsAllAnswers[this.category]) state.artistsAllAnswers[this.category] = [];
+      state.artistsAllAnswers[this.category].push(correctness);
+    } else if (state.currentQuizVariant === 'paintings') {
+      if (!state.paintingsAllAnswers[this.category]) state.paintingsAllAnswers[this.category] = [];
+      state.paintingsAllAnswers[this.category].push(correctness);
+    }
   };
 
   setRightAnswersInState = () => {

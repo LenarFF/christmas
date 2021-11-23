@@ -56,7 +56,7 @@ export class PainterCard extends QuestionCard {
 
   handleModal = (e) => {
     if (!e.target.parentElement.getAttribute('data-imgNum')) return;
-
+    this.isTimerStop = true;
 
     const correctness = this.checkCorrectnessAnswer(e.target.parentElement, this.trueImageNum);
     const modal = this.createModal(correctness);

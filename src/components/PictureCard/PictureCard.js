@@ -30,7 +30,7 @@ export class PictureCard extends QuestionCard {
 
     this.answersWrap.element.addEventListener('click', (e) => this.handleModal(e));
     this.answersObj.map((item) => {
-      const answerBtn = new Button(item.author, ['btn-outline-dark','picture-card__answers-btn']);
+      const answerBtn = new Button(item.author, ['btn-outline-dark', 'picture-card__answers-btn']);
       answerBtn.element.setAttribute('data-imgNum', `${item.imageNum}`);
       this.answersWrap.element.append(answerBtn.element);
     });
@@ -60,7 +60,6 @@ export class PictureCard extends QuestionCard {
       }
     }
   };
-
 
   handleModal = (e) => {
     if (!e.target.getAttribute('data-imgNum')) return;

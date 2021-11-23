@@ -29,13 +29,12 @@
     }
   }
   &__counter {
-    font-size: 20px
+    font-size: 20px;
   }
   &__controls {
     width: 250px;
     display: flex;
     justify-content: space-around;
-
   }
   &__timer {
     color: green;

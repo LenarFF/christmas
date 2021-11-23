@@ -7,4 +7,6 @@ export const state = {
   timer: 0,
   paintingsRightAnswers: {},
   artistsRightAnswers: {},
+  paintingsAllAnswers: {},
+  artistsAllAnswers: {},
 };
