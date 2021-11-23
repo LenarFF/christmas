@@ -40,7 +40,7 @@ export class App extends BaseComponent {
       state.soundVolume = localStorageInfo.soundVolume;
       state.timer = localStorageInfo.timer;
       state.artistsAllAnswers = localStorageInfo.artistsAllAnswers;
-      state.paintingsAllAnswers = localStorageInfo.paintingsAllAnswers
+      state.paintingsAllAnswers = localStorageInfo.paintingsAllAnswers;
     }
   };
 }

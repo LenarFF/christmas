@@ -75,14 +75,17 @@ export class ScorePage extends BaseComponent {
 
   setAnswersStyle = (index, element, wrapper) => {
     if (state.currentQuizVariant === 'artists') {
-      if (state.artistsAllAnswers[this.category] && state.artistsAllAnswers[this.category][index]) {
+      if (
+        state.artistsAllAnswers[this.category] &&
+        !state.artistsAllAnswers[this.category][index]
+      ) {
         wrapper.classList.add('score-page__image_wrong');
         element.classList.add('inner-img_grey');
       }
     } else if (state.currentQuizVariant === 'paintings') {
       if (
         state.paintingsAllAnswers[this.category] &&
-        state.paintingsAllAnswers[this.category][index]
+        !state.paintingsAllAnswers[this.category][index]
       ) {
         wrapper.classList.add('score-page__image_wrong');
         element.classList.add('inner-img_grey');

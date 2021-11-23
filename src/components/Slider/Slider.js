@@ -19,6 +19,6 @@ export class Slider extends BaseComponent {
     }
 
     this.element.append(card.element);
-    card.element.style.left = '0px'
+    card.element.style.left = '0px';
   }
 }

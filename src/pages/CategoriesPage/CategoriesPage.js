@@ -36,7 +36,7 @@ export class CategoriesPage extends BaseComponent {
     if (e.target.classList.contains('category__item-result')) {
       state.currentCategory = e.target.parentNode.dataset.category;
       location.hash = '#/score/';
-      return
+      return;
     }
     if (e.target.closest('.category__item').dataset.category) {
       const slider = new Slider(Number(e.target.closest('.category__item').dataset.category));

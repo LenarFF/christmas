@@ -8,5 +8,5 @@ export const state = {
   paintingsRightAnswers: {},
   artistsRightAnswers: {},
   paintingsAllAnswers: {},
-  artistsAllAnswers: {}
+  artistsAllAnswers: {},
 };
