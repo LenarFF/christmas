@@ -29,16 +29,18 @@ export class App extends BaseComponent {
   }
 
   setLocalStorage = () => {
-    localStorage.setItem('ArtQuiz_state_LenarFF5', JSON.stringify(state));
+    localStorage.setItem('ArtQuiz_state_LenarFF7', JSON.stringify(state));
   };
 
   getLocalStorage = () => {
-    if (localStorage.getItem('ArtQuiz_state_LenarFF5')) {
-      const localStorageInfo = JSON.parse(localStorage.getItem('ArtQuiz_state_LenarFF5'));
+    if (localStorage.getItem('ArtQuiz_state_LenarFF7')) {
+      const localStorageInfo = JSON.parse(localStorage.getItem('ArtQuiz_state_LenarFF7'));
       state.paintingsRightAnswers = localStorageInfo.paintingsRightAnswers;
       state.artistsRightAnswers = localStorageInfo.artistsRightAnswers;
       state.soundVolume = localStorageInfo.soundVolume;
       state.timer = localStorageInfo.timer;
+      state.artistsAllAnswers = localStorageInfo.artistsAllAnswers;
+      state.paintingsAllAnswers = localStorageInfo.paintingsAllAnswers
     }
   };
 }

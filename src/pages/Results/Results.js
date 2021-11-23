@@ -10,7 +10,7 @@ export class Results extends BaseComponent {
     this.rightAnswers = 0;
     this.currentCategory = state.currentCategory;
 
-
+    console.log(state)
     this.getRightAnswersNumber();
 
     this.resultSpan = new BaseComponent(

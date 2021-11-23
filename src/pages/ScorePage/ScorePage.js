@@ -10,6 +10,7 @@ export class ScorePage extends BaseComponent {
     super('div', ['score-page']);
 
     this.rightAnswers = null;
+    this.category = category;
     if (state.currentQuizVariant === 'artists') {
       this.rightAnswers = state.artistsRightAnswers[category];
     } else if (state.currentQuizVariant === 'paintings') {
@@ -47,13 +48,22 @@ export class ScorePage extends BaseComponent {
 
     this.imagesWrap = new BaseComponent('div', ['score-page__images']);
 
-    images[category].map((item) => {
+    images[category].map((item, index) => {
       const image = new ImageWrapper(`./img/${item.imageNum}.webp`, ['score-page__image']);
+      image.element.setAttribute('data-index', index);
+      this.setAnswersStyle(index, image.img.element, image.element);
       this.imagesWrap.element.append(image.element);
     });
 
+    this.imagesWrap.element.addEventListener('click', (e) => this.handleClick(e));
+
     this.element.append(this.top.element, this.info.element, this.imagesWrap.element);
   }
+
+  handleClick = (e) => {
+    if (!e.target.closest('.score-page__image')) return;
+    const index = Number(e.target.closest('.score-page__image').dataset.index);
+  };
 
   goToStart = () => {
     location.hash = '#/start-page/';
@@ -61,5 +71,22 @@ export class ScorePage extends BaseComponent {
 
   goToCategory = () => {
     location.hash = '#/categories/';
+  };
+
+  setAnswersStyle = (index, element, wrapper) => {
+    if (state.currentQuizVariant === 'artists') {
+      if (state.artistsAllAnswers[this.category] && state.artistsAllAnswers[this.category][index]) {
+        wrapper.classList.add('score-page__image_wrong');
+        element.classList.add('inner-img_grey');
+      }
+    } else if (state.currentQuizVariant === 'paintings') {
+      if (
+        state.paintingsAllAnswers[this.category] &&
+        state.paintingsAllAnswers[this.category][index]
+      ) {
+        wrapper.classList.add('score-page__image_wrong');
+        element.classList.add('inner-img_grey');
+      }
+    }
   };
 }
