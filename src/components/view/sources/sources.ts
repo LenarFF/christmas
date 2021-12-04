@@ -1,11 +1,11 @@
 import './sources.css';
 
 class Sources {
-    draw(data) {
+    draw(data: any) {
         const fragment = document.createDocumentFragment();
-        const sourceItemTemp = document.querySelector('#sourceItemTemp');
+        const sourceItemTemp: any = document.querySelector('#sourceItemTemp');
 
-        data.forEach((item) => {
+        data.forEach((item: any) => {
             const sourceClone = sourceItemTemp.content.cloneNode(true);
 
             sourceClone.querySelector('.source__item-name').textContent = item.name;
@@ -14,7 +14,7 @@ class Sources {
             fragment.append(sourceClone);
         });
 
-        document.querySelector('.sources').append(fragment);
+        document.querySelector('.sources')?.append(fragment);
     }
 }
 
