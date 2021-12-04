@@ -1,15 +1,16 @@
+import { IArticle, IDataArticles } from '../../../types';
 import './news.css';
 
 class News {
-    draw(data: any) {
+    draw(data: IArticle[]) {
         const news = data.length >= 10 ? data.filter((_item: any, idx: any) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment();
         const newsItemTemp: any = document.querySelector('#newsItemTemp');
 
         news.forEach((item: any, idx: any) => {
-            if (!newsItemTemp) return
-             const newsClone = newsItemTemp.content.cloneNode(true);
+            if (!newsItemTemp) return;
+            const newsClone = newsItemTemp.content.cloneNode(true);
 
             if (idx % 2) newsClone.querySelector('.news__item').classList.add('alt');
 
