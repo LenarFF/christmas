@@ -1,4 +1,4 @@
-import { IDataArticles, ISources } from '../../../types';
+import { ISources } from '../../../types';
 import './sources.css';
 
 class Sources {

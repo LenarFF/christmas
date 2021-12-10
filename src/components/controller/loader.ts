@@ -1,24 +1,32 @@
-import { Endpoints, Methods, OptionsType } from '../../types';
+import {
+    CallbackNews,
+    CallbackSources,
+    Endpoints,
+    IDataArticles,
+    IDataSources,
+    Methods,
+    OptionsType,
+} from '../../types';
 
 class Loader {
     private baseLink: string;
-    private options: any;
+    private options: OptionsType;
 
-    constructor(baseLink: string, options: object) {
+    constructor(baseLink: string, options: OptionsType) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     getResp(
-        { endpoint, options = {} }: { endpoint: Endpoints; options?: object },
-        callback = (): void => {
+        { endpoint, options = {} }: { endpoint: Endpoints; options?: OptionsType },
+        callback: CallbackSources | CallbackNews = (): void => {
             console.error('No callback for GET response');
         }
     ) {
         this.load(Methods.GET, endpoint, callback, options);
     }
 
-    private errorHandler(res: Response) {
+    private errorHandler = (res: Response) => {
         if (!res.ok) {
             if (res.status === 401 || res.status === 404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -26,7 +34,7 @@ class Loader {
         }
 
         return res;
-    }
+    };
 
     private makeUrl(options: object, endpoint: Endpoints) {
         const urlOptions = { ...this.options, ...options };
@@ -39,13 +47,13 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    private load(method: Methods, endpoint: Endpoints, callback: any, options = {}) {
+    private load = (method: Methods, endpoint: Endpoints, callback: CallbackSources | CallbackNews, options = {}) => {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data) => callback(data))
+            .then((data: IDataArticles & IDataSources) => callback(data))
             .catch((err) => console.error(err));
-    }
+    };
 }
 
 export default Loader;

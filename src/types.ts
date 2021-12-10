@@ -43,6 +43,8 @@ export enum Endpoints {
 }
 
 export type OptionsType = {
-    apiKey?: string;
-    sources?: string;
+    [prop: string]: string;
 };
+
+export type CallbackSources = (data: IDataSources) => void;
+export type CallbackNews = (data: IDataArticles) => void;

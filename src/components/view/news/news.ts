@@ -1,4 +1,4 @@
-import { IArticle, IDataArticles } from '../../../types';
+import { IArticle } from '../../../types';
 import './news.css';
 
 class News {
