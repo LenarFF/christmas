@@ -1,24 +1,24 @@
-import { Endpoints, OptionsType } from "../../types";
+import { Endpoints, Methods, OptionsType } from '../../types';
 
 class Loader {
-    baseLink: string;
-    options: OptionsType;
+    private baseLink: string;
+    private options: any;
 
-    constructor(baseLink: string, options: OptionsType) {
+    constructor(baseLink: string, options: object) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     getResp(
-        { endpoint, options = {} }: { endpoint: Endpoints; options?: OptionsType },
-        callback = () => {
+        { endpoint, options = {} }: { endpoint: Endpoints; options?: object },
+        callback = (): void => {
             console.error('No callback for GET response');
         }
     ) {
-        this.load('GET', endpoint, callback, options);
+        this.load(Methods.GET, endpoint, callback, options);
     }
 
-    errorHandler(res: any) {
+    private errorHandler(res: Response) {
         if (!res.ok) {
             if (res.status === 401 || res.status === 404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -28,7 +28,7 @@ class Loader {
         return res;
     }
 
-    makeUrl(options: OptionsType, endpoint: Endpoints) {
+    private makeUrl(options: object, endpoint: Endpoints) {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -39,7 +39,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: any, endpoint: Endpoints, callback: any, options = {}) {
+    private load(method: Methods, endpoint: Endpoints, callback: any, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())

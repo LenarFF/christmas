@@ -3,9 +3,9 @@ import { AppView } from '../view/appView';
 import { IDataArticles, IDataSources } from '../../types';
 
 class App {
-    controller: AppController;
-    view: AppView;
-    sources: HTMLElement | null;
+    private controller: AppController;
+    private view: AppView;
+    private sources: HTMLElement | null;
     constructor() {
         this.controller = new AppController();
         this.view = new AppView();
@@ -15,10 +15,7 @@ class App {
     start() {
         if (this.sources) {
             this.sources.addEventListener('click', (e) =>
-                this.controller.getNews(e, (data: IDataArticles) => {
-                    this.view.drawNews(data);
-                    console.log(data);
-                })
+                this.controller.getNews(e, (data: IDataArticles) => this.view.drawNews(data))
             );
             this.controller.getSources((data: IDataSources) => this.view.drawSources(data));
         }

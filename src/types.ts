@@ -30,9 +30,16 @@ export interface IDataSources {
     status: string;
 }
 
+export enum Methods {
+    GET = 'GET',
+    POST = 'POST',
+    DELETE = 'DELETE',
+    Patch = 'PATCH',
+}
+
 export enum Endpoints {
-    everything = "everything",
-    sources = "sources"
+    everything = 'everything',
+    sources = 'sources',
 }
 
 export type OptionsType = {
