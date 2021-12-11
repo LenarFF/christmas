@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import './ToysPage.scss';
 
 function ToysPage() {
   return (
-    <div>
+    <div className='container toys-page'>
       toys
     </div>
   )

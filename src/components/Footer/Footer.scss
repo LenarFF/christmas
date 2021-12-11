@@ -1,0 +1,29 @@
+@import '../../variables/colorVariables';
+
+.footer {
+  height: 70px;
+  display: flex;
+  background-color: $black;
+  &__wrap {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__github {
+    text-decoration: none;
+    &:hover {
+      color: $zomp;
+    }
+  }
+  &__rsschool {
+    display: inline-block;
+    background-image: url('../../assets/svg/rss.svg');
+    background-size: cover;
+    width: 160px;
+    height: 60px;
+    &:hover {
+       filter: invert(51%) sepia(20%) saturate(1583%) hue-rotate(141deg) brightness(88%) contrast(81%);
+    }
+  }
+}

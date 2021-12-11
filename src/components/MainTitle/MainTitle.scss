@@ -1,0 +1,20 @@
+@import '../../variables/colorVariables';
+@import '../../variables/fontVariables';
+@import '../../variables/mixins';
+
+.main-title {
+  font-size: $h1Font;
+  width: 600px;
+  height: 250px;
+  border-radius: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  @include cardBcgd;
+  &__span {
+    font-size: inherit;
+  }
+}

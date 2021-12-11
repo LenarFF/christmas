@@ -1,7 +1,7 @@
 import React from 'react'
 
 function ChristmasTreePage() {
-  return <div>ChristmasTreePage</div>;
+  return <div className='container'>ChristmasTreePage</div>;
 }
 
 export default ChristmasTreePage

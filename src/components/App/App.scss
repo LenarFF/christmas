@@ -1,0 +1,25 @@
+@import '../../variables/colorVariables';
+@import '../../variables/fontVariables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  color: $white;
+  font-size: $defaultFont;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
+    Verdana, sans-serif;
+}
+
+body {
+  background-image: url('../../assets/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1800px;
+}

@@ -1,23 +1,21 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { CustomLink } from '../CustomLink/CustomLink';
 import './Navigation.scss';
-
-const setActive = ({ isActive }: { isActive: boolean }) =>
-  isActive ? 'nav__link nav__link_active' : 'nav__link';
 
 function Navigation(): JSX.Element {
   return (
     <nav className="nav">
       <ul className="nav__list">
-        <li>
-          <CustomLink to="/">Home</CustomLink>
+        <li className="nav__li">
+          <CustomLink to="/">
+            <div className="nav__tree"></div>
+          </CustomLink>
         </li>
-        <li>
-          <CustomLink to="/toys">toys</CustomLink>
+        <li className="nav__li">
+          <CustomLink to="/toys">Игрушки</CustomLink>
         </li>
-        <li>
-          <CustomLink to="/tree">tree</CustomLink>
+        <li className="nav__li">
+          <CustomLink to="/tree">Ёлка</CustomLink>
         </li>
       </ul>
     </nav>

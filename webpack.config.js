@@ -5,14 +5,18 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
-const devServer = (isDev) => !isDev ? {} : {
-  devServer: {
-    open: true,
-    hot: true,
-    port: 8080,
-    contentBase: path.join(__dirname, 'public'),
-  },
-}
+const devServer = (isDev) =>
+  !isDev
+    ? {}
+    : {
+        devServer: {
+          historyApiFallback: true,
+          open: true,
+          hot: true,
+          port: 8080,
+          contentBase: path.join(__dirname, 'public'),
+        },
+      };
 
 const eslintPlugin = (isDev) => isDev ? [] : [new ESLintPlugin({ extensions: ["ts", "js"] })];
 
@@ -32,15 +36,6 @@ module.exports = ({develop}) => ({
       use: 'ts-loader',
       exclude: /node_modules/,
     },
-    {
-      test: /\.(svg|png|gif|jpg)$/,
-      exclude: /fonts/,
-      loader: 'file-loader'
-  },
-  {
-      test: /\.(ttf|eot|woff|svg|woff2)$/,
-      loader: "file-loader"
-  },
     {
       test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
       type: 'asset/resource',

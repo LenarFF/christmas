@@ -1,0 +1,12 @@
+@import "../../variables/colorVariables";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  background-color: $black;
+  align-items: center;
+  &__wrap {
+    height: 70px;
+  }
+}

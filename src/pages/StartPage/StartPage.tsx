@@ -1,11 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { MainTitle } from '../../components/MainTitle/MainTitle';
+import { StartButton } from '../../components/StartButton/StartButton';
+import './StartPage.scss';
 
 function StartPage() {
   return (
-    <div>
-start
+    <div className="container start-page">
+      <MainTitle />
+      <StartButton />
     </div>
-  )
+  );
 }
 
-export default StartPage
+export default StartPage;
