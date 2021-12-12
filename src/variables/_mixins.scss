@@ -5,3 +5,12 @@
   background-color: rgba(31, 112, 127, 0.3);
   backdrop-filter: blur(6px);
 }
+
+@mixin cardTitle {
+  font-size: $cardTitleFont;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center; 
+  line-height: 60px;
+
+}

@@ -17,9 +17,16 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .container {
   margin: 0 auto;
-  width: 1800px;
+  width: 90%;
+}
+
+.blur {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
 }

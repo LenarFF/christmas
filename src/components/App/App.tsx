@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { toys } from '../../data';
 import ChristmasTreePage from '../../pages/ChristmasTreePage/ChristmasTreePage';
 import ErrorPage from '../../pages/ErrorPage/ErrorPage';
 import StartPage from '../../pages/StartPage/StartPage';
@@ -16,7 +17,7 @@ function App(): JSX.Element {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<StartPage />} />
-            <Route path="toys" element={<ToysPage />} />
+            <Route path="toys" element={<ToysPage toys={toys} />} />
             <Route path="tree" element={<ChristmasTreePage />} />
             <Route path="*" element={<StartPage />} />
           </Route>

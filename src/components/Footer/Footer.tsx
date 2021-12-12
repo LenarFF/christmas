@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.scss'
+import './Footer.scss';
 
 function Footer() {
   return (
@@ -13,12 +13,10 @@ function Footer() {
           GitHub
         </a>
         <span className="footer__year">2021</span>
-        <a target={'_blank'} className="footer__rsschool" href="https://rs.school/js/">
-          rs
-        </a>
+        <a target={'_blank'} className="footer__rsschool" href="https://rs.school/js/" />
       </div>
     </footer>
   );
 }
 
-export  {Footer}
+export { Footer };
