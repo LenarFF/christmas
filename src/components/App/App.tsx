@@ -17,6 +17,11 @@ function App(): JSX.Element {
   const [isCone, setIsCone] = useState(true);
   const [isSnowflake, setIsSnowflake] = useState(true);
   const [isToy, setIsToy] = useState(true);
+  const [isWhite, setIsWhite] = useState(true);
+  const [isYellow, setIsYellow] = useState(true);
+  const [isRed, setIsRed] = useState(true);
+  const [isBlue, setIsBlue] = useState(true);
+  const [isGreen, setIsGreen] = useState(true);
 
   return (
     <>
@@ -37,6 +42,16 @@ function App(): JSX.Element {
             setIsSnowflake,
             isToy,
             setIsToy,
+            isWhite,
+            setIsWhite,
+            isYellow,
+            setIsYellow,
+            isRed,
+            setIsRed,
+            isBlue,
+            setIsBlue,
+            isGreen,
+            setIsGreen,
           }}
         >
           <Routes>

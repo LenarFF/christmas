@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { FilterContext } from '../../context';
 import { FilterCard } from '../FilterCard/FilterCard';
+import { ValueFilterCardColor } from '../ValueFilterCardColor/ValueFilterCardColor';
 import { ValueFilterCardForm } from '../ValueFilterCardForm/ValueFilterCardForm';
 import './ValueFilterCard.scss';
 
 const ValueFilterCard = () => {
-  const {isFavor, setIsFavor} = useContext(FilterContext);
+  const { isFavor, setIsFavor } = useContext(FilterContext);
   const [isFavorite, setIsFavorite] = useState(false);
 
   const handleFavor = () => {
@@ -16,10 +17,8 @@ const ValueFilterCard = () => {
   return (
     <FilterCard title="Фильтры по значению">
       <div className="filter-card__controls">
-        <ValueFilterCardForm/>
-        <p className="filter-card__filter">
-          <span>Цвет:</span>
-        </p>
+        <ValueFilterCardForm />
+        <ValueFilterCardColor />
         <p className="filter-card__filter">
           <span>Размер:</span>
         </p>
@@ -30,6 +29,6 @@ const ValueFilterCard = () => {
       </div>
     </FilterCard>
   );
-}
+};
 
-export  {ValueFilterCard}
+export { ValueFilterCard };

@@ -15,6 +15,16 @@ export interface IContext {
   setIsSnowflake: React.Dispatch<React.SetStateAction<boolean>>;
   isToy: boolean;
   setIsToy: React.Dispatch<React.SetStateAction<boolean>>;
+  isWhite: boolean;
+  setIsWhite: React.Dispatch<React.SetStateAction<boolean>>;
+  isYellow: boolean;
+  setIsYellow: React.Dispatch<React.SetStateAction<boolean>>;
+  isRed: boolean;
+  setIsRed: React.Dispatch<React.SetStateAction<boolean>>;
+  isBlue: boolean;
+  setIsBlue: React.Dispatch<React.SetStateAction<boolean>>;
+  isGreen: boolean;
+  setIsGreen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const FilterContext = createContext<IContext>({
@@ -32,4 +42,14 @@ export const FilterContext = createContext<IContext>({
   setIsSnowflake: () => {},
   isToy: true,
   setIsToy: () => {},
+  isWhite: true,
+  setIsWhite: () => {},
+  isYellow: true,
+  setIsYellow: () => {},
+  isRed: true,
+  setIsRed: () => {},
+  isBlue: true,
+  setIsBlue: () => {},
+  isGreen: true,
+  setIsGreen: () => {},
 });
