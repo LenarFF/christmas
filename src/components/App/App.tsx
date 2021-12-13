@@ -22,6 +22,9 @@ function App(): JSX.Element {
   const [isRed, setIsRed] = useState(true);
   const [isBlue, setIsBlue] = useState(true);
   const [isGreen, setIsGreen] = useState(true);
+  const [isBig, setIsBig] = useState(true);
+  const [isMiddle, setIsMiddle] = useState(true);
+  const [isSmall, setIsSmall] = useState(true);
 
   return (
     <>
@@ -52,6 +55,12 @@ function App(): JSX.Element {
             setIsBlue,
             isGreen,
             setIsGreen,
+            isBig,
+            setIsBig,
+            isMiddle,
+            setIsMiddle,
+            isSmall,
+            setIsSmall,
           }}
         >
           <Routes>

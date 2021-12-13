@@ -3,6 +3,7 @@ import { FilterContext } from '../../context';
 import { FilterCard } from '../FilterCard/FilterCard';
 import { ValueFilterCardColor } from '../ValueFilterCardColor/ValueFilterCardColor';
 import { ValueFilterCardForm } from '../ValueFilterCardForm/ValueFilterCardForm';
+import { ValueFilterCardSize } from '../ValueFilterCardSize/ValueFilterCardSize';
 import './ValueFilterCard.scss';
 
 const ValueFilterCard = () => {
@@ -19,9 +20,7 @@ const ValueFilterCard = () => {
       <div className="filter-card__controls">
         <ValueFilterCardForm />
         <ValueFilterCardColor />
-        <p className="filter-card__filter">
-          <span>Размер:</span>
-        </p>
+        <ValueFilterCardSize />
         <p className="filter-card__filter">
           <span>Только любимые:</span>
           <input type="checkbox" checked={isFavor} onChange={handleFavor} />

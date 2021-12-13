@@ -25,6 +25,12 @@ export interface IContext {
   setIsBlue: React.Dispatch<React.SetStateAction<boolean>>;
   isGreen: boolean;
   setIsGreen: React.Dispatch<React.SetStateAction<boolean>>;
+  isBig: boolean;
+  setIsBig: React.Dispatch<React.SetStateAction<boolean>>;
+  isMiddle: boolean;
+  setIsMiddle: React.Dispatch<React.SetStateAction<boolean>>;
+  isSmall: boolean;
+  setIsSmall: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const FilterContext = createContext<IContext>({
@@ -52,4 +58,10 @@ export const FilterContext = createContext<IContext>({
   setIsBlue: () => {},
   isGreen: true,
   setIsGreen: () => {},
+  isBig: true,
+  setIsBig: () => {},
+  isMiddle: true,
+  setIsMiddle: () => {},
+  isSmall: true,
+  setIsSmall: () => {},
 });
