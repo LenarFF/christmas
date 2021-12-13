@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { FilterContext, IContext, state } from '../../context';
 import { toys } from '../../data';
 import ChristmasTreePage from '../../pages/ChristmasTreePage/ChristmasTreePage';
 import ErrorPage from '../../pages/ErrorPage/ErrorPage';
@@ -9,19 +10,21 @@ import Layout from '../Layout/Layout';
 import './App.scss';
 
 function App(): JSX.Element {
-  const location = useLocation();
+  const [filterName, setFilterName] = useState('');
 
   return (
     <>
       <div>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<StartPage />} />
-            <Route path="toys" element={<ToysPage toys={toys} />} />
-            <Route path="tree" element={<ChristmasTreePage />} />
-            <Route path="*" element={<StartPage />} />
-          </Route>
-        </Routes>
+        <FilterContext.Provider value={{ filterName, setFilterName }}>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<StartPage />} />
+              <Route path="toys" element={<ToysPage toys={toys} />} />
+              <Route path="tree" element={<ChristmasTreePage />} />
+              <Route path="*" element={<StartPage />} />
+            </Route>
+          </Routes>
+        </FilterContext.Provider>
       </div>
     </>
   );
