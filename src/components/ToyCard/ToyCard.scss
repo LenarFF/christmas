@@ -12,6 +12,9 @@
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+  }
   &__title {
     font-size: $cardTitleFont;
     text-align: center;

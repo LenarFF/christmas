@@ -5,7 +5,7 @@ const FilterCard = ({children, title}: {children?: JSX.Element | string; title: 
   return (
     <div className="filter-card">
       <h3 className="filter-card__title">{title}</h3>
-      <div className="filter-card__controls">{children}</div>
+      {children}
     </div>
   );
 }

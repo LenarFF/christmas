@@ -1,4 +1,4 @@
-@import "../../variables/colorVariables";
+@import '../../variables/colorVariables';
 
 .header {
   display: flex;
@@ -8,5 +8,8 @@
   align-items: center;
   &__wrap {
     height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
