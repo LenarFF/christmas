@@ -8,3 +8,8 @@ export interface IToys {
   size: string;
   favorite: boolean;
 }
+
+export enum Ranges {
+  year = 'Количество экземпляров:',
+  count = 'Количество экземпляров:',
+}

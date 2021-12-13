@@ -1,17 +1,28 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { FilterContext } from '../../context';
 import './Search.scss';
 
 const Search = () => {
-  const [value, setValue] = useState<string>('');
+  const { appState, setAppState } = useContext(FilterContext);
+
+  const handleClick = (str: string) => {
+    setAppState({...appState, filterName: str.toLowerCase()});
+  }
+
   return (
     <div className="search">
       <input
         className="search__input"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        value={appState.filterName}
+        onChange={(e) => handleClick(e.target.value)}
+        placeholder="Поиск"
         autoFocus
       />
-      {value ? <div onClick={() => setValue('')} className="search__clear" /> : <div className="search__icon" />}
+      {appState.filterName ? (
+        <div onClick={() => handleClick('')} className="search__clear" />
+      ) : (
+        <div className="search__icon" />
+      )}
     </div>
   );
 };
