@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { IToys } from '../../types';
 import './ToyCard.scss';
 
 const ToyCard = ({ num, name, count, year, shape, color, size, favorite }: IToys) => {
+  const [favor, setFavor] = useState(favorite);
+
   return (
-    <div className="toy-card">
+    <div className="toy-card" onClick={() => setFavor(!favor)}>
       <h3 className="toy-card__title">{name}</h3>
       <div className="toy-card__content">
         <div className="toy-card__visual">
           <img className="toy-card__img" src={`./assets/toys/${num}.png`} alt={name} />
-          <div className="toy-card__ribbon" />
+          <div className={favor ? 'toy-card__ribbon toy-card__ribbon_like' : "toy-card__ribbon"} />
         </div>
         <div className="toy-card__info">
           <p>
@@ -28,7 +30,7 @@ const ToyCard = ({ num, name, count, year, shape, color, size, favorite }: IToys
             Размер: <span>{size}</span>
           </p>
           <p>
-            Любимая: <span>{favorite ? 'да' : 'нет'}</span>
+            Любимая: <span>{favor ? 'да' : 'нет'}</span>
           </p>
         </div>
       </div>
@@ -36,4 +38,4 @@ const ToyCard = ({ num, name, count, year, shape, color, size, favorite }: IToys
   );
 };
 
-export  {ToyCard}
+export { ToyCard };

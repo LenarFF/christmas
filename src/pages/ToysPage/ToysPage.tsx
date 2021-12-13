@@ -8,7 +8,10 @@ import './ToysPage.scss';
 
 function ToysPage({ toys }: { toys: IToys[] }) {
   const { filterName, setFilterName } = useContext(FilterContext);
-  const filteredToys = toys.filter((toy) => toy.name.toLowerCase().includes(filterName));
+  const { isFavor, setIsFavor } = useContext(FilterContext);
+  let filteredToys = toys.filter((toy) => toy.name.toLowerCase().includes(filterName));
+  console.log(isFavor)
+  if (isFavor) filteredToys = filteredToys.filter((toy) => toy.favorite);
 
   return (
     <div className="container toys-page">

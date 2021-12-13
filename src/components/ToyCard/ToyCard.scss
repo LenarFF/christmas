@@ -48,6 +48,9 @@
     border-radius: 0 100px 100px 0;
     bottom: 0;
     left: -20px;
+    &_like {
+      background-color: $gold;
+    }
     &::before {
       border-bottom: 8px solid #14455b;
       border-left: 8px solid transparent;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { FilterContext, IContext, state } from '../../context';
+import { FilterContext, IContext } from '../../context';
 import { toys } from '../../data';
 import ChristmasTreePage from '../../pages/ChristmasTreePage/ChristmasTreePage';
 import ErrorPage from '../../pages/ErrorPage/ErrorPage';
@@ -11,11 +11,34 @@ import './App.scss';
 
 function App(): JSX.Element {
   const [filterName, setFilterName] = useState('');
+  const [isFavor, setIsFavor] = useState(false);
+  const [isBall, setIsBall] = useState(true);
+  const [isBell, setIsBell] = useState(true);
+  const [isCone, setIsCone] = useState(true);
+  const [isSnowflake, setIsSnowflake] = useState(true);
+  const [isToy, setIsToy] = useState(true);
 
   return (
     <>
       <div>
-        <FilterContext.Provider value={{ filterName, setFilterName }}>
+        <FilterContext.Provider
+          value={{
+            filterName,
+            setFilterName,
+            isFavor,
+            setIsFavor,
+            isBall,
+            setIsBall,
+            isBell,
+            setIsBell,
+            isCone,
+            setIsCone,
+            isSnowflake,
+            setIsSnowflake,
+            isToy,
+            setIsToy,
+          }}
+        >
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<StartPage />} />

@@ -3,4 +3,8 @@
 .filter-card__filter {
   height: 60px;
   font-size: $cardTitleFont;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
