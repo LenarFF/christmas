@@ -3,18 +3,8 @@ import { FilterContext } from '../../context';
 import './ValueFilterCardForm.scss';
 
 const ValueFilterCardForm = () => {
-  const {
-    isBall,
-    setIsBall,
-    isBell,
-    setIsBell,
-    isCone,
-    setIsCone,
-    isSnowflake,
-    setIsSnowflake,
-    isToy,
-    setIsToy,
-  } = useContext(FilterContext);
+  const { appState, setAppState } = useContext(FilterContext);
+  const { isBall, isBell, isCone, isSnowflake, isToy } = appState;
 
   const classNames = 'filter-card__forms filter-card__forms_';
   return (
@@ -22,19 +12,19 @@ const ValueFilterCardForm = () => {
       <span>Форма:</span>
       <div className="filter-card__forms-wrap">
         <button
-          onClick={() => setIsBall(!isBall)}
+          onClick={() => setAppState({...appState, isBall: !isBall})}
           className={isBall ? `${classNames}ball filter-card__forms_gold` : `${classNames}ball`}
         />
         <button
-          onClick={() => setIsBell(!isBell)}
+          onClick={() => setAppState({...appState, isBell: !isBell})}
           className={isBell ? `${classNames}bell filter-card__forms_gold` : `${classNames}bell`}
         />
         <button
-          onClick={() => setIsCone(!isCone)}
+          onClick={() => setAppState({...appState, isCone: !isCone})}
           className={isCone ? `${classNames}cone filter-card__forms_gold` : `${classNames}cone`}
         />
         <button
-          onClick={() => setIsSnowflake(!isSnowflake)}
+          onClick={() => setAppState({...appState, isSnowflake: !isSnowflake})}
           className={
             isSnowflake
               ? `${classNames}snowflake filter-card__forms_gold`
@@ -42,7 +32,7 @@ const ValueFilterCardForm = () => {
           }
         />
         <button
-          onClick={() => setIsToy(!isToy)}
+          onClick={() => setAppState({...appState, isToy: !isToy})}
           className={isToy ? `${classNames}toy filter-card__forms_gold` : `${classNames}toy`}
         />
       </div>

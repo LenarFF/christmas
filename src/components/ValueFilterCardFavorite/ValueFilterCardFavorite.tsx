@@ -3,12 +3,10 @@ import { FilterContext } from '../../context';
 import './ValueFilterCardFavorite.scss';
 
 const ValueFilterCardFavorite = () => {
-  const { isFavor, setIsFavor } = useContext(FilterContext);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const { appState, setAppState } = useContext(FilterContext);
 
   const handleFavor = () => {
-    setIsFavorite(!isFavorite);
-    setIsFavor(isFavorite);
+    setAppState({ ...appState, isFavor: !appState.isFavor });
   };
 
   return (
@@ -17,14 +15,14 @@ const ValueFilterCardFavorite = () => {
       <input
         className="filter-card__favorite-checkbox"
         type="checkbox"
-        checked={isFavor}
+        checked={appState.isFavor}
         onChange={handleFavor}
         id="favorite"
       />
       <label
         htmlFor="favorite"
         className={
-          isFavor
+          appState.isFavor
             ? 'filter-card__favorite-label filter-card__favorite-label_checked'
             : 'filter-card__favorite-label'
         }

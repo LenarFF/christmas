@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { FilterContext } from '../../context';
 import { IToys } from '../../types';
 import './ToyCard.scss';
 

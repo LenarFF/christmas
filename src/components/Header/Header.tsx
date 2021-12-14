@@ -6,7 +6,6 @@ import { SelectToys } from '../SelectToys/SelectToys';
 import './Header.scss';
 
 const Header = () => {
-  console.log(useLocation().pathname);
   return (
     <header className="header">
       <div className="container header__wrap">

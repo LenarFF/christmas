@@ -3,14 +3,8 @@ import { FilterContext } from '../../context';
 import './ValueFilterCardSize.scss';
 
 const ValueFilterCardSize = () => {
-  const {
-    isBig,
-    setIsBig,
-    isMiddle,
-    setIsMiddle,
-    isSmall,
-    setIsSmall,
-  } = useContext(FilterContext);
+   const { appState, setAppState } = useContext(FilterContext);
+  const { isBig, isMiddle, isSmall } = appState;
 
   const classNames = 'filter-card__size filter-card__size_';
   return (
@@ -18,17 +12,17 @@ const ValueFilterCardSize = () => {
       <span>Размер:</span>
       <div className="filter-card__size-wrap">
         <button
-          onClick={() => setIsBig(!isBig)}
+          onClick={() => setAppState({...appState, isBig: !isBig})}
           className={isBig ? `${classNames}big filter-card__size_gold` : `${classNames}big`}
         />
         <button
-          onClick={() => setIsMiddle(!isMiddle)}
+          onClick={() => setAppState({...appState, isMiddle: !isMiddle})}
           className={
             isMiddle ? `${classNames}middle filter-card__size_gold` : `${classNames}middle`
           }
         />
         <button
-          onClick={() => setIsSmall(!isSmall)}
+          onClick={() => setAppState({...appState, isSmall: !isSmall})}
           className={isSmall ? `${classNames}small filter-card__size_gold` : `${classNames}small  `}
         />
       </div>

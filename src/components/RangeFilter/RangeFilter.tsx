@@ -1,35 +1,39 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Slider from '@mui/material/Slider';
 import './RangeFilter.scss';
+import { FilterContext } from '../../context';
+import { Ranges } from '../../types';
 
-
-const RangeFilter = ({title, min, max} : {title: string, min: number, max: number}) => {
-
-  const [value, setValue] = React.useState<number[]>([min, max]);
+const RangeFilter = ({ title, min, max }: { title: string; min: number; max: number }) => {
+  const { appState, setAppState } = useContext(FilterContext);
+  const { count, year } = appState;
 
   const handleChange = (event: Event, newValue: number[]) => {
-     setValue(newValue);
+    setAppState(
+      title === Ranges.count
+        ? { ...appState, count: [...newValue] }
+        : { ...appState, year: [...newValue] },
+    );
   };
-
 
   return (
     <div className="range-filter">
       <h3>{title}</h3>
       <div className="range-filter__ranges">
-        <div className="range-filter__value">{value[0]}</div>
+        <div className="range-filter__value">{title === Ranges.count ? count[0] : year[0]}</div>
         <div className="range-filter__slider">
           <Slider
-            value={value}
+            value={title === Ranges.count ? count : year}
             onChange={(e, value) => handleChange(e, value as number[])}
             valueLabelDisplay="auto"
             min={min}
             max={max}
           />
         </div>
-        <div className="range-filter__value">{value[1]}</div>
+        <div className="range-filter__value">{title === Ranges.count ? count[0] : year[0]}</div>
       </div>
     </div>
   );
-}
+};
 
-export {RangeFilter};
+export { RangeFilter };

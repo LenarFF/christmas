@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { FilterContext, state } from '../../context';
 import { FilterCard } from '../FilterCard/FilterCard';
 import './SortCard.scss';
 
 const SortCard = () => {
+
+  const { appState, setAppState } = useContext(FilterContext);
+
   return (
     <FilterCard title="Сортировка">
       <div className="sort-card">
@@ -14,7 +18,7 @@ const SortCard = () => {
           <option className="sort-card__option">По количеству по возрастанию</option>
           <option className="sort-card__option">По количеству по убыванию</option>
         </select>
-        <button className="sort-card__clear">Сброс фильтров</button>
+        <button onClick={() => setAppState({...state})} className="sort-card__clear">Сброс фильтров</button>
       </div>
     </FilterCard>
   );

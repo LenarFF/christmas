@@ -3,18 +3,8 @@ import { FilterContext } from '../../context';
 import './ValueFilterCardColor.scss';
 
 const ValueFilterCardColor = () => {
-  const {
-    isWhite,
-    setIsWhite,
-    isYellow,
-    setIsYellow,
-    isRed,
-    setIsRed,
-    isBlue,
-    setIsBlue,
-    isGreen,
-    setIsGreen,
-  } = useContext(FilterContext);
+  const { appState, setAppState } = useContext(FilterContext);
+  const {isWhite, isYellow, isRed, isBlue, isGreen} = appState;
 
   const classNames = 'filter-card__color filter-card__color_';
   return (
@@ -22,27 +12,27 @@ const ValueFilterCardColor = () => {
       <span>Цвет:</span>
       <div className="filter-card__color-wrap">
         <button
-          onClick={() => setIsWhite(!isWhite)}
+          onClick={() => setAppState({ ...appState, isWhite: !isWhite })}
           className={
             isWhite ? `${classNames}white filter-card__color_select` : `${classNames}white`
           }
         />
         <button
-          onClick={() => setIsYellow(!isYellow)}
+          onClick={() => setAppState({ ...appState, isYellow: !isYellow })}
           className={
             isYellow ? `${classNames}yellow filter-card__color_select` : `${classNames}yellow`
           }
         />
         <button
-          onClick={() => setIsRed(!isRed)}
+          onClick={() => setAppState({ ...appState, isRed: !isRed })}
           className={isRed ? `${classNames}red filter-card__color_select` : `${classNames}red`}
         />
         <button
-          onClick={() => setIsBlue(!isBlue)}
+          onClick={() => setAppState({ ...appState, isBlue: !isBlue })}
           className={isBlue ? `${classNames}blue filter-card__color_select` : `${classNames}blue`}
         />
         <button
-          onClick={() => setIsGreen(!isGreen)}
+          onClick={() => setAppState({ ...appState, isGreen: !isGreen})}
           className={
             isGreen ? `${classNames}green filter-card__color_select` : `${classNames}green`
           }

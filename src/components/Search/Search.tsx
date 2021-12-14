@@ -3,25 +3,23 @@ import { FilterContext } from '../../context';
 import './Search.scss';
 
 const Search = () => {
-  const [search, setSearch] = useState<string>('');
-  const { filterName, setFilterName } = useContext(FilterContext);
+  const { appState, setAppState } = useContext(FilterContext);
 
   const handleClick = (str: string) => {
-    setSearch(str);
-    setFilterName(str.toLowerCase());
+    setAppState({...appState, filterName: str.toLowerCase()});
   }
 
   return (
     <div className="search">
       <input
         className="search__input"
-        value={search}
+        value={appState.filterName}
         onChange={(e) => handleClick(e.target.value)}
         placeholder="Поиск"
         autoFocus
       />
-      {search ? (
-        <div onClick={() => setSearch('')} className="search__clear" />
+      {appState.filterName ? (
+        <div onClick={() => handleClick('')} className="search__clear" />
       ) : (
         <div className="search__icon" />
       )}
