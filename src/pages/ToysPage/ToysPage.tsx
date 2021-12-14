@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { FilterCard } from '../../components/FilterCard/FilterCard';
+import { RangeFilterCard } from '../../components/RangeFilterCard/RangeFilterCard';
+import { SortCard } from '../../components/SortCard/SortCard';
 import { ToyCard } from '../../components/ToyCard/ToyCard';
 import { ValueFilterCard } from '../../components/ValueFilterCard/ValueFilterCard';
 import { FilterContext } from '../../context';
@@ -18,8 +19,8 @@ function ToysPage({ toys }: { toys: IToys[] }) {
       <div className="blur">
         <section className="filters">
           <ValueFilterCard />
-          <FilterCard title="Фильтры по диапазону" />
-          <FilterCard title="Сортировка" />
+          <RangeFilterCard />
+          <SortCard/>
         </section>
         <section className="toys">
           {filteredToys.map((toy) => (

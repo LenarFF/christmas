@@ -5,6 +5,7 @@
   font-size: $cardTitleFont;
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 30px
 }

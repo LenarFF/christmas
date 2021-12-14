@@ -1,0 +1,21 @@
+@import '../../variables/mixins';
+
+.filter-card__favorite-checkbox {
+  display: none;
+}
+
+.filter-card__favorite-label {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 5px;
+  @include cardBcgd;
+  background-color: white;
+  &_checked {
+    background-image: url('../../assets/svg/check1.png');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
