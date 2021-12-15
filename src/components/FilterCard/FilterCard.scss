@@ -10,6 +10,13 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  min-width: 360px;
+  @media screen and (max-width: 1200px) {
+    background-color: transparent;
+    backdrop-filter: blur(0);
+    border: none;
+    padding: 0px 20px;
+  }
   &__title {
     @include cardTitle;
   }

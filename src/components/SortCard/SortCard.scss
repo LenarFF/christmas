@@ -9,13 +9,13 @@
   align-items: center;
   &__select {
     outline: 0;
-    width: 380px;
+    width: 340px;
     height: 40px;
     padding: 5px 25px;
     background-image: url(../../assets/svg/arrow-down.svg);
     background-size: 20px;
     background-repeat: no-repeat;
-    background-position: 340px center;
+    background-position: 300px center;
     border-radius: 20px;
     appearance: none;
     cursor: pointer;
@@ -23,7 +23,7 @@
     transition: 0.15s;
     &:hover {
       background-size: 30px;
-      background-position-x: 335px;
+      background-position-x: 295px;
     }
   }
   &__option {

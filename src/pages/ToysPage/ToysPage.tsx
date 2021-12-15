@@ -44,7 +44,7 @@ function ToysPage({ toys }: { toys: IToys[] }) {
   if (!isRed) filteredToys = filteredToys.filter((toy) => toy.color !== 'красный');
   if (!isGreen) filteredToys = filteredToys.filter((toy) => toy.color !== 'зелёный');
   if (!isWhite) filteredToys = filteredToys.filter((toy) => toy.color !== 'белый');
-  if (!isYellow) filteredToys = filteredToys.filter((toy) => toy.color !== 'жёлтый');
+  if (!isYellow) filteredToys = filteredToys.filter((toy) => toy.color !== 'желтый');
   if (!isBig) filteredToys = filteredToys.filter((toy) => toy.size !== 'большой');
   if (!isMiddle) filteredToys = filteredToys.filter((toy) => toy.size !== 'средний');
   if (!isSmall) filteredToys = filteredToys.filter((toy) => toy.size !== 'малый');
