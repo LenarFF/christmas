@@ -9,8 +9,8 @@ import './Layout.scss';
 
 function Layout() {
   const { appState, setAppState } = useContext(FilterContext);
-  const STORAGE_STATE = 'christmas_state_LenarFF18';
-  const STORAGE_TOYS = 'christmas_toys_LenarFF18';
+  const STORAGE_STATE = 'christmas_state_LenarFF19';
+  const STORAGE_TOYS = 'christmas_toys_LenarFF19';
 
   const setLocalStorage = () => {
     localStorage.setItem(STORAGE_STATE, JSON.stringify(appState));
