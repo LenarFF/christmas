@@ -1,4 +1,4 @@
-const toys = [
+let toys = [
   {
     num: '1',
     name: 'Большой шар с рисунком',

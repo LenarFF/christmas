@@ -1,33 +1,41 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Outlet } from 'react-router';
 import { FilterContext } from '../../context';
-import { IState } from '../../types';
+import { toys } from '../../data';
+import { IState, IToys } from '../../types';
 import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
 import './Layout.scss';
 
 function Layout() {
+  const { appState, setAppState } = useContext(FilterContext);
+  const STORAGE_STATE = 'christmas_state_LenarFF18';
+  const STORAGE_TOYS = 'christmas_toys_LenarFF18';
 
-      const { appState, setAppState } = useContext(FilterContext);
+  const setLocalStorage = () => {
+    localStorage.setItem(STORAGE_STATE, JSON.stringify(appState));
+    localStorage.setItem(STORAGE_TOYS, JSON.stringify(toys));
+  };
 
-      const setLocalStorage = () => {
-        localStorage.setItem('christmas_state_LenarFF', JSON.stringify(appState));
-      };
+  const getLocalStorage = () => {
+    if (localStorage.getItem(STORAGE_STATE)) {
+      const localStorageState: IState = JSON.parse(localStorage.getItem(STORAGE_STATE) as string);
+      setAppState({ ...localStorageState });
+    }
+  };
 
-      const getLocalStorage = () => {
-        if (localStorage.getItem('christmas_state_LenarFF')) {
-          const localStorageInfo: IState = JSON.parse(
-            localStorage.getItem('christmas_state_LenarFF') as string,
-          );
-          setAppState({ ...localStorageInfo });
-        }
-      };
+  useEffect(() => {
+    if (localStorage.getItem(STORAGE_TOYS)) {
+      const localStorageToys: IToys[] = JSON.parse(localStorage.getItem(STORAGE_TOYS) as string);
+      toys.forEach((toy, index) => (toy.favorite = localStorageToys[index].favorite));
+    }
+  }, []);
 
-      window.addEventListener('beforeunload', setLocalStorage);
-      window.addEventListener('DOMContentLoaded', getLocalStorage);
-      
+  window.addEventListener('beforeunload', setLocalStorage);
+  window.addEventListener('DOMContentLoaded', getLocalStorage);
+
   return (
-    <div className='layout'>
+    <div className="layout">
       <Header />
       <Outlet />
       <Footer />
