@@ -1,4 +1,7 @@
 import { createContext } from 'react';
+import { toys } from '../data';
+
+const favorites = toys.filter(toy => toy.favorite).length
 
 export interface IState {
   filterName: string;
@@ -18,6 +21,7 @@ export interface IState {
   isSmall: boolean;
   count: number[];
   year: number[];
+  favorites: number;
 }
 
 
@@ -38,7 +42,8 @@ export const state: IState = {
   isMiddle: true,
   isSmall: true,
   count: [1, 12],
-  year: [1940, 2020]
+  year: [1940, 2020],
+  favorites
 };
 
 interface IContext {
@@ -47,3 +52,5 @@ interface IContext {
 }
 
 export const FilterContext = createContext<IContext>({appState: state, setAppState: () => {}});
+
+console.log('index')
