@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { FilterContext } from '../../context';
 import { toys } from '../../data';
-import { IToysCard } from '../../types';
+import { IToys } from '../../types';
 import { Modal } from '../modal/modal';
 import './ToyCard.scss';
 
-const ToyCard = ({ num, name, count, year, shape, color, size, favorite, index }: IToysCard) => {
+const ToyCard = ({ num, name, count, year, shape, color, size, favorite }: IToys) => {
   const [favor, setFavor] = useState(favorite);
   const [isFull, setIsFull] = useState(false);
   const { appState, setAppState } = useContext(FilterContext);
@@ -17,7 +17,7 @@ const ToyCard = ({ num, name, count, year, shape, color, size, favorite, index }
     }
     setIsFull(false);
     setFavor(!favor);
-    toys[index].favorite = !favor;
+    toys[+num - 1].favorite = !favor;
     setAppState({
       ...appState,
       favorites: !favor ? appState.favorites + 1 : appState.favorites - 1,
@@ -33,7 +33,9 @@ const ToyCard = ({ num, name, count, year, shape, color, size, favorite, index }
           <img className="toy-card__img" src={`./assets/toys/${num}.png`} alt={name} />
           <div
             className={
-              toys[index].favorite ? 'toy-card__ribbon toy-card__ribbon_like' : 'toy-card__ribbon'
+              toys[+num - 1].favorite
+                ? 'toy-card__ribbon toy-card__ribbon_like'
+                : 'toy-card__ribbon'
             }
           />
         </div>
@@ -54,7 +56,7 @@ const ToyCard = ({ num, name, count, year, shape, color, size, favorite, index }
             Размер: <span>{size}</span>
           </p>
           <p>
-            Любимая: <span>{toys[index].favorite ? 'да' : 'нет'}</span>
+            Любимая: <span>{toys[+num - 1].favorite ? 'да' : 'нет'}</span>
           </p>
         </div>
       </div>

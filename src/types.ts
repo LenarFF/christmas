@@ -31,9 +31,7 @@ export interface IToys {
   favorite: boolean;
 }
 
-export interface IToysCard extends IToys {
-  index: number;
-}
+
 
 export enum Ranges {
   year = 'Количество экземпляров:',
