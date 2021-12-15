@@ -8,6 +8,7 @@ import { sortByCountReverse, sortByName, sortByNameReverse } from '../../sort';
 import { IToys, Sort } from '../../types';
 import './ToysPage.scss';
 import { sortByCount } from './../../sort';
+import { Modal } from '../../components/modal/modal';
 
 function ToysPage({ toys }: { toys: IToys[] }) {
   const { appState, setAppState } = useContext(FilterContext);
@@ -68,6 +69,8 @@ function ToysPage({ toys }: { toys: IToys[] }) {
       break;
   }
 
+  console.log('toyPage')
+
   return (
     <div className="container toys-page">
       <div className="blur">
@@ -80,6 +83,7 @@ function ToysPage({ toys }: { toys: IToys[] }) {
           {filteredToys.map((toy, index) => (
             <ToyCard key={toy.num} {...toy} index={index} />
           ))}
+          {!filteredToys.length ? <span className="not-found">¯\_(ツ)_/¯</span> : ''}
         </section>
       </div>
     </div>

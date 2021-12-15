@@ -30,7 +30,7 @@ const RangeFilter = ({ title, min, max }: { title: string; min: number; max: num
             max={max}
           />
         </div>
-        <div className="range-filter__value">{title === Ranges.count ? count[0] : year[0]}</div>
+        <div className="range-filter__value">{title === Ranges.count ? count[1] : year[1]}</div>
       </div>
     </div>
   );

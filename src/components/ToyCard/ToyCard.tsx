@@ -2,29 +2,40 @@ import React, { useContext, useState } from 'react';
 import { FilterContext } from '../../context';
 import { toys } from '../../data';
 import { IToysCard } from '../../types';
+import { Modal } from '../modal/modal';
 import './ToyCard.scss';
 
 const ToyCard = ({ num, name, count, year, shape, color, size, favorite, index }: IToysCard) => {
   const [favor, setFavor] = useState(favorite);
+  const [isFull, setIsFull] = useState(false);
   const { appState, setAppState } = useContext(FilterContext);
 
   const handleClick = () => {
+    if (appState.favorites >= 20 && !favor) {
+      setIsFull(true);
+      return;
+    }
+    setIsFull(false);
     setFavor(!favor);
     toys[index].favorite = !favor;
     setAppState({
       ...appState,
       favorites: !favor ? appState.favorites + 1 : appState.favorites - 1,
     });
-    console.log(appState.favorites)
   };
 
   return (
-    <div className="toy-card" onClick={handleClick}>
+    <div id="num" className="toy-card" onClick={handleClick}>
+      {isFull && <Modal />}
       <h3 className="toy-card__title">{name}</h3>
       <div className="toy-card__content">
         <div className="toy-card__visual">
           <img className="toy-card__img" src={`./assets/toys/${num}.png`} alt={name} />
-          <div className={favor ? 'toy-card__ribbon toy-card__ribbon_like' : 'toy-card__ribbon'} />
+          <div
+            className={
+              toys[index].favorite ? 'toy-card__ribbon toy-card__ribbon_like' : 'toy-card__ribbon'
+            }
+          />
         </div>
         <div className="toy-card__info">
           <p>
@@ -43,7 +54,7 @@ const ToyCard = ({ num, name, count, year, shape, color, size, favorite, index }
             Размер: <span>{size}</span>
           </p>
           <p>
-            Любимая: <span>{favor ? 'да' : 'нет'}</span>
+            Любимая: <span>{toys[index].favorite ? 'да' : 'нет'}</span>
           </p>
         </div>
       </div>
