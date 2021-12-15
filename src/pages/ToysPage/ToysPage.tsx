@@ -4,8 +4,10 @@ import { SortCard } from '../../components/SortCard/SortCard';
 import { ToyCard } from '../../components/ToyCard/ToyCard';
 import { ValueFilterCard } from '../../components/ValueFilterCard/ValueFilterCard';
 import { FilterContext } from '../../context';
-import { IToys } from '../../types';
+import { sortByCountReverse, sortByName, sortByNameReverse } from '../../sort';
+import { IToys, Sort } from '../../types';
 import './ToysPage.scss';
+import { sortByCount } from './../../sort';
 
 function ToysPage({ toys }: { toys: IToys[] }) {
   const { appState, setAppState } = useContext(FilterContext);
@@ -27,7 +29,8 @@ function ToysPage({ toys }: { toys: IToys[] }) {
     isMiddle,
     isSmall,
     count,
-    year
+    year,
+    sort,
   } = appState;
 
   let filteredToys = toys.filter((toy) => toy.name.toLowerCase().includes(filterName));
@@ -47,6 +50,23 @@ function ToysPage({ toys }: { toys: IToys[] }) {
   if (!isSmall) filteredToys = filteredToys.filter((toy) => toy.size !== 'малый');
   filteredToys = filteredToys.filter((toy) => +toy.count >= count[0] && +toy.count <= count[1]);
   filteredToys = filteredToys.filter((toy) => +toy.year >= year[0] && +toy.year <= year[1]);
+  switch (sort) {
+    case Sort.name:
+      filteredToys = sortByName(filteredToys);
+      break;
+    case Sort.nameRevers:
+      filteredToys = sortByNameReverse(filteredToys);
+      break;
+    case Sort.count:
+      filteredToys = sortByCount(filteredToys);
+      break;
+    case Sort.countReverse:
+      filteredToys = sortByCountReverse(filteredToys);
+      break;
+    default:
+      filteredToys = sortByName(filteredToys);
+      break;
+  }
 
   return (
     <div className="container toys-page">
