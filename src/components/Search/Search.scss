@@ -11,6 +11,9 @@
     border-radius: 20px;
     outline: none;
     @include cardBcgd;
+    @media screen and (max-width: 900px) {
+      width: 250px;
+    }
   }
   &__icon,
   &__clear {
