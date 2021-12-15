@@ -57,8 +57,8 @@ function ToysPage({ toys }: { toys: IToys[] }) {
           <SortCard />
         </section>
         <section className="toys">
-          {filteredToys.map((toy) => (
-            <ToyCard key={toy.num} {...toy} />
+          {filteredToys.map((toy, index) => (
+            <ToyCard key={toy.num} {...toy} index={index} />
           ))}
         </section>
       </div>
