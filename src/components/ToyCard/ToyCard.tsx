@@ -15,7 +15,6 @@ const ToyCard = ({ num, name, count, year, shape, color, size, favorite, index }
       ...appState,
       favorites: !favor ? appState.favorites + 1 : appState.favorites - 1,
     });
-    console.log(appState.favorites)
   };
 
   return (

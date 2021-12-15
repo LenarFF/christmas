@@ -80,6 +80,7 @@ function ToysPage({ toys }: { toys: IToys[] }) {
           {filteredToys.map((toy, index) => (
             <ToyCard key={toy.num} {...toy} index={index} />
           ))}
+          {!filteredToys.length ? <span className='not-found'>¯\_(ツ)_/¯</span> : ''}
         </section>
       </div>
     </div>
