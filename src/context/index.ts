@@ -2,7 +2,7 @@ import { createContext } from 'react';
 import { toys } from '../data';
 import { IState, Sort } from '../types';
 
-const favorites = toys.filter(toy => toy.favorite).length
+const favorites = toys.filter((toy) => toy.favorite).length;
 
 export const state: IState = {
   filterName: '',
@@ -23,14 +23,12 @@ export const state: IState = {
   count: [1, 12],
   year: [1940, 2020],
   favorites,
-  sort: Sort.name
+  sort: Sort.name,
 };
 
 interface IContext {
   appState: IState;
-  setAppState: React.Dispatch<React.SetStateAction<IState>>
+  setAppState: React.Dispatch<React.SetStateAction<IState>>;
 }
 
-export const FilterContext = createContext<IContext>({appState: state, setAppState: () => {}});
-
-console.log('index')
+export const FilterContext = createContext<IContext>({ appState: state, setAppState: () => {} });

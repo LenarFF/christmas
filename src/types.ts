@@ -31,8 +31,6 @@ export interface IToys {
   favorite: boolean;
 }
 
-
-
 export enum Ranges {
   year = 'Количество экземпляров:',
   count = 'Количество экземпляров:',
@@ -44,3 +42,5 @@ export enum Sort {
   count = 'sortByCount',
   countReverse = 'sortByCountReverse',
 }
+
+export type SortFunctionType = (arr: IToys[]) => IToys[];

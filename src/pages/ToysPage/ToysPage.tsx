@@ -1,16 +1,17 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { RangeFilterCard } from '../../components/RangeFilterCard/RangeFilterCard';
 import { SortCard } from '../../components/SortCard/SortCard';
 import { ToyCard } from '../../components/ToyCard/ToyCard';
 import { ValueFilterCard } from '../../components/ValueFilterCard/ValueFilterCard';
 import { FilterContext } from '../../context';
-import { sortByCountReverse, sortByName, sortByNameReverse } from '../../sort';
+import {
+  sortByCountReverse, sortByName, sortByNameReverse, sortByCount,
+} from '../../sort';
 import { IToys, Sort } from '../../types';
 import './ToysPage.scss';
-import { sortByCount } from './../../sort';
 
-function ToysPage({ toys }: { toys: IToys[] }) {
-  const { appState, setAppState } = useContext(FilterContext);
+function ToysPage({ toys }: { toys: IToys[] }): JSX.Element {
+  const { appState } = useContext(FilterContext);
 
   const {
     filterName,
@@ -68,7 +69,6 @@ function ToysPage({ toys }: { toys: IToys[] }) {
       break;
   }
 
-
   return (
     <div className="container toys-page">
       <div className="blur">
@@ -78,7 +78,7 @@ function ToysPage({ toys }: { toys: IToys[] }) {
           <SortCard />
         </section>
         <section className="toys">
-          {filteredToys.map((toy, index) => (
+          {filteredToys.map((toy) => (
             <ToyCard key={toy.num} {...toy} />
           ))}
           {!filteredToys.length ? <span className="not-found">¯\_(ツ)_/¯</span> : ''}

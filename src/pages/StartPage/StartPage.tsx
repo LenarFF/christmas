@@ -3,7 +3,7 @@ import { MainTitle } from '../../components/MainTitle/MainTitle';
 import { StartButton } from '../../components/StartButton/StartButton';
 import './StartPage.scss';
 
-function StartPage() {
+function StartPage(): JSX.Element {
   return (
     <div className="container start-page">
       <MainTitle />

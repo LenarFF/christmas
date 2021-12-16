@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.scss';
 
-function Footer() {
+function Footer(): JSX.Element {
   return (
     <footer className="footer">
       <div className="container footer__wrap">

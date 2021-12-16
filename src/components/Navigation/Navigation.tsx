@@ -21,4 +21,4 @@ function Navigation(): JSX.Element {
     </nav>
   );
 }
-export  {Navigation};
+export { Navigation };
