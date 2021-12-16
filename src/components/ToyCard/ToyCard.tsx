@@ -5,7 +5,9 @@ import { IToys } from '../../types';
 import { Modal } from '../modal/modal';
 import './ToyCard.scss';
 
-const ToyCard = ({ num, name, count, year, shape, color, size, favorite }: IToys) => {
+const ToyCard = ({
+  num, name, count, year, shape, color, size, favorite,
+}: IToys): JSX.Element => {
   const [favor, setFavor] = useState(favorite);
   const [isFull, setIsFull] = useState(false);
   const { appState, setAppState } = useContext(FilterContext);

@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
 import { FilterContext, state } from '../../context';
-import { Sort } from '../../types';
 import { FilterCard } from '../FilterCard/FilterCard';
 import './SortCard.scss';
 
-const SortCard = () => {
+const SortCard = (): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
 
   const handleChange = (value: string) => {

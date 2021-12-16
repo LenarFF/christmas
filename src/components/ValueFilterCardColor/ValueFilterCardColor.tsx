@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { FilterContext } from '../../context';
 import './ValueFilterCardColor.scss';
 
-const ValueFilterCardColor = () => {
+const ValueFilterCardColor = (): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
-  const {isWhite, isYellow, isRed, isBlue, isGreen} = appState;
+  const {
+    isWhite, isYellow, isRed, isBlue, isGreen,
+  } = appState;
 
   const classNames = 'filter-card__color filter-card__color_';
   return (
@@ -32,7 +34,7 @@ const ValueFilterCardColor = () => {
           className={isBlue ? `${classNames}blue filter-card__color_select` : `${classNames}blue`}
         />
         <button
-          onClick={() => setAppState({ ...appState, isGreen: !isGreen})}
+          onClick={() => setAppState({ ...appState, isGreen: !isGreen })}
           className={
             isGreen ? `${classNames}green filter-card__color_select` : `${classNames}green`
           }

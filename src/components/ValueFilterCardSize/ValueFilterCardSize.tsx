@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { FilterContext } from '../../context';
 import './ValueFilterCardSize.scss';
 
-const ValueFilterCardSize = () => {
-   const { appState, setAppState } = useContext(FilterContext);
+const ValueFilterCardSize = (): JSX.Element => {
+  const { appState, setAppState } = useContext(FilterContext);
   const { isBig, isMiddle, isSmall } = appState;
 
   const classNames = 'filter-card__size filter-card__size_';
@@ -12,17 +12,17 @@ const ValueFilterCardSize = () => {
       <span>Размер:</span>
       <div className="filter-card__size-wrap">
         <button
-          onClick={() => setAppState({...appState, isBig: !isBig})}
+          onClick={() => setAppState({ ...appState, isBig: !isBig })}
           className={isBig ? `${classNames}big filter-card__size_gold` : `${classNames}big`}
         />
         <button
-          onClick={() => setAppState({...appState, isMiddle: !isMiddle})}
+          onClick={() => setAppState({ ...appState, isMiddle: !isMiddle })}
           className={
             isMiddle ? `${classNames}middle filter-card__size_gold` : `${classNames}middle`
           }
         />
         <button
-          onClick={() => setAppState({...appState, isSmall: !isSmall})}
+          onClick={() => setAppState({ ...appState, isSmall: !isSmall })}
           className={isSmall ? `${classNames}small filter-card__size_gold` : `${classNames}small  `}
         />
       </div>

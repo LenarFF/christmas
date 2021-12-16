@@ -23,7 +23,8 @@
     width: 160px;
     height: 60px;
     &:hover {
-       filter: invert(51%) sepia(20%) saturate(1583%) hue-rotate(141deg) brightness(88%) contrast(81%);
+      filter: invert(51%) sepia(20%) saturate(1583%) hue-rotate(141deg) brightness(88%)
+        contrast(81%);
     }
   }
 }

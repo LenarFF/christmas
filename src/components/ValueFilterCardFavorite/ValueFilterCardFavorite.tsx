@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { FilterContext } from '../../context';
 import './ValueFilterCardFavorite.scss';
 
-const ValueFilterCardFavorite = () => {
+const ValueFilterCardFavorite = (): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
 
   const handleFavor = () => {

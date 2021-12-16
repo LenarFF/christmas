@@ -1,13 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { FilterContext } from '../../context';
 import './Search.scss';
 
-const Search = () => {
+const Search = (): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
 
   const handleClick = (str: string) => {
-    setAppState({...appState, filterName: str.toLowerCase()});
-  }
+    setAppState({ ...appState, filterName: str.toLowerCase() });
+  };
 
   return (
     <div className="search">

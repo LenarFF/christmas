@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-function ChristmasTreePage() {
-  return <div className='container'>ChristmasTreePage</div>;
+function ChristmasTreePage(): JSX.Element {
+  return <div className="container">ChristmasTreePage</div>;
 }
 
-export default ChristmasTreePage
+export default ChristmasTreePage;

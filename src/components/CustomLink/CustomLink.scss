@@ -1,4 +1,4 @@
-@import "../../variables/_colorVariables";
+@import '../../variables/_colorVariables';
 
 .nav__link {
   text-decoration: none;
@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   &:hover {
-    color: $zomp
+    color: $zomp;
   }
 }
 .nav__link_active {

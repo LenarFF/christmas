@@ -5,18 +5,16 @@ import { toys } from '../../data';
 import ChristmasTreePage from '../../pages/ChristmasTreePage/ChristmasTreePage';
 import StartPage from '../../pages/StartPage/StartPage';
 import ToysPage from '../../pages/ToysPage/ToysPage';
-import { IState } from '../../types';
 import Layout from '../Layout/Layout';
 import './App.scss';
 
 function App(): JSX.Element {
   const [appState, setAppState] = useState(state);
 
-
   return (
     <>
       <div>
-        <FilterContext.Provider value={{appState, setAppState}}>
+        <FilterContext.Provider value={{ appState, setAppState }}>
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<StartPage />} />
