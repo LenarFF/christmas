@@ -4,70 +4,31 @@ import { SortCard } from '../../components/SortCard/SortCard';
 import { ToyCard } from '../../components/ToyCard/ToyCard';
 import { ValueFilterCard } from '../../components/ValueFilterCard/ValueFilterCard';
 import { FilterContext } from '../../context';
-import {
-  sortByCountReverse, sortByName, sortByNameReverse, sortByCount,
-} from '../../sort';
-import { IToys, Sort } from '../../types';
+import { sortToys } from '../../sort';
+import { IToys } from '../../types';
 import './ToysPage.scss';
 
 function ToysPage({ toys }: { toys: IToys[] }): JSX.Element {
   const { appState } = useContext(FilterContext);
 
   const {
-    filterName,
-    isFavor,
-    isBall,
-    isBell,
-    isCone,
-    isSnowflake,
-    isToy,
-    isBlue,
-    isRed,
-    isGreen,
-    isWhite,
-    isYellow,
-    isBig,
-    isMiddle,
-    isSmall,
-    count,
-    year,
-    sort,
+    filterName, isFavor, shapes, colors, sizes, count, year, sort,
   } = appState;
 
   let filteredToys = toys.filter((toy) => toy.name.toLowerCase().includes(filterName.toLowerCase()));
+  Object.keys(shapes).forEach((key) => {
+    if (!shapes[key]) filteredToys = filteredToys.filter((toy) => toy.shape !== key);
+  });
+  Object.keys(colors).forEach((key) => {
+    if (!colors[key]) filteredToys = filteredToys.filter((toy) => toy.color !== key);
+  });
+  Object.keys(sizes).forEach((key) => {
+    if (!sizes[key]) filteredToys = filteredToys.filter((toy) => toy.size !== key);
+  });
   if (isFavor) filteredToys = filteredToys.filter((toy) => toy.favorite);
-  if (!isBall) filteredToys = filteredToys.filter((toy) => toy.shape !== 'шар');
-  if (!isBell) filteredToys = filteredToys.filter((toy) => toy.shape !== 'колокольчик');
-  if (!isCone) filteredToys = filteredToys.filter((toy) => toy.shape !== 'шишка');
-  if (!isSnowflake) filteredToys = filteredToys.filter((toy) => toy.shape !== 'снежинка');
-  if (!isToy) filteredToys = filteredToys.filter((toy) => toy.shape !== 'фигурка');
-  if (!isBlue) filteredToys = filteredToys.filter((toy) => toy.color !== 'синий');
-  if (!isRed) filteredToys = filteredToys.filter((toy) => toy.color !== 'красный');
-  if (!isGreen) filteredToys = filteredToys.filter((toy) => toy.color !== 'зелёный');
-  if (!isWhite) filteredToys = filteredToys.filter((toy) => toy.color !== 'белый');
-  if (!isYellow) filteredToys = filteredToys.filter((toy) => toy.color !== 'желтый');
-  if (!isBig) filteredToys = filteredToys.filter((toy) => toy.size !== 'большой');
-  if (!isMiddle) filteredToys = filteredToys.filter((toy) => toy.size !== 'средний');
-  if (!isSmall) filteredToys = filteredToys.filter((toy) => toy.size !== 'малый');
   filteredToys = filteredToys.filter((toy) => +toy.count >= count[0] && +toy.count <= count[1]);
   filteredToys = filteredToys.filter((toy) => +toy.year >= year[0] && +toy.year <= year[1]);
-  switch (sort) {
-    case Sort.name:
-      filteredToys = sortByName(filteredToys);
-      break;
-    case Sort.nameRevers:
-      filteredToys = sortByNameReverse(filteredToys);
-      break;
-    case Sort.count:
-      filteredToys = sortByCount(filteredToys);
-      break;
-    case Sort.countReverse:
-      filteredToys = sortByCountReverse(filteredToys);
-      break;
-    default:
-      filteredToys = sortByName(filteredToys);
-      break;
-  }
+  sortToys(filteredToys, sort);
 
   return (
     <div className="blur">

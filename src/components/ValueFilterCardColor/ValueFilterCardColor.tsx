@@ -4,39 +4,64 @@ import './ValueFilterCardColor.scss';
 
 const ValueFilterCardColor = (): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
-  const {
-    isWhite, isYellow, isRed, isBlue, isGreen,
-  } = appState;
+  const { colors } = appState;
 
   const classNames = 'filter-card__color filter-card__color_';
+  const handleClick = () => {
+    setAppState({ ...appState, colors });
+  };
+
   return (
     <li className="filter-card__filter">
       <span>Цвет:</span>
       <div className="filter-card__color-wrap">
         <button
-          onClick={() => setAppState({ ...appState, isWhite: !isWhite })}
+          onClick={() => {
+            colors['белый'] = !colors['белый'];
+            handleClick();
+          }}
           className={
-            isWhite ? `${classNames}white filter-card__color_select` : `${classNames}white`
+            colors['белый'] ? `${classNames}white filter-card__color_select` : `${classNames}white`
           }
         />
         <button
-          onClick={() => setAppState({ ...appState, isYellow: !isYellow })}
+          onClick={() => {
+            colors['желтый'] = !colors['желтый'];
+            handleClick();
+          }}
           className={
-            isYellow ? `${classNames}yellow filter-card__color_select` : `${classNames}yellow`
+            colors['желтый']
+              ? `${classNames}yellow filter-card__color_select`
+              : `${classNames}yellow`
           }
         />
         <button
-          onClick={() => setAppState({ ...appState, isRed: !isRed })}
-          className={isRed ? `${classNames}red filter-card__color_select` : `${classNames}red`}
-        />
-        <button
-          onClick={() => setAppState({ ...appState, isBlue: !isBlue })}
-          className={isBlue ? `${classNames}blue filter-card__color_select` : `${classNames}blue`}
-        />
-        <button
-          onClick={() => setAppState({ ...appState, isGreen: !isGreen })}
+          onClick={() => {
+            colors['красный'] = !colors['красный'];
+            handleClick();
+          }}
           className={
-            isGreen ? `${classNames}green filter-card__color_select` : `${classNames}green`
+            colors['красный'] ? `${classNames}red filter-card__color_select` : `${classNames}red`
+          }
+        />
+        <button
+          onClick={() => {
+            colors['синий'] = !colors['синий'];
+            handleClick();
+          }}
+          className={
+            colors['синий'] ? `${classNames}blue filter-card__color_select` : `${classNames}blue`
+          }
+        />
+        <button
+          onClick={() => {
+            colors['зелёный'] = !colors['зелёный'];
+            handleClick();
+          }}
+          className={
+            colors['зелёный']
+              ? `${classNames}green filter-card__color_select`
+              : `${classNames}green`
           }
         />
       </div>

@@ -4,26 +4,43 @@ import './ValueFilterCardSize.scss';
 
 const ValueFilterCardSize = (): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
-  const { isBig, isMiddle, isSmall } = appState;
+  const { sizes } = appState;
 
   const classNames = 'filter-card__size filter-card__size_';
+  const handleClick = () => {
+    setAppState({ ...appState, sizes });
+  };
+
   return (
     <li className="filter-card__filter">
       <span>Размер:</span>
       <div className="filter-card__size-wrap">
         <button
-          onClick={() => setAppState({ ...appState, isBig: !isBig })}
-          className={isBig ? `${classNames}big filter-card__size_gold` : `${classNames}big`}
-        />
-        <button
-          onClick={() => setAppState({ ...appState, isMiddle: !isMiddle })}
+          onClick={() => {
+            sizes['большой'] = !sizes['большой'];
+            handleClick();
+          }}
           className={
-            isMiddle ? `${classNames}middle filter-card__size_gold` : `${classNames}middle`
+            sizes['большой'] ? `${classNames}big filter-card__size_gold` : `${classNames}big`
           }
         />
         <button
-          onClick={() => setAppState({ ...appState, isSmall: !isSmall })}
-          className={isSmall ? `${classNames}small filter-card__size_gold` : `${classNames}small  `}
+          onClick={() => {
+            sizes['средний'] = !sizes['средний'];
+            handleClick();
+          }}
+          className={
+            sizes['средний'] ? `${classNames}middle filter-card__size_gold` : `${classNames}middle`
+          }
+        />
+        <button
+          onClick={() => {
+            sizes['малый'] = !sizes['малый'];
+            handleClick();
+          }}
+          className={
+            sizes['малый'] ? `${classNames}small filter-card__size_gold` : `${classNames}small  `
+          }
         />
       </div>
     </li>

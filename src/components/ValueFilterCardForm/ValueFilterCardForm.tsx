@@ -5,37 +5,66 @@ import './ValueFilterCardForm.scss';
 const ValueFilterCardForm = (): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
   const {
-    isBall, isBell, isCone, isSnowflake, isToy,
+    shapes,
   } = appState;
 
   const classNames = 'filter-card__forms filter-card__forms_';
+  const handleClick = () => {
+    setAppState({ ...appState, shapes });
+  };
+
   return (
     <li className="filter-card__filter">
       <span>Форма:</span>
       <div className="filter-card__forms-wrap">
         <button
-          onClick={() => setAppState({ ...appState, isBall: !isBall })}
-          className={isBall ? `${classNames}ball filter-card__forms_gold` : `${classNames}ball`}
-        />
-        <button
-          onClick={() => setAppState({ ...appState, isBell: !isBell })}
-          className={isBell ? `${classNames}bell filter-card__forms_gold` : `${classNames}bell`}
-        />
-        <button
-          onClick={() => setAppState({ ...appState, isCone: !isCone })}
-          className={isCone ? `${classNames}cone filter-card__forms_gold` : `${classNames}cone`}
-        />
-        <button
-          onClick={() => setAppState({ ...appState, isSnowflake: !isSnowflake })}
+          onClick={() => {
+            shapes['шар'] = !shapes['шар'];
+            handleClick();
+          }}
           className={
-            isSnowflake
+            shapes['шар'] ? `${classNames}ball filter-card__forms_gold` : `${classNames}ball`
+          }
+        />
+        <button
+          onClick={() => {
+            shapes['колокольчик'] = !shapes['колокольчик'];
+            handleClick();
+          }}
+          className={
+            shapes['колокольчик']
+              ? `${classNames}bell filter-card__forms_gold`
+              : `${classNames}bell`
+          }
+        />
+        <button
+          onClick={() => {
+            shapes['шишка'] = !shapes['шишка'];
+            handleClick();
+          }}
+          className={
+            shapes['шишка'] ? `${classNames}cone filter-card__forms_gold` : `${classNames}cone`
+          }
+        />
+        <button
+          onClick={() => {
+            shapes['снежинка'] = !shapes['снежинка'];
+            handleClick();
+          }}
+          className={
+            shapes['снежинка']
               ? `${classNames}snowflake filter-card__forms_gold`
               : `${classNames}snowflake`
           }
         />
         <button
-          onClick={() => setAppState({ ...appState, isToy: !isToy })}
-          className={isToy ? `${classNames}toy filter-card__forms_gold` : `${classNames}toy`}
+          onClick={() => {
+            shapes['фигурка'] = !shapes['фигурка'];
+            handleClick();
+          }}
+          className={
+            shapes['фигурка'] ? `${classNames}toy filter-card__forms_gold` : `${classNames}toy`
+          }
         />
       </div>
     </li>

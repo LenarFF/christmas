@@ -1,19 +1,15 @@
 export interface IState {
   filterName: string;
   isFavor: boolean;
-  isBall: boolean;
-  isBell: boolean;
-  isCone: boolean;
-  isSnowflake: boolean;
-  isToy: boolean;
-  isWhite: boolean;
-  isYellow: boolean;
-  isRed: boolean;
-  isBlue: boolean;
-  isGreen: boolean;
-  isBig: boolean;
-  isMiddle: boolean;
-  isSmall: boolean;
+  shapes: {
+    [key: string]: boolean
+  };
+  colors: {
+    [key: string]: boolean
+  };
+  sizes: {
+    [key: string]: boolean
+  };
   count: number[];
   year: number[];
   favorites: number;
@@ -45,7 +41,7 @@ export enum Sort {
 
 export type SortFunctionType = (arr: IToys[]) => IToys[];
 
-export enum Form {
+export enum Shapes {
   ball = 'шар',
   bell = 'колокольчик',
   cone = 'шишка',
