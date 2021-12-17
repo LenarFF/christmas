@@ -44,3 +44,11 @@ export enum Sort {
 }
 
 export type SortFunctionType = (arr: IToys[]) => IToys[];
+
+export enum Form {
+  ball = 'шар',
+  bell = 'колокольчик',
+  cone = 'шишка',
+  snowflake = 'снежинка',
+  toy = 'фигурка',
+}

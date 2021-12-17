@@ -37,3 +37,9 @@
 .not-found {
   font-size: 50px;
 }
+
+.blur {
+  width: 100%;
+  backdrop-filter: blur(3px);
+  flex-grow: 1;
+}

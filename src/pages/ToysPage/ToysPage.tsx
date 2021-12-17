@@ -34,9 +34,7 @@ function ToysPage({ toys }: { toys: IToys[] }): JSX.Element {
     sort,
   } = appState;
 
-  let filteredToys = toys.filter((toy) =>
-    toy.name.toLowerCase().includes(filterName.toLowerCase()),
-  );
+  let filteredToys = toys.filter((toy) => toy.name.toLowerCase().includes(filterName.toLowerCase()));
   if (isFavor) filteredToys = filteredToys.filter((toy) => toy.favorite);
   if (!isBall) filteredToys = filteredToys.filter((toy) => toy.shape !== 'шар');
   if (!isBell) filteredToys = filteredToys.filter((toy) => toy.shape !== 'колокольчик');
@@ -72,8 +70,8 @@ function ToysPage({ toys }: { toys: IToys[] }): JSX.Element {
   }
 
   return (
-    <section className="container toys-page">
-      <div className="blur">
+    <div className="blur">
+      <section className="container toys-page">
         <div className="filters">
           <ValueFilterCard />
           <RangeFilterCard />
@@ -85,8 +83,8 @@ function ToysPage({ toys }: { toys: IToys[] }): JSX.Element {
           ))}
           {!filteredToys.length ? <span className="not-found">¯\_(ツ)_/¯</span> : ''}
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
 
