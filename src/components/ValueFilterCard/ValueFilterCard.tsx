@@ -8,12 +8,12 @@ import './ValueFilterCard.scss';
 
 const ValueFilterCard = (): JSX.Element => (
   <FilterCard title="Фильтры по значению">
-    <div className="filter-card__controls">
+    <ul className="filter-card__controls">
       <ValueFilterCardForm />
       <ValueFilterCardColor />
       <ValueFilterCardSize />
       <ValueFilterCardFavorite />
-    </div>
+    </ul>
   </FilterCard>
 );
 

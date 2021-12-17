@@ -8,7 +8,7 @@ const ValueFilterCardSize = (): JSX.Element => {
 
   const classNames = 'filter-card__size filter-card__size_';
   return (
-    <div className="filter-card__filter">
+    <li className="filter-card__filter">
       <span>Размер:</span>
       <div className="filter-card__size-wrap">
         <button
@@ -26,7 +26,7 @@ const ValueFilterCardSize = (): JSX.Element => {
           className={isSmall ? `${classNames}small filter-card__size_gold` : `${classNames}small  `}
         />
       </div>
-    </div>
+    </li>
   );
 };
 

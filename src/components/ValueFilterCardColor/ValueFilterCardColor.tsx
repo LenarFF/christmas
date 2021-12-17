@@ -10,7 +10,7 @@ const ValueFilterCardColor = (): JSX.Element => {
 
   const classNames = 'filter-card__color filter-card__color_';
   return (
-    <div className="filter-card__filter">
+    <li className="filter-card__filter">
       <span>Цвет:</span>
       <div className="filter-card__color-wrap">
         <button
@@ -40,7 +40,7 @@ const ValueFilterCardColor = (): JSX.Element => {
           }
         />
       </div>
-    </div>
+    </li>
   );
 };
 

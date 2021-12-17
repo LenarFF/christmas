@@ -9,3 +9,5 @@ ReactDOM.render(
   </Router>,
   document.getElementById('root'),
 );
+
+console.log('Выполнены все пункты кроме п.11 дополнительный функционал');

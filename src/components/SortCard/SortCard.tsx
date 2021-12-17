@@ -31,7 +31,7 @@ const SortCard = (): JSX.Element => {
             По количеству по убыванию
           </option>
         </select>
-        <button onClick={() => setAppState({ ...state })} className="sort-card__clear">
+        <button onClick={() => setAppState({ ...state, favorites: appState.favorites })} className="sort-card__clear">
           Сброс фильтров
         </button>
       </div>

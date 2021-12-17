@@ -10,7 +10,7 @@ const ValueFilterCardFavorite = (): JSX.Element => {
   };
 
   return (
-    <div className="filter-card__filter">
+    <li className="filter-card__filter">
       <span>Только любимые:</span>
       <input
         className="filter-card__favorite-checkbox"
@@ -27,7 +27,7 @@ const ValueFilterCardFavorite = (): JSX.Element => {
             : 'filter-card__favorite-label'
         }
       />
-    </div>
+    </li>
   );
 };
 

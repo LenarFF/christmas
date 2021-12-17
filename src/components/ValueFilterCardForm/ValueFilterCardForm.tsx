@@ -10,7 +10,7 @@ const ValueFilterCardForm = (): JSX.Element => {
 
   const classNames = 'filter-card__forms filter-card__forms_';
   return (
-    <div className="filter-card__filter">
+    <li className="filter-card__filter">
       <span>Форма:</span>
       <div className="filter-card__forms-wrap">
         <button
@@ -38,7 +38,7 @@ const ValueFilterCardForm = (): JSX.Element => {
           className={isToy ? `${classNames}toy filter-card__forms_gold` : `${classNames}toy`}
         />
       </div>
-    </div>
+    </li>
   );
 };
 
