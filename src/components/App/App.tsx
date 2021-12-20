@@ -12,20 +12,18 @@ function App(): JSX.Element {
   const [appState, setAppState] = useState(state);
 
   return (
-    <>
-      <div>
-        <FilterContext.Provider value={{ appState, setAppState }}>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<StartPage />} />
-              <Route path="toys" element={<ToysPage toys={toys} />} />
-              <Route path="tree" element={<ChristmasTreePage />} />
-              <Route path="*" element={<StartPage />} />
-            </Route>
-          </Routes>
-        </FilterContext.Provider>
-      </div>
-    </>
+    <div>
+      <FilterContext.Provider value={{ appState, setAppState }}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<StartPage />} />
+            <Route path="toys" element={<ToysPage toys={toys} />} />
+            <Route path="tree" element={<ChristmasTreePage />} />
+            <Route path="*" element={<StartPage />} />
+          </Route>
+        </Routes>
+      </FilterContext.Provider>
+    </div>
   );
 }
 

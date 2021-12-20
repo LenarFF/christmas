@@ -28,7 +28,7 @@ const ToyCard = ({
 
   return (
     <div className="toy-card" onClick={handleClick}>
-      {isFull ? <Modal /> : ''}
+      {isFull ? <Modal /> : null}
       <h3 className="toy-card__title">{name}</h3>
       <div className="toy-card__content">
         <div className="toy-card__visual">

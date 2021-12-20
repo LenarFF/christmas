@@ -4,15 +4,13 @@ import './RangeFilter.scss';
 import { FilterContext } from '../../context';
 import { Ranges } from '../../types';
 
-const RangeFilter = ({
-  title,
-  min,
-  max,
-}: {
+interface RangeFilterProps {
   title: string;
   min: number;
   max: number;
-}): JSX.Element => {
+}
+
+const RangeFilter = ({ title, min, max }: RangeFilterProps): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
   const { count, year } = appState;
 

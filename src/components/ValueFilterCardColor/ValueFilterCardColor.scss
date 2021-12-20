@@ -4,7 +4,7 @@
   width: 40px;
   height: 40px;
   border: 0;
-  outline: 0;
+  outline-color: transparent;
   background-color: transparent;
   background-size: contain;
   background-repeat: no-repeat;
@@ -28,18 +28,18 @@
     align-items: center;
   }
   &_white {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
   }
   &_yellow {
-    background-color: yellow;
+    background-color: rgb(231, 231, 6);
   }
   &_red {
-    background-color: red;
+    background-color: rgb(245, 12, 12);
   }
   &_blue {
-    background-color: blue;
+    background-color: rgb(12, 12, 228);
   }
   &_green {
-    background-color: green;
+    background-color: rgb(4, 148, 4);
   }
 }

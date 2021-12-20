@@ -17,6 +17,7 @@ export interface IState {
 }
 
 export interface IToys {
+  [key: string]: string | boolean;
   num: string;
   name: string;
   count: string;

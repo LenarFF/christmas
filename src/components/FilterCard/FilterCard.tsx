@@ -1,13 +1,12 @@
 import React from 'react';
 import './FilterCard.scss';
 
-const FilterCard = ({
-  children,
-  title,
-}: {
+interface FilterCardProps {
   children?: JSX.Element | string;
   title: string;
-}): JSX.Element => (
+}
+
+const FilterCard = ({ children, title }: FilterCardProps): JSX.Element => (
   <div className="filter-card">
     <h3 className="filter-card__title">{title}</h3>
     {children}

@@ -2,14 +2,12 @@ import React from 'react';
 import { Link, useMatch } from 'react-router-dom';
 import './CustomLink.scss';
 
-const CustomLink = ({
-  children,
-  to,
-  ...props
-}: {
+interface CustomLinkProps {
   children: JSX.Element | string;
   to: string;
-}): JSX.Element => {
+}
+
+const CustomLink = ({ children, to, ...props }: CustomLinkProps): JSX.Element => {
   const match = useMatch(to);
 
   return (

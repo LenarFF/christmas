@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
+import { STORAGE_STATE, STORAGE_TOYS } from '../../constats';
 import { FilterContext } from '../../context';
 import { toys } from '../../data';
 import { IState, IToys } from '../../types';
@@ -9,8 +10,7 @@ import './Layout.scss';
 
 function Layout(): JSX.Element {
   const { appState, setAppState } = useContext(FilterContext);
-  const STORAGE_STATE = 'christmas_state_LenarFF23';
-  const STORAGE_TOYS = 'christmas_toys_LenarFF23';
+
 
   const setLocalStorage = () => {
     localStorage.setItem(STORAGE_STATE, JSON.stringify(appState));
@@ -31,7 +31,7 @@ function Layout(): JSX.Element {
         toy.favorite = localStorageToys[index].favorite;
       });
     }
-  }, []);
+  }, [toys]);
 
   window.addEventListener('beforeunload', setLocalStorage);
   window.addEventListener('DOMContentLoaded', getLocalStorage);
