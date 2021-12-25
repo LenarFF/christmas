@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { STORAGE_STATE, STORAGE_TOYS } from '../../constats';
 import { FilterContext } from '../../context';
-import { toys } from '../../data';
+import { toys } from '../../data/data';
 import { IState, IToys } from '../../types';
 import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
@@ -10,7 +10,6 @@ import './Layout.scss';
 
 function Layout(): JSX.Element {
   const { appState, setAppState } = useContext(FilterContext);
-
 
   const setLocalStorage = () => {
     localStorage.setItem(STORAGE_STATE, JSON.stringify(appState));

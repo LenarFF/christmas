@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FilterContext } from '../../context';
-import { toys } from '../../data';
+import { toys } from '../../data/data';
 import { IToys } from '../../types';
 import { Modal } from '../modal/modal';
 import './ToyCard.scss';

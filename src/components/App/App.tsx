@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { FilterContext, state } from '../../context';
-import { toys } from '../../data';
+import { toys } from '../../data/data';
 import ChristmasTreePage from '../../pages/ChristmasTreePage/ChristmasTreePage';
 import StartPage from '../../pages/StartPage/StartPage';
 import ToysPage from '../../pages/ToysPage/ToysPage';

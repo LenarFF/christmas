@@ -1,0 +1,26 @@
+@import '../../variables/colorVariables';
+
+.choice-tree {
+  width: 400px;
+  height: 300px;
+
+  &__field {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  &__img-wrap {
+    width: 115px;
+    height: 115px;
+    background-color: $bcgdTreeCard;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  &__img {
+    height: 100%;
+  }
+}

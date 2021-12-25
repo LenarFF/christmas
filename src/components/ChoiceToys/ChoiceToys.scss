@@ -1,0 +1,25 @@
+
+@import '../../variables/colorVariables';
+
+.choice-toys {
+  width: 400px;
+  height: 600px;
+  &__field {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  &__img-wrap {
+    width: 85px;
+    height: 85px;
+    background-color: $bcgdTreeCard;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__img {
+    height: 70px;
+  }
+}

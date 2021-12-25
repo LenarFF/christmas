@@ -1,0 +1,19 @@
+.effects__sound,
+.effects__snow {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+}
+
+.effects__sound {
+  background-image: url(../../assets/svg/audio.svg);
+}
+
+.effects__snow {
+  background-image: url(../../assets/svg/snow.svg);
+}

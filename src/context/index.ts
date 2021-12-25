@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { toys } from '../data';
+import { toys } from '../data/data';
 import { IState, Sort } from '../types';
 
 const favorites = toys.filter((toy) => toy.favorite).length;

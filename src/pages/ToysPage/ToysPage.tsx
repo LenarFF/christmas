@@ -11,11 +11,11 @@ import './ToysPage.scss';
 function ToysPage({ toys }: { toys: IToys[] }): JSX.Element {
   const { appState } = useContext(FilterContext);
 
-  const { filterName, isFavor, shapes, colors, sizes, count, year, sort } = appState;
+  const {
+    filterName, isFavor, shapes, colors, sizes, count, year, sort,
+  } = appState;
 
-  let filteredToys = toys.filter((toy) =>
-    toy.name.toLowerCase().includes(filterName.toLowerCase()),
-  );
+  let filteredToys = toys.filter((toy) => toy.name.toLowerCase().includes(filterName.toLowerCase()));
 
   const filterToys = (
     stateProp: {
