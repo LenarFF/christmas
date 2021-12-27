@@ -1,4 +1,22 @@
+@import '../../variables/colorVariables';
+
 .tree {
   height: 800px;
   width: 700px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 5px;
+  border: 2px solid $zomp;
+  &__img {
+    position: relative;
+  }
+  &__toy {
+    position: absolute;
+    height: 50px;
+    cursor: grab;
+  }
 }

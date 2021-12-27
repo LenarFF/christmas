@@ -2,18 +2,27 @@ export interface IState {
   filterName: string;
   isFavor: boolean;
   shapes: {
-    [key: string]: boolean
+    [key: string]: boolean;
   };
   colors: {
-    [key: string]: boolean
+    [key: string]: boolean;
   };
   sizes: {
-    [key: string]: boolean
+    [key: string]: boolean;
   };
   count: number[];
   year: number[];
-  favorites: number;
+  favorites: string[];
   sort: string;
+  treeState: {
+    tree: string;
+    background: string;
+  };
+  snow: boolean;
+  music: boolean;
+  toysOnTree: {num: string, id: string, top: number, left: number}[];
+  drop: boolean;
+  dropNum: string
 }
 
 export interface IToys {

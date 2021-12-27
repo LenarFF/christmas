@@ -7,7 +7,7 @@ const SelectToys = (): JSX.Element => {
 
   return (
     <div className="select-toys">
-      <span className="select-toys__number">{appState.favorites}</span>
+      <span className="select-toys__number">{appState.favorites.length}</span>
     </div>
   );
 };

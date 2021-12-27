@@ -1,8 +1,7 @@
 import { createContext } from 'react';
-import { toys } from '../data/data';
 import { IState, Sort } from '../types';
 
-const favorites = toys.filter((toy) => toy.favorite).length;
+
 
 export const state: IState = {
   filterName: '',
@@ -28,8 +27,17 @@ export const state: IState = {
   },
   count: [1, 12],
   year: [1940, 2020],
-  favorites,
+  favorites: [],
   sort: Sort.name,
+  treeState: {
+    tree: '1',
+    background: '1',
+  },
+  snow: false,
+  music: false,
+  toysOnTree: [],
+  drop: false,
+  dropNum: '',
 };
 
 interface IContext {
