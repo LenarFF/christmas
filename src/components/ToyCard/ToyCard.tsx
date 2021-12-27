@@ -1,32 +1,23 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { FilterContext } from '../../context';
-import { toys } from '../../data/data';
 import { IToys } from '../../types';
-import { Modal } from '../modal/modal';
 import './ToyCard.scss';
 
 const ToyCard = ({
-  num,
-  name,
-  count,
-  year,
-  shape,
-  color,
-  size,
-  favorite
+  num, name, count, year, shape, color, size, favorite,
 }: IToys): JSX.Element => {
-
   const { appState, setAppState } = useContext(FilterContext);
-  const {favorites} = appState
+  const { favorites } = appState;
 
   const handleClick = () => {
     const favoriteIndex = favorites.indexOf(num);
-    favoriteIndex < 0 && favorites.length < 20
-      ? favorites.push(num)
-      : favorites.splice(favoriteIndex, 1);
+    if (favoriteIndex < 0 && favorites.length < 20) {
+      favorites.push(num);
+    } else {
+      favorites.splice(favoriteIndex, 1);
+    }
     setAppState({ ...appState, favorites });
   };
-
 
   return (
     <div className="toy-card" data-card={num} onClick={handleClick}>

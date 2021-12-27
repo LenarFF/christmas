@@ -4,6 +4,7 @@ $globe-spacing: 6px;
 $globe-spread: 3px;
 $light-off-opacity: 0.4;
 
+
 body {
   background: #000;
 }
@@ -29,6 +30,11 @@ body {
     box-shadow: 0px $globe-height/6 $globe-width * 2 $globe-spread rgba(0, 247, 165, 1);
     animation-name: flash-1;
     animation-duration: 2s;
+      @media screen and (max-width: 1050px) {
+     width: $globe-width / 1.5;
+     height: $globe-width / 1.5;
+     margin: 1px;
+   }
     &:nth-child(2n + 1) {
       background: rgba(0, 255, 255, 1);
       box-shadow: 0px $globe-height/6 $globe-width * 2 $globe-spread rgba(0, 255, 255, 0.5);

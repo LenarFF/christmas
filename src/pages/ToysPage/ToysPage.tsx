@@ -12,7 +12,7 @@ function ToysPage({ toys }: { toys: IToys[] }): JSX.Element {
   const { appState } = useContext(FilterContext);
 
   const {
-    filterName, isFavor, shapes, colors, sizes, count, year, sort, favorites
+    filterName, isFavor, shapes, colors, sizes, count, year, sort,
   } = appState;
 
   let filteredToys = toys.filter((toy) => toy.name.toLowerCase().includes(filterName.toLowerCase()));
@@ -37,7 +37,6 @@ function ToysPage({ toys }: { toys: IToys[] }): JSX.Element {
   filteredToys = filteredToys.filter((toy) => +toy.year >= year[0] && +toy.year <= year[1]);
   sortToys(filteredToys, sort);
 
-
   return (
     <div className="blur">
       <section className="container toys-page">
@@ -47,7 +46,7 @@ function ToysPage({ toys }: { toys: IToys[] }): JSX.Element {
           <SortCard />
         </div>
         <div className="toys">
-          {filteredToys.map((toy, index) => (
+          {filteredToys.map((toy) => (
             <ToyCard key={toy.num} {...toy} />
           ))}
           {!filteredToys.length ? <span className="not-found">¯\_(ツ)_/¯</span> : ''}

@@ -3,8 +3,7 @@ import { FilterContext } from '../../context';
 import { backgrounds } from '../../data/tree';
 import './ChoiceBackground.scss';
 
-const ChoiceBackground = () => {
-
+const ChoiceBackground = (): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
 
   const handleClick = (target: HTMLElement) => {
@@ -16,7 +15,10 @@ const ChoiceBackground = () => {
   return (
     <div className="choice-background">
       <h3 className="toys__title">Выберите фон</h3>
-      <div className="choice-background__field" onClick={e => handleClick(e.target as HTMLElement)}>
+      <div
+        className="choice-background__field"
+        onClick={(e) => handleClick(e.target as HTMLElement)}
+      >
         {backgrounds.map((background) => (
           <img
             src={`./assets/bg/${background}.jpg`}
@@ -28,6 +30,6 @@ const ChoiceBackground = () => {
       </div>
     </div>
   );
-}
+};
 
 export { ChoiceBackground };

@@ -1,8 +1,6 @@
 import { createContext } from 'react';
 import { GarlandColor, IState, Sort } from '../types';
 
-
-
 export const state: IState = {
   filterName: '',
   isFavor: false,

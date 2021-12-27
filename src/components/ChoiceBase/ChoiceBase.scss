@@ -1,0 +1,9 @@
+.choice-base {
+  width: 370px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+    @media screen and (max-width: 1400px) {
+    width: 180px;
+  }
+}

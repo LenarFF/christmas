@@ -4,11 +4,16 @@ const treeTriangle = [
   { x: 290, y: 13 },
 ];
 
-const findHalfPlane = (x1: number, y1: number, x2: number, y2: number, x: number, y: number) => {
-  return (x1 - x) * (y2 - y1) - (x2 - x1) * (y1 - y);
-};
+const findHalfPlane = (
+  x1: number,
+  y1: number,
+  x2: number,
+  y2: number,
+  x: number,
+  y: number,
+): number => (x1 - x) * (y2 - y1) - (x2 - x1) * (y1 - y);
 
-export const checkToysInsideTree = (x: number, y: number) => {
+export const checkToysInsideTree = (x: number, y: number): boolean => {
   const a = findHalfPlane(
     treeTriangle[0].x,
     treeTriangle[0].y,

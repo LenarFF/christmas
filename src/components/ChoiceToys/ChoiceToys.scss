@@ -3,6 +3,13 @@
 .choice-toys {
   width: 400px;
   height: 600px;
+    @media screen and (max-width: 1650px) {
+    width: 300px;
+    height: 750px;
+  }
+    @media screen and (max-width: 1050px) {
+     width: 130px;
+   }
   &__field {
     width: 100%;
     display: flex;
@@ -18,10 +25,18 @@
     justify-content: center;
     align-items: center;
     position: relative;
+      @media screen and (max-width: 1050px) {
+     width: 55px;
+     height: 55px;
+   }
+
   }
   &__img {
-    height: 70px;
+    height: 80%;
     cursor: grab;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
   &__num {
     position: absolute;

@@ -1,18 +1,17 @@
 import React, { useContext } from 'react';
 import { FilterContext } from '../../context';
-import './Garland.scss'
+import './Garland.scss';
 
 interface IGarlandProps {
   len: number;
   top: number
 }
 
-const Garland = ({ len, top }: IGarlandProps) => {
-
-  const { appState, setAppState } = useContext(FilterContext);
+const Garland = ({ len, top }: IGarlandProps): JSX.Element => {
+  const { appState } = useContext(FilterContext);
 
   return (
-    <ul className="garland" style={{ top: `${top}px` }}>
+    <ul className="garland" style={{ top: `${top}%` }}>
       {[...Array(len)].map((lamp, index) => (
         <li
           key={Math.random()}
@@ -24,4 +23,4 @@ const Garland = ({ len, top }: IGarlandProps) => {
   );
 };
 
-export  {Garland}
+export { Garland };

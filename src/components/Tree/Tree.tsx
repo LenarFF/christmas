@@ -4,9 +4,11 @@ import './Tree.scss';
 import { checkToysInsideTree } from '../../dragNDrop';
 import { Garland } from '../Garland/Garland';
 
-const Tree = () => {
+const Tree = (): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
-  const { treeState, toysOnTree, dropNum, garlandColor, garlandOn } = appState;
+  const {
+    treeState, toysOnTree, dropNum, garlandOn,
+  } = appState;
 
   const dragOverHandler = (e: React.DragEvent) => {
     e.preventDefault();
@@ -22,16 +24,21 @@ const Tree = () => {
   const dragToyEndHandler = (e: React.DragEvent) => {
     setAppState({
       ...appState,
-      toysOnTree: toysOnTree.filter((toy) => toy.id != (e.target as HTMLElement).id),
+      toysOnTree: toysOnTree.filter((toy) => toy.id !== (e.target as HTMLElement).id),
     });
   };
 
   const dropHandler = (e: any) => {
     e.preventDefault();
-    const x = e.clientX - e.target.x + 70;
-    const y = e.clientY - e.target.y;
+    const x = e.clientX - e.target.x + 40;
+    const y = e.clientY - e.target.y - 35;
     if (checkToysInsideTree(x, y)) {
-      toysOnTree.push({ num: dropNum, id: dropNum + x + y, top: y, left: x });
+      toysOnTree.push({
+        num: dropNum,
+        id: dropNum + x + y,
+        top: y,
+        left: x,
+      });
       setAppState({ ...appState, drop: true });
     }
   };
@@ -43,10 +50,10 @@ const Tree = () => {
     >
       {garlandOn && (
         <>
-          <Garland len={9} top={220} />
-          <Garland len={13} top={320} />
-          <Garland len={17} top={420} />
-          <Garland len={21} top={520} />
+          <Garland len={9} top={28} />
+          <Garland len={13} top={40} />
+          <Garland len={17} top={52} />
+          <Garland len={21} top={65} />
         </>
       )}
       <img

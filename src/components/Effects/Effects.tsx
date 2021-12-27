@@ -1,14 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { FilterContext } from '../../context';
 import './Effects.scss';
 
 const audio = new Audio('./assets/audio/audio.mp3');
 
-const Effects = () => {
-
+const Effects = (): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
 
-  const {music , snow} = appState
+  const { music, snow } = appState;
 
   const toggleSound = () => {
     setAppState({ ...appState, music: !music });
@@ -20,7 +19,7 @@ const Effects = () => {
   };
 
   const toggleSnow = () => {
-    setAppState({...appState, snow: !snow});
+    setAppState({ ...appState, snow: !snow });
   };
 
   return (

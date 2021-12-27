@@ -7,7 +7,7 @@ interface IChoiceToysCardProp {
   count: string;
 }
 
-const ChoiceToysCard = ({ num, count }: IChoiceToysCardProp) => {
+const ChoiceToysCard = ({ num, count }: IChoiceToysCardProp): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
   const { toysOnTree } = appState;
 
@@ -15,7 +15,7 @@ const ChoiceToysCard = ({ num, count }: IChoiceToysCardProp) => {
     setAppState({ ...appState, dropNum: num });
   };
 
-  const dragEndHandler = (e: React.DragEvent) => {
+  const dragEndHandler = () => {
     if (appState.drop) {
       setAppState({ ...appState, drop: false });
     }
@@ -32,7 +32,7 @@ const ChoiceToysCard = ({ num, count }: IChoiceToysCardProp) => {
       {toysCount ? (
         <img
           onDragStart={dragStartHandler}
-          onDragEnd={(e) => dragEndHandler(e)}
+          onDragEnd={dragEndHandler}
           onDrop={dropHandler}
           className="choice-toys__img"
           src={`./assets/toys/${num}.png`}
