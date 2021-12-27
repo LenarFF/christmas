@@ -1,7 +1,7 @@
 const treeTriangle = [
   { x: 10, y: 654 },
   { x: 600, y: 654 },
-  { x: 253, y: 13 },
+  { x: 290, y: 13 },
 ];
 
 const findHalfPlane = (x1: number, y1: number, x2: number, y2: number, x: number, y: number) => {

@@ -20,9 +20,11 @@ export interface IState {
   };
   snow: boolean;
   music: boolean;
-  toysOnTree: {num: string, id: string, top: number, left: number}[];
+  toysOnTree: { num: string; id: string; top: number; left: number }[];
   drop: boolean;
-  dropNum: string
+  dropNum: string;
+  garlandColor: string;
+  garlandOn: boolean
 }
 
 export interface IToys {
@@ -57,4 +59,12 @@ export enum Shapes {
   cone = 'шишка',
   snowflake = 'снежинка',
   toy = 'фигурка',
+}
+
+export enum GarlandColor {
+  red = 'red',
+  blue = 'blue',
+  wellow = 'yellow',
+  green = 'green',
+  multi = 'multi',
 }

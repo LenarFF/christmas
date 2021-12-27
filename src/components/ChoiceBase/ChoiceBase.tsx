@@ -2,7 +2,7 @@ import React from 'react';
 import { ChoiceBackground } from '../ChoiceBackground/ChoiceBackground';
 import { ChoiceTree } from '../ChoiceTree/ChoiceTree';
 import { Effects } from '../Effects/Effects';
-import { Garland } from '../Garland/Garland';
+import { GarlandChoice } from '../GarlandChoice/GarlandChoice';
 
 const ChoiceBase = () => {
   return (
@@ -10,7 +10,7 @@ const ChoiceBase = () => {
       <Effects />
       <ChoiceTree />
       <ChoiceBackground />
-      <Garland/>
+      <GarlandChoice/>
     </div>
   );
 };

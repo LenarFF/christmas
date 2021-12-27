@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { IState, Sort } from '../types';
+import { GarlandColor, IState, Sort } from '../types';
 
 
 
@@ -38,6 +38,8 @@ export const state: IState = {
   toysOnTree: [],
   drop: false,
   dropNum: '',
+  garlandColor: GarlandColor.multi,
+  garlandOn: false,
 };
 
 interface IContext {

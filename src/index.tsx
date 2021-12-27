@@ -10,4 +10,4 @@ ReactDOM.render(
   document.getElementById('root'),
 );
 
-console.log('Выполнены все пункты кроме п.11 дополнительный функционал');
+console.log('Выполнены все пункты кроме доп функционал и снег ');

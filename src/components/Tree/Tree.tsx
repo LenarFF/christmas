@@ -2,61 +2,56 @@ import React, { useContext } from 'react';
 import { FilterContext } from '../../context';
 import './Tree.scss';
 import { checkToysInsideTree } from '../../dragNDrop';
+import { Garland } from '../Garland/Garland';
 
 const Tree = () => {
   const { appState, setAppState } = useContext(FilterContext);
-  const { treeState, snow, toysOnTree, drop, dropNum } = appState;
-
-  const dragStartHandler = () => {
-    console.log('dragStart', 'tree');
-  };
-
-  const dragLeaveHandler = () => {
-    console.log('leave', 'tree');
-  };
-
-  const dragEndHandler = () => {
-    console.log('end', 'tree');
-
-  };
+  const { treeState, toysOnTree, dropNum, garlandColor, garlandOn } = appState;
 
   const dragOverHandler = (e: React.DragEvent) => {
     e.preventDefault();
-    // console.log('over','tree')
   };
 
-  const dragToyStartHandler = (e: any) => {
-    setAppState({ ...appState, dropNum: e.target.getAttribute('data-num') });
-  }
+  const dragToyStartHandler = (e: React.DragEvent) => {
+    setAppState({
+      ...appState,
+      dropNum: (e.target as HTMLElement).getAttribute('data-num') as string,
+    });
+  };
 
-  const dragToyEndHandler = (e: any) => {
-    setAppState({ ...appState, toysOnTree: toysOnTree.filter(toy => toy.id != e.target.id) });
+  const dragToyEndHandler = (e: React.DragEvent) => {
+    setAppState({
+      ...appState,
+      toysOnTree: toysOnTree.filter((toy) => toy.id != (e.target as HTMLElement).id),
+    });
   };
 
   const dropHandler = (e: any) => {
-     e.preventDefault();
+    e.preventDefault();
     const x = e.clientX - e.target.x + 70;
-    const y = e.clientY - e.target.y;   ;
+    const y = e.clientY - e.target.y;
     if (checkToysInsideTree(x, y)) {
       toysOnTree.push({ num: dropNum, id: dropNum + x + y, top: y, left: x });
       setAppState({ ...appState, drop: true });
     }
-    console.log('drop', 'tree', e.clientX - e.target.x, x , e.clientY - e.target.y, y);
   };
-  console.log(toysOnTree);
-  console.log(dropNum)
 
   return (
     <div
       className="tree"
       style={{ backgroundImage: `url(./assets/bg/${treeState.background}.jpg)` }}
     >
-      {/* {snow && <Snowfall />} */}
+      {garlandOn && (
+        <>
+          <Garland len={9} top={220} />
+          <Garland len={13} top={320} />
+          <Garland len={17} top={420} />
+          <Garland len={21} top={520} />
+        </>
+      )}
       <img
+        draggable={false}
         className="tree__img"
-        onDragStart={dragStartHandler}
-        onDragLeave={dragLeaveHandler}
-        onDragEnd={dragEndHandler}
         onDragOver={dragOverHandler}
         onDrop={dropHandler}
         src={`./assets/tree/${treeState.tree}.png`}
