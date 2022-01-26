@@ -5,23 +5,24 @@ import './ChoiceToysCard.scss';
 interface IChoiceToysCardProp {
   num: string;
   count: string;
+  name: string
 }
 
-const ChoiceToysCard = ({ num, count }: IChoiceToysCardProp): JSX.Element => {
+const ChoiceToysCard = ({ num, count, name }: IChoiceToysCardProp): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
   const { toysOnTree } = appState;
 
-  const dragStartHandler = () => {
+  const dragStartHandler = (): void => {
     setAppState({ ...appState, dropNum: num });
   };
 
-  const dragEndHandler = () => {
+  const dragEndHandler = (): void => {
     if (appState.drop) {
       setAppState({ ...appState, drop: false });
     }
   };
 
-  const dropHandler = (e: React.DragEvent) => {
+  const dropHandler = (e: React.DragEvent): void => {
     e.preventDefault();
   };
 
@@ -36,7 +37,7 @@ const ChoiceToysCard = ({ num, count }: IChoiceToysCardProp): JSX.Element => {
           onDrop={dropHandler}
           className="choice-toys__img"
           src={`./assets/toys/${num}.png`}
-          alt=""
+          alt={name}
         />
       ) : null}
       <span className="choice-toys__num">{toysCount}</span>

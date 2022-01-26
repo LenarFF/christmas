@@ -6,7 +6,7 @@ import './SortCard.scss';
 const SortCard = (): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
 
-  const handleChange = (value: string) => {
+  const handleChange = (value: string): void => {
     setAppState({ ...appState, sort: value });
   };
 

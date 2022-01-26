@@ -9,7 +9,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 export function Modal(): JSX.Element {
   const [open, setOpen] = React.useState(true);
 
-  const handleClose = () => {
+  const handleClose = (): void => {
     setOpen(false);
   };
 

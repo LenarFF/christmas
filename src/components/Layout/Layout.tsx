@@ -11,19 +11,19 @@ import './Layout.scss';
 function Layout(): JSX.Element {
   const { appState, setAppState } = useContext(FilterContext);
 
-  const setLocalStorage = () => {
+  const setLocalStorage = (): void => {
     localStorage.setItem(STORAGE_STATE, JSON.stringify(appState));
     localStorage.setItem(STORAGE_TOYS, JSON.stringify(toys));
   };
 
-  const getLocalStorage = () => {
+  const getLocalStorage = (): void => {
     if (localStorage.getItem(STORAGE_STATE)) {
       const localStorageState: IState = JSON.parse(localStorage.getItem(STORAGE_STATE) as string);
       setAppState({ ...localStorageState });
     }
   };
 
-  useEffect(() => {
+  useEffect((): void => {
     if (localStorage.getItem(STORAGE_TOYS)) {
       const localStorageToys: IToys[] = JSON.parse(localStorage.getItem(STORAGE_TOYS) as string);
       toys.forEach((toy, index) => {

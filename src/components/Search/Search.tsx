@@ -5,7 +5,7 @@ import './Search.scss';
 const Search = (): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
 
-  const handleClick = (str: string) => {
+  const handleClick = (str: string): void => {
     setAppState({ ...appState, filterName: str.toLowerCase() });
   };
 

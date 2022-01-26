@@ -7,7 +7,7 @@ const ValueFilterCardColor = (): JSX.Element => {
   const { colors } = appState;
 
   const classNames = 'filter-card__color filter-card__color_';
-  const handleClick = () => {
+  const handleClick = (): void => {
     setAppState({ ...appState, colors });
   };
 

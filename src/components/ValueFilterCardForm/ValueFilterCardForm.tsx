@@ -9,7 +9,7 @@ const ValueFilterCardForm = (): JSX.Element => {
   } = appState;
 
   const classNames = 'filter-card__forms filter-card__forms_';
-  const handleClick = () => {
+  const handleClick = (): void => {
     setAppState({ ...appState, shapes });
   };
 

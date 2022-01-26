@@ -7,7 +7,7 @@ const ValueFilterCardSize = (): JSX.Element => {
   const { sizes } = appState;
 
   const classNames = 'filter-card__size filter-card__size_';
-  const handleClick = () => {
+  const handleClick = (): void => {
     setAppState({ ...appState, sizes });
   };
 

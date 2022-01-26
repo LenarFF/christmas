@@ -1,3 +1,5 @@
+@import '../../variables/colorVariables';
+
 .garland-choice {
   width: 100%;
   &__top {
@@ -33,20 +35,20 @@
       box-shadow: rgb(0 0 0 / 20%) 0 -1px 7px 1px, inset #441313 0 -1px 9px, #ccc 0 2px 12px;
     }
     &_red {
-      background-color: #f00;
+      background-color: $garlandBtnColor1;
       box-shadow: rgb(0 0 0 / 20%) 0 -1px 7px 1px, inset #441313 0 -1px 9px,
         rgb(255 0 0 / 50%) 0 2px 12px;
     }
     &_blue {
-      background-color: #24e0ff;
+      background-color: $garlandBtnColor2;
       box-shadow: rgb(0 0 0 / 20%) 0 -1px 7px 1px, inset #006 0 -1px 9px, #3f8cff 0 2px 14px;
     }
     &_yellow {
-      background-color: #ff0;
+      background-color: $garlandBtnColor3;
       box-shadow: rgb(0 0 0 / 20%) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #ff0 0 2px 12px;
     }
     &_green {
-      background-color: #abff00;
+      background-color:$garlandBtnColor4;
       box-shadow: rgb(0 0 0 / 20%) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #89ff00 0 2px 12px;
     }
 

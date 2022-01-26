@@ -6,7 +6,7 @@ import './ChoiceTree.scss';
 const ChoiceTree = (): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
 
-  const handleClick = (target: HTMLElement) => {
+  const handleClick = (target: HTMLElement): void => {
     const attr = target.getAttribute('data-tree') || target.parentElement?.getAttribute('data-tree');
     if (!attr) return;
     appState.treeState.tree = attr;

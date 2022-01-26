@@ -3,7 +3,7 @@
 .footer {
   height: 70px;
   display: flex;
-  background-color: $black;
+  background-color: $bgDark;
   &__wrap {
     height: 70px;
     display: flex;
@@ -13,7 +13,7 @@
   &__github {
     text-decoration: none;
     &:hover {
-      color: $zomp;
+      color: $primaryColor;
     }
   }
   &__rsschool {

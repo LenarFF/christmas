@@ -5,7 +5,7 @@ import './ValueFilterCardFavorite.scss';
 const ValueFilterCardFavorite = (): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
 
-  const handleFavor = () => {
+  const handleFavor = (): void => {
     setAppState({ ...appState, isFavor: !appState.isFavor });
   };
 

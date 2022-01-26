@@ -16,7 +16,7 @@ const ChoiceToys = (): JSX.Element => {
       <h3 className="toys__title">Игрушки</h3>
       <div className="choice-toys__field">
         {favoriteToys.map((toy) => (
-          <ChoiceToysCard key={toy.num + toy.name} num={toy.num} count={toy.count} />
+          <ChoiceToysCard key={toy.num + toy.name} num={toy.num} count={toy.count} name={toy.name} />
         ))}
       </div>
     </div>

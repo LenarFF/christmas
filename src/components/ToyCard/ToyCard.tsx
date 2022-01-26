@@ -9,7 +9,7 @@ const ToyCard = ({
   const { appState, setAppState } = useContext(FilterContext);
   const { favorites } = appState;
 
-  const handleClick = () => {
+  const handleClick = (): void => {
     const favoriteIndex = favorites.indexOf(num);
     if (favoriteIndex < 0 && favorites.length < 20) {
       favorites.push(num);

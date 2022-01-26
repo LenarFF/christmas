@@ -14,7 +14,7 @@ const RangeFilter = ({ title, min, max }: RangeFilterProps): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
   const { count, year } = appState;
 
-  const handleChange = (event: Event, newValue: number[]) => {
+  const handleChange = (event: Event, newValue: number[]): void => {
     setAppState(
       title === Ranges.count
         ? { ...appState, count: [...newValue] }

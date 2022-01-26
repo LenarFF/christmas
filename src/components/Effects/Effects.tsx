@@ -9,7 +9,7 @@ const Effects = (): JSX.Element => {
 
   const { music, snow } = appState;
 
-  const toggleSound = () => {
+  const toggleSound = (): void => {
     setAppState({ ...appState, music: !music });
     if (!music) {
       audio.play();
@@ -18,7 +18,7 @@ const Effects = (): JSX.Element => {
     }
   };
 
-  const toggleSnow = () => {
+  const toggleSnow = (): void => {
     setAppState({ ...appState, snow: !snow });
   };
 

@@ -10,25 +10,25 @@ const Tree = (): JSX.Element => {
     treeState, toysOnTree, dropNum, garlandOn,
   } = appState;
 
-  const dragOverHandler = (e: React.DragEvent) => {
+  const dragOverHandler = (e: React.DragEvent): void => {
     e.preventDefault();
   };
 
-  const dragToyStartHandler = (e: React.DragEvent) => {
+  const dragToyStartHandler = (e: React.DragEvent): void => {
     setAppState({
       ...appState,
       dropNum: (e.target as HTMLElement).getAttribute('data-num') as string,
     });
   };
 
-  const dragToyEndHandler = (e: React.DragEvent) => {
+  const dragToyEndHandler = (e: React.DragEvent): void => {
     setAppState({
       ...appState,
       toysOnTree: toysOnTree.filter((toy) => toy.id !== (e.target as HTMLElement).id),
     });
   };
 
-  const dropHandler = (e: any) => {
+  const dropHandler = (e: any): void => {
     e.preventDefault();
     const x = e.clientX - e.target.x + 40;
     const y = e.clientY - e.target.y - 35;

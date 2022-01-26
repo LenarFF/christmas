@@ -16,9 +16,9 @@
     transform: scale(1.1);
   }
   &_gold {
-    filter: $goldFilter;
+    filter: $selectedFilterColor;
     &:hover {
-      filter: $goldFilter;
+      filter: $selectedFilterColor;
     }
   }
   &-wrap {

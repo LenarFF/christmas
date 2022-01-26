@@ -6,7 +6,7 @@ import './ChoiceBackground.scss';
 const ChoiceBackground = (): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
 
-  const handleClick = (target: HTMLElement) => {
+  const handleClick = (target: HTMLElement) : void => {
     if (!target.getAttribute('data-background')) return;
     appState.treeState.background = target.getAttribute('data-background') as string;
     setAppState({ ...appState });

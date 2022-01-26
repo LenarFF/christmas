@@ -7,7 +7,7 @@ const GarlandChoice = (): JSX.Element => {
   const { appState, setAppState } = useContext(FilterContext);
   const { garlandOn } = appState;
 
-  const changeColor = (e: React.MouseEvent) => {
+  const changeColor = (e: React.MouseEvent): void => {
     const attr = (e.target as HTMLElement).getAttribute('data-color');
     if (!attr) return;
     setAppState({ ...appState, garlandColor: attr, garlandOn: true });

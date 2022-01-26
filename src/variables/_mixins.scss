@@ -1,7 +1,7 @@
 @import './colorVariables';
 
 @mixin cardBcgd {
-  border: 3px solid $zomp;
+  border: 3px solid $primaryColor;
   background-color: rgba(31, 112, 127, 0.3);
   backdrop-filter: blur(6px);
 }
